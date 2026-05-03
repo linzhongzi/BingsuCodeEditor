@@ -21,12 +21,15 @@ BingsuCodeEditor-0.19.6.0 项目是 EUD-Editor-3-0.19.6.0 的依赖项目。
 
 ```
 EUD-Editor-3-0.19.6.1 Source\
-├── packages\                          ← 所有 NuGet 包统一放此
 ├── BingsuCodeEditor\
-│   ├── NuGet.Config                   ← 指定还原 NuGet 包时的位置为: packages
 │   ├── BingsuBlocklyEpsEditor\
 │   ├── BingsuCodeEditor\ 
-│   └── BingsuCodeEditorTest\
-└── EUD-Editor-3\
+│   ├── BingsuCodeEditorTest\
+│   └── NuGet.Config                   ← 指定还原 NuGet 包时的位置为: packages
+├── EUD-Editor-3\
+│   ├── EUD Editor 3\
+│   ├── EUD Editor 3.sln
+│   └── NuGet.Config                   ← 指定还原 NuGet 包时的位置为: packages
+└── packages\                          ← 所有 NuGet 包统一放此
 ```
 
