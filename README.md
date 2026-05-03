@@ -5,9 +5,9 @@ https://github.com/Buizz/BingsuCodeEditor
 Fork 并创建分支:
 https://github.com/linzhongzi/BingsuCodeEditor/tree/0.19.6
 
-BingsuCodeEditor-0.19.6.1 项目由 Buizz/BingsuCodeEditor-master-2025.01.16(6a1cc9a) 修改而来。
+BingsuCodeEditor-0.19.6.0 项目由 Buizz/BingsuCodeEditor-master-2025.01.16(6a1cc9a) 修改而来。
 
-BingsuCodeEditor-0.19.6.1 项目是 EUD-Editor-3-0.19.6.1 的依赖项目。
+BingsuCodeEditor-0.19.6.0 项目是 EUD-Editor-3-0.19.6.0 的依赖项目。
 
 --------------------------------------------------------------------------------
 
