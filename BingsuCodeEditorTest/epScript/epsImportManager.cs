@@ -57,5 +57,10 @@ namespace BingsuCodeEditorTest.epScript
         {
             throw new NotImplementedException();
         }
+
+        public override void OpenFile(string pullpath, int offset)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
