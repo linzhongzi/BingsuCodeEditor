@@ -15,20 +15,20 @@
             Height="Auto" />
         </Grid.RowDefinitions>
         <DockPanel>
-            <TextBlock Text="기본 세팅" DockPanel.Dock="Top" Margin="10,10,10,10" FontSize="20"/>
+            <TextBlock Text="基本设置" DockPanel.Dock="Top" Margin="10,10,10,10" FontSize="20"/>
             <UniformGrid Margin="5,5,5,5" HorizontalAlignment="Left" DockPanel.Dock="Top" VerticalAlignment="Top" Columns="2">
-                <TextBlock Text="폰트 사이즈" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <TextBlock Text="字体大小" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"/>
                 <ComboBox x:Name="CBFontSize" Width="100" materialDesign:TextFieldAssist.SuffixText=" P" HorizontalAlignment="Left" VerticalAlignment="Center">
                 </ComboBox>
-                <TextBlock Text="Tap 사이즈" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <TextBlock Text="Tab大小" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0"/>
                 <ComboBox x:Name="CBTabSize" Width="100" HorizontalAlignment="Left" VerticalAlignment="Center">
                 </ComboBox>
                 <Border/>
-                <CheckBox x:Name="cbShowlineNumber" Content="줄 표시" Style="{StaticResource MaterialDesignCheckBox}" />
+                <CheckBox x:Name="cbShowlineNumber" Content="显示行号" Style="{StaticResource MaterialDesignCheckBox}" />
                 <Border/>
-                <CheckBox x:Name="cbConvertTapToSpace" Content="Tap대신 Space사용" Style="{StaticResource MaterialDesignCheckBox}" />
+                <CheckBox x:Name="cbConvertTapToSpace" Content="使用空格代替Tab" Style="{StaticResource MaterialDesignCheckBox}" />
             </UniformGrid>
-            <TextBlock Text="HighLight 컬러" DockPanel.Dock="Top" Margin="10,10,10,10" FontSize="20"/>
+            <TextBlock Text="高亮颜色" DockPanel.Dock="Top" Margin="10,10,10,10" FontSize="20"/>
             <WrapPanel x:Name="ColorPallet" DockPanel.Dock="Bottom" Width="525" HorizontalAlignment="Left" VerticalAlignment="Stretch">
                 
             </WrapPanel>
@@ -36,11 +36,11 @@
         
         <materialDesign:ColorZone Mode="PrimaryDark" Grid.Row="1" Effect="{DynamicResource MaterialDesignShadowDepth5}">
             <DockPanel LastChildFill="False" Cursor="Hand">
-                <TextBlock Margin="16" Text="텍스트 에디터 옵션"/>
+                <TextBlock Margin="16" Text="文本编辑器选项"/>
                 <StackPanel DockPanel.Dock="Right" Cursor="Hand" Orientation="Horizontal">
-                    <Button Content="초기화" Click="Reset_Click" Margin="5,5,15,5" />
-                    <Button Content="저장" Click="Save_Click" Margin="5" Cursor="Hand"/>
-                    <Button Content="취소" Click="Cancel_Click" Margin="5"/>
+                    <Button Content="重置" Click="Reset_Click" Margin="5,5,15,5" />
+                    <Button Content="保存" Click="Save_Click" Margin="5" Cursor="Hand"/>
+                    <Button Content="取消" Click="Cancel_Click" Margin="5"/>
                 </StackPanel>
              </DockPanel>
         </materialDesign:ColorZone>

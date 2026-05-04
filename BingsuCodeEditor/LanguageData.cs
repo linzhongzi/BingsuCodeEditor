@@ -8,8 +8,8 @@ namespace BingsuCodeEditor
 {
     public class LanguageData
     {
-        public string Line = "줄";
-        public string Column = "열";
+        public string Line = "行";
+        public string Column = "列";
 
     }
 }

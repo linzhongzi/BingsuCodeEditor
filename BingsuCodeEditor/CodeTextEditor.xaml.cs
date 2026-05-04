@@ -128,7 +128,7 @@ namespace BingsuCodeEditor
                             //{
                             //    foreach (var item in codeAnalyzer.tokenAnalyzer.ErrorList)
                             //    {
-                            //        ToolTip.AppendText("Error : " + item.Message + "줄 : " + item.Line + "  열 : " + item.Column + "\n");
+                            // ToolTip.AppendText("错误：" + item.Message + "行：" + item.Line + " 列：" + item.Column + "\n");
                             //    }
                             //}
 
@@ -260,7 +260,7 @@ namespace BingsuCodeEditor
                 if (DateTime.Now.Subtract(bgStartTime).TotalSeconds > 10)
                 {
                     bg.CancelAsync();
-                    ErrorText.Text = "컴파일 시간 초과 : 에디터를 재시작하세요.";
+                    ErrorText.Text = "编译超时：请重启编辑器。";
 
                 }
             }
@@ -948,14 +948,14 @@ namespace BingsuCodeEditor
             aTextEditor.TextArea.TextEntered += TextArea_TextEntered;
             aTextEditor.TextArea.TextEntering += TextArea_TextEntering;
 
-            AddCustomMenuBtn("개요 확장/축소", "Ctrl+G", Key.LeftCtrl, Key.G, new RoutedEventHandler(new Action<object, RoutedEventArgs>((e, x) =>
+            AddCustomMenuBtn("概览 扩大/缩小", "Ctrl+G", Key.LeftCtrl, Key.G, new RoutedEventHandler(new Action<object, RoutedEventArgs>((e, x) =>
             {
                 codeAnalyzer.codeFoldingManager.FoldingFlip(aTextEditor.SelectionStart, aTextEditor.SelectionLength);
                 lastoffset = -1;
 
             }
             )));
-            AddCustomMenuBtn("정의로 이동", "F12", Key.None, Key.F12, new RoutedEventHandler(new Action<object, RoutedEventArgs>((e, x) =>
+            AddCustomMenuBtn("转到定义", "F12", Key.None, Key.F12, new RoutedEventHandler(new Action<object, RoutedEventArgs>((e, x) =>
             {
                 FindDefinition();
             }
@@ -1421,7 +1421,7 @@ namespace BingsuCodeEditor
 
 
 
-        #region #############按键输入#############
+        #region #############按钮输入#############
 
         private int tooltiplaststartoffset;
         private void OpenTooltipBox(int startoffset)
@@ -1945,7 +1945,7 @@ namespace BingsuCodeEditor
                     ShortCutText.Text = "(" + LastKey.ToString();
                     LastSystemKey = Key.LeftCtrl;
                     ShortCutText.Text += " + " + LastSystemKey.ToString();
-                    ShortCutText.Text += ")를 눌렀습니다.";
+                    ShortCutText.Text += ")按下了。";
                 }
                 else
                 {
@@ -1969,7 +1969,7 @@ namespace BingsuCodeEditor
                 }
 
 
-                ShortCutText.Text += ")는 단축키가 아닙니다.";
+                ShortCutText.Text += ")不是快捷键。";
                 LastKey = Key.None;
                 LastSystemKey = Key.None;
                 if (!LeftCtrlDown) return true;

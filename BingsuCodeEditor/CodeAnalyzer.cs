@@ -966,7 +966,7 @@ namespace BingsuCodeEditor
             
             if (func == null)
             {
-                return funcname + "()\n" + "설명이 없습니다.";
+                return funcname + "()\n" + "没有说明。";
             }
 
             string argstring = func.GetArgString(argindex);
@@ -974,7 +974,8 @@ namespace BingsuCodeEditor
 
             string rval = "";
 
-            func.ReadComment("ko-KR");
+            //func.ReadComment("ko-KR");
+            func.ReadComment("zh-CN");
 
 
             string argname = "";

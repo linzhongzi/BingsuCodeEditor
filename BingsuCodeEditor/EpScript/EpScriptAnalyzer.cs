@@ -60,6 +60,7 @@ namespace BingsuCodeEditor.EpScript
                     foreach (var item in _DefaultFuncContainer.funcs)
                     {
                         if (!string.IsNullOrEmpty(item.comment)) item.ReadComment("ko-KR");
+                        //if (!string.IsNullOrEmpty(item.comment)) item.ReadComment("zh-CN");
                     }
                 }
             }
@@ -84,7 +85,8 @@ namespace BingsuCodeEditor.EpScript
             Template.Add("foreach", " ([Var] : [Func]) {\n[tab][tabonce][Content]\n[tab]}");
             Template.Add("function", " [FuncName]([Arg]) {\n[tab][tabonce][Content]\n[tab]}");
             Template.Add("object", " [objname]{\n[tab][tabonce][Content]\n[tab]};");
-            //Template.Add("/***", "\n[tab] * @Type\n[tab] * F\n[tab] * @Summary.ko-KR\n[tab] * [Summary]\n[tab] * @param.args.ko-KR\n[tab]***/[Content]");
+            // // Template.Add("/***", "\n[tab] * @Type\n[tab] * F\n[tab] * @Summary.ko-KR\n[tab] * [Summary]\n[tab] * @param.args.ko-KR\n[tab]***/[Content]");
+            //Template.Add("/***", "\n[tab] * @Type\n[tab] * F\n[tab] * @Summary.zh-CN\n[tab] * [Summary]\n[tab] * @param.args.zh-CN\n[tab]***/[Content]");
 
 
 
@@ -97,7 +99,7 @@ namespace BingsuCodeEditor.EpScript
                 //自动完成初始输入
                 if (Template.ContainsKey(item))
                 {
-                    completionDatas.Add(new KewWordItem(CompletionWordType.KeyWord, item, item + "\n참고:코드 조각을 삽입하려면 Tab키를 두번 누르세요."));
+                    completionDatas.Add(new KewWordItem(CompletionWordType.KeyWord, item, item + "\n注意：要插入代码片段，请按 Tab 键两次。"));
                 }
                 else
                 {
@@ -1303,7 +1305,7 @@ namespace BingsuCodeEditor.EpScript
                         }
                         if (var.IsArg)
                         {
-                            rstr = "(매게변수) " + rstr;
+                            rstr = "(范围) " + rstr;
                         }
 
                         break;

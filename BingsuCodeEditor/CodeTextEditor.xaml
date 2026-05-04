@@ -21,11 +21,11 @@
                     <ComboBox x:Name="CBFontSize" Width="42" materialDesign:TextFieldAssist.SuffixText=" P" Padding="0" Margin="5,0" SelectionChanged="CBFontSize_SelectionChanged">
                     </ComboBox>
                     <StackPanel Orientation="Horizontal" MinWidth="40" VerticalAlignment="Center">
-                        <TextBlock Text="줄:" x:Name="TBLineText"/>
+                        <TextBlock Text="行:" x:Name="TBLineText"/>
                         <TextBlock Text="1" x:Name="TBLineValue"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" MinWidth="40" VerticalAlignment="Center">
-                        <TextBlock Text="열:" x:Name="TBColumnText"/>
+                        <TextBlock Text="列:" x:Name="TBColumnText"/>
                         <TextBlock Text="1" x:Name="TBColumnValue"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -47,8 +47,8 @@
                     </Button>
                 </StackPanel>
             </UniformGrid>
-   
-            <Border x:Name="TextSearchBox" Height="40" DockPanel.Dock="Bottom" Visibility="Collapsed" BorderBrush="{DynamicResource PrimaryHueMidBrush}" BorderThickness="1">
+
+            <Border x:Name="TextSearchBox" Height="40" DockPanel.Dock="Bottom" Visibility="Collapsed" BorderBrush="{DynamicResource MaterialDesign.Brush.Primary}" BorderThickness="1">
                 <materialDesign:ColorZone x:Name="ColorZone">
                     <DockPanel>
                         <Button x:Name="SearchCloseBtn" DockPanel.Dock="Right" Margin="4" Click="SearchCloseBtn_Click" Style="{StaticResource MaterialDesignToolButton}" VerticalAlignment="Top" HorizontalAlignment="Right">
@@ -56,9 +56,9 @@
                         </Button>
                         <DockPanel>
                             <UniformGrid Rows="1" DockPanel.Dock="Right">
-                                <Button x:Name="FindBtn"  Margin="4" Click="FindBtn_Click" Content="찾기"/>
-                                <Button x:Name="ReplaceBtn" DockPanel.Dock="Right" Margin="4" Content="바꾸기" Click="ReplaceBtn_Click"/>
-                                <Button x:Name="ReplaceAllBtn" DockPanel.Dock="Right" Margin="4" Content="모두 바꾸기" Click="ReplaceAllBtn_Click"/>
+                                <Button x:Name="FindBtn"  Margin="4" Click="FindBtn_Click" Content="查找"/>
+                                <Button x:Name="ReplaceBtn" DockPanel.Dock="Right" Margin="4" Content="替换" Click="ReplaceBtn_Click"/>
+                                <Button x:Name="ReplaceAllBtn" DockPanel.Dock="Right" Margin="4" Content="全部替换" Click="ReplaceAllBtn_Click"/>
                             </UniformGrid>
                             <UniformGrid Rows="1"  >
                                 <TextBox x:Name="FindText" DockPanel.Dock="Left" VerticalAlignment="Center" Margin="5,0" AcceptsReturn="True"
@@ -95,7 +95,7 @@
         <local:OptionControl x:Name="optionControl" Visibility="Collapsed"/>
         <!--<Border Background="{DynamicResource MaterialDesignPaper}">
             <DockPanel >
-                <TextBlock Text="처리 할 수 없는 예외 상황이 발생했습니다.(Exception)" Foreground="#DDFF0404" FontWeight="Bold" FontSize="22" />
+                <TextBlock Text="发生无法处理的异常情况。(Exception)" Foreground="#DDFF0404" FontWeight="Bold" FontSize="22" />
             </DockPanel>
         </Border>-->
     </Grid>

@@ -88,11 +88,11 @@ namespace BingsuCodeEditorTest
             codeTextEditor.IsDark = true;
             codeTextEditor.SetImportManager(importManager);
 
-            codeTextEditor.OptionFilePath = @"F:\Users\Desktop\테스트\";
+            codeTextEditor.OptionFilePath = @"F:\Users\Desktop\测试\";
             codeTextEditor.LoadOption("");
 
             tab.Content = codeTextEditor;
-            tab.Header = "새 파일";
+            tab.Header = "新建文件";
 
             return tab;
         }

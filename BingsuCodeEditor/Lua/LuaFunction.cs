@@ -96,7 +96,8 @@ Number of Units Owned
 
             string[] line = c.Split('\n');
 
-            if(c.IndexOf("[Player]의 [Unit]의 유닛보유수를 [Amount]만큼 [Modifier]합니다.") != -1)
+            if (c.IndexOf("[Player]의 [Unit]의 유닛보유수를 [Amount]만큼 [Modifier]합니다.") != -1)
+            //if (c.IndexOf("将[Player]的[Unit]数量[Modifier]为[Amount]。") != -1)
             {
 
             }

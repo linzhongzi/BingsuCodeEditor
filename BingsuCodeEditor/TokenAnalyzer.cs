@@ -432,7 +432,7 @@ namespace BingsuCodeEditor
             {
                 if (IsExist)
                 {
-                    ThrowException("인덱스가 토근의 최대 크기를 넘겼습니다.", null);
+                    ThrowException("索引超出了词元(Token)的最大大小。", null);
                     return true;
                 }
                 return true;

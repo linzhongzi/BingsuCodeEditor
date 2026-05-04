@@ -18,11 +18,11 @@
             <Border x:Name="DialogBox" Background="#7F000000" Visibility="Collapsed">
                 <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="100" Background="{DynamicResource MaterialDesignPaper}">
                     <UniformGrid DockPanel.Dock="Bottom" Rows="1">
-                        <Button Content="확인" Style="{StaticResource MaterialDesignFlatButton}"/>
-                        <Button Content="취소" Style="{StaticResource MaterialDesignFlatButton}"/>
+                        <Button Content="确认" Style="{StaticResource MaterialDesignFlatButton}"/>
+                        <Button Content="取消" Style="{StaticResource MaterialDesignFlatButton}"/>
                     </UniformGrid>
                     <StackPanel Margin="10">
-                        <TextBlock x:Name="PromptMessage" Text="변수명"/>
+                        <TextBlock x:Name="PromptMessage" Text="变量名"/>
                         <TextBox
                             x:Name="PromptInputBox"
                               VerticalAlignment="Center" />

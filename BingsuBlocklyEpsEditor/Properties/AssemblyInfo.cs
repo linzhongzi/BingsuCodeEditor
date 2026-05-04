@@ -43,5 +43,5 @@ using System.Windows;
 // 您可以指定所有值或使用“*”（如下所示）
 // 默认构建号和修订号。
 // [assembly: AssemblyVersion("0.19.*")]
-[assembly: AssemblyVersion("0.19.6.2")]
-[assembly: AssemblyFileVersion("0.19.6.2")]
+[assembly: AssemblyVersion("0.19.6.3")]
+[assembly: AssemblyFileVersion("0.19.6.3")]

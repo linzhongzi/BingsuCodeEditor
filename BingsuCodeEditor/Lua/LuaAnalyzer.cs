@@ -70,6 +70,7 @@ namespace BingsuCodeEditor.Lua
                 foreach (var item in _DefaultFuncContainer.funcs)
                 {
                     if (!string.IsNullOrEmpty(item.comment)) item.ReadComment("ko-KR");
+                    //if (!string.IsNullOrEmpty(item.comment)) item.ReadComment("zh-CN");
                 }
             }
 
@@ -97,7 +98,8 @@ namespace BingsuCodeEditor.Lua
             Template.Add("repeat", "\n[tab][tabonce][Content]\n[tab]until [true]");
             Template.Add("for", " [index] = [1], [Length] do\n[tab][tabonce][Content]\n[tab]end");
             Template.Add("function", " [FuncName]([Arg]) \n[tab][tabonce][Content]\n[tab]end");
-            //Template.Add("/***", "\n[tab] * @Type\n[tab] * F\n[tab] * @Summary.ko-KR\n[tab] * [Summary]\n[tab] * @param.args.ko-KR\n[tab]***/[Content]");
+            // //Template.Add("/***", "\n[tab] * @Type\n[tab] * F\n[tab] * @Summary.ko-KR\n[tab] * [Summary]\n[tab] * @param.args.ko-KR\n[tab]***/[Content]");
+            //Template.Add("/***", "\n[tab] * @Type\n[tab] * F\n[tab] * @Summary.zh-CN\n[tab] * [Summary]\n[tab] * @param.args.zh-CN\n[tab]***/[Content]");
 
 
             DEFAULTFUNCFILENAME = "DEFAULTFUNCTIONLIST";
@@ -111,7 +113,7 @@ namespace BingsuCodeEditor.Lua
                 //自动完成初始输入
                 if (Template.ContainsKey(item))
                 {
-                    completionDatas.Add(new KewWordItem(CompletionWordType.KeyWord, item, item + "\n참고:코드 조각을 삽입하려면 Tab키를 두번 누르세요."));
+                    completionDatas.Add(new KewWordItem(CompletionWordType.KeyWord, item, item + "\n注意：要插入代码片段，请按 Tab 键两次。"));
                 }
                 else
                 {
@@ -818,7 +820,7 @@ namespace BingsuCodeEditor.Lua
 
                         if (index + 1 == objectname.Count)
                         {
-                            //如果是最后一个命令，则返回对象的元素。
+                            //如果是最后一个订单，则返回对象的元素。
                             objcon.GetAllItems(data, objcon.GetInitObjectNameSpacee(), noargFlag: true);
                             break;
                         }
@@ -1085,7 +1087,7 @@ namespace BingsuCodeEditor.Lua
                         }
                         if (var.IsArg)
                         {
-                            rstr = "(매게변수) " + rstr;
+                            rstr = "(范围) " + rstr;
                         }
 
                         break;

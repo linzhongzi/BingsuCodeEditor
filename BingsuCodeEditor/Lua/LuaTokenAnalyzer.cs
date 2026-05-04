@@ -72,7 +72,7 @@ namespace BingsuCodeEditor.Lua
 
                                 if (cc.CheckIdentifier(lastscope, function.funcname))
                                 {
-                                    ThrowException("함수 " + function.funcname + "는 이미 선언되어 있습니다.", tk, 1);
+                                    ThrowException("函数 " + function.funcname + "已经被声明了。", tk, 1);
                                 }
 
                                 function.scope = lastscope;
@@ -147,7 +147,7 @@ namespace BingsuCodeEditor.Lua
                                 if (scope == "st")
                                 {
                                     //我无法关闭它，但它会关闭
-                                    ThrowException("'end'등 스코프가 마무리되지 않았습니다.", tk);
+                                    ThrowException("'end'等范围未正确闭合。", tk);
                                 }
                                 else
                                 {
@@ -184,7 +184,7 @@ namespace BingsuCodeEditor.Lua
             
             if (scope != "st")
             {
-                ThrowException("'end'등 스코프가 마무리되지 않았습니다.", tk);
+                ThrowException("'<end>'等范围未正确闭合。", tk);
             }
 
 
@@ -243,7 +243,7 @@ namespace BingsuCodeEditor.Lua
                     {
                         if(tk != null)
                         {
-                            ThrowException(fname + " 괄호가 정상적으로 닫히지 않았습니다.", tk);
+                            ThrowException(fname + " 括号未正确闭合。", tk);
                         }
                         break;
                     }
@@ -340,7 +340,7 @@ namespace BingsuCodeEditor.Lua
             {
             
 
-                ThrowException("함수의 이름에는 식별자가 와야 합니다.", tk);
+                ThrowException("函数名称后面必须跟有标识符。", tk);
                 goto EndLabel;
             }
 
@@ -351,7 +351,7 @@ namespace BingsuCodeEditor.Lua
 
             if (!CheckCurrentToken(TOKEN_TYPE.Symbol, "("))
             {
-                ThrowException("함수의 이름 다음에는 인자선언이 와야 합니다.", tk);
+                ThrowException("函数名称后面必须跟有参数声明。", tk);
                 goto EndLabel;
             }
 
@@ -388,7 +388,7 @@ namespace BingsuCodeEditor.Lua
                         {
                             //警告必须是无条件的。
                             argendoffset = tk.EndOffset;
-                            ThrowException("잘못된 인자 선언입니다. )가 와야합니다.", tk);
+                            ThrowException("错误的参数声明。应该有 )。", tk);
                             goto EndLabel;
                         }
                         if (tk.Value == ")")
@@ -400,7 +400,7 @@ namespace BingsuCodeEditor.Lua
                     }
 
                     argendoffset = tk.EndOffset;
-                    ThrowException("잘못된 인자 선언입니다. 인자 이름이 와야 합니다.", tk);
+                    ThrowException("错误的参数声明。必须有参数名称。", tk);
                     goto EndLabel;
                 }
 

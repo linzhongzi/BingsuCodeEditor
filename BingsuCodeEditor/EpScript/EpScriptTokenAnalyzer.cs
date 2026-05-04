@@ -90,7 +90,7 @@ namespace BingsuCodeEditor.EpScript
 
                                     if (cc.CheckIdentifier(scope, item.BlockName))
                                     {
-                                        ThrowException("변수 " + item.BlockName + "는 이미 선언되어 있습니다.", tk, 1);
+                                        ThrowException("变量 " + item.BlockName + " 已经声明过了。", tk, 1);
                                     }
 
 
@@ -111,7 +111,7 @@ namespace BingsuCodeEditor.EpScript
                             case "foreach":
                                 if (!CheckCurrentToken(TOKEN_TYPE.Symbol, "("))
                                 {
-                                    ThrowException("foreach문이 잘못되었습니다. (가 와야합니다.", tk);
+                                    ThrowException("foreach 语句不正确。 必须有圆括号。", tk);
                                 }
                                 int foreachstart = tk.EndOffset;
                                 forblocks.Clear();
@@ -123,12 +123,12 @@ namespace BingsuCodeEditor.EpScript
 
                                     if(tk == null)
                                     {
-                                        ThrowException("foreach 변수 자리에는 식별자를 선언해야 합니다.", tk);
+                                        ThrowException("foreach 变量位置必须声明标识符。", tk);
                                         break;
                                     }
                                     if(tk.Type != TOKEN_TYPE.Identifier)
                                     {
-                                        ThrowException("foreach 변수 자리에는 식별자를 선언해야 합니다.", tk);
+                                        ThrowException("foreach 变量位置必须声明标识符。", tk);
 
                                         break;
                                     }
@@ -182,7 +182,7 @@ namespace BingsuCodeEditor.EpScript
                                 tk = GetCurrentToken();
                                 if(tk == null)
                                 {
-                                    ThrowException("import문이 정상적으로 종료되지 않았습니다.", tk);
+                                    ThrowException("导入语句没有正确结束。", tk);
                                     break;
                                 }
                                 if(importstart < startindex && startindex < tk.StartOffset)
@@ -197,7 +197,7 @@ namespace BingsuCodeEditor.EpScript
                                 
                                 if(t.Count == 0)
                                 {
-                                    ThrowException("import문이 정상적으로 종료되지 않았습니다.", tk);
+                                    ThrowException("导入语句没有正确结束。", tk);
                                     break;
                                 }
                                 int importend = 0;
@@ -237,7 +237,7 @@ namespace BingsuCodeEditor.EpScript
                                     tk = GetCurrentToken();
                                     if (!CheckCurrentToken(TOKEN_TYPE.Symbol, ";") || tk == null)
                                     {
-                                        ThrowException("import문이 정상적으로 종료되지 않았습니다.", tk);
+                                        ThrowException("导入语句没有正确结束。", tk);
                                     }
                                     else
                                     {
@@ -248,7 +248,7 @@ namespace BingsuCodeEditor.EpScript
                                 else
                                 {
                                     //无效指定符
-                                    ThrowException("import문이 정상적으로 종료되지 않았습니다.", tk);
+                                    ThrowException("导入语句没有正确结束。", tk);
                                 }
                                 if (importstart <= startindex && startindex <= importend)
                                 {
@@ -267,7 +267,7 @@ namespace BingsuCodeEditor.EpScript
 
                                 if (cc.CheckIdentifier(scope, function.funcname, funcdefine:true))
                                 {
-                                    ThrowException("함수 " + function.funcname + "는 이미 선언되어 있습니다.", tk, 1);
+                                    ThrowException("函数 " + function.funcname + " 已经声明过了。", tk, 1);
                                 }
 
                                 function.scope = scope;
@@ -340,7 +340,7 @@ namespace BingsuCodeEditor.EpScript
                                 }
                                 if (tk.Type != TOKEN_TYPE.Identifier)
                                 {
-                                    ThrowException("Object의 이름에는 식별자가 와야 합니다.", tk);
+                                    ThrowException("Object的名称必须是标识符。", tk);
                                     continue;
                                 }
                                 
@@ -350,13 +350,13 @@ namespace BingsuCodeEditor.EpScript
 
                                 if (cc.CheckIdentifier(scope, objname))
                                 {
-                                    ThrowException("Object " + objname + "는 이미 선언되어 있습니다.", tk, 1);
+                                    ThrowException("Object " + objname + " 已经声明过了。", tk, 1);
                                     continue;
                                 }
 
                                 if (!CheckCurrentToken(TOKEN_TYPE.Symbol, "{"))
                                 {
-                                    ThrowException("Object는 '{'로 시작해야합니다.", tk);
+                                    ThrowException("Object的定义必须以'{'开始。", tk);
                                     continue;
                                 }
                                 else
@@ -424,7 +424,7 @@ namespace BingsuCodeEditor.EpScript
                                     {
                                         if (!CheckCurrentToken(TOKEN_TYPE.Symbol, ";"))
                                         {
-                                            ThrowException("Object는  ;로 끝나야 합니다.", tk);
+                                            ThrowException("Object的定义必须以';'结尾。", tk);
                                         }
                                         cc = rcontainer;
 
@@ -435,7 +435,7 @@ namespace BingsuCodeEditor.EpScript
                                 if (scope == "st")
                                 {
                                     //我无法关闭它，但它会关闭
-                                    ThrowException("'{}'가 제대로 닫히지 않았습니다.", tk);
+                                    ThrowException("'{}'没有正确关闭。", tk);
                                 }
                                 else
                                 {
@@ -472,7 +472,7 @@ namespace BingsuCodeEditor.EpScript
             
             if (scope != "st")
             {
-                ThrowException("'{}'가 제대로 닫히지 않았습니다.", tk);
+                ThrowException("'{}'没有正确关闭。", tk);
             }
 
 
@@ -502,7 +502,7 @@ namespace BingsuCodeEditor.EpScript
                 if (tk == null) return blocks;
                 if (tk.Type != TOKEN_TYPE.Identifier)
                 {
-                    ThrowException("변수 선언은 식별자가 와야합니다.", tk);
+                    ThrowException("变量声明必须是标识符。", tk);
                 }
 
                 string varname = tk.Value;
@@ -555,7 +555,7 @@ namespace BingsuCodeEditor.EpScript
                         }
                         else
                         {
-                            ThrowException("대입 식의 수가 맞지 않습니다.", tk);
+                            ThrowException("赋值表达式的数量不匹配。", tk);
                             break;
                         }
                     }
@@ -586,7 +586,7 @@ namespace BingsuCodeEditor.EpScript
                 if (varconst == "const")
                 {
                     //对于 const，如果只有声明，则会输出错误。
-                    ThrowException("const는 선언 후 대입해줘야 합니다.", tk);
+                    ThrowException("const 必须在声明后赋值。", tk);
                 }
             }
 
@@ -648,7 +648,7 @@ namespace BingsuCodeEditor.EpScript
                 {
                     if (!(fname.Length != 0 && fname[0] == '@'))
                     {
-                        ThrowException(fname + "는 선언되지 않았습니다.", ctk);
+                        ThrowException(fname + " 未声明。", ctk);
                     }
                 }
             }
@@ -677,7 +677,7 @@ namespace BingsuCodeEditor.EpScript
                     {
                         if(tk != null)
                         {
-                            ThrowException(fname + " 괄호가 정상적으로 닫히지 않았습니다.", tk);
+                            ThrowException(fname + " 括号未正确闭合。", tk);
                         }
                         break;
                     }
@@ -825,6 +825,7 @@ namespace BingsuCodeEditor.EpScript
 
                     function.comment = result;
                     function.ReadComment("ko-KR");
+                    //function.ReadComment("zh-CN");
                 }
             }
 
@@ -848,7 +849,7 @@ namespace BingsuCodeEditor.EpScript
             {
             
 
-                ThrowException("함수의 이름에는 식별자가 와야 합니다.", tk);
+                ThrowException("函数的名称必须是标识符。", tk);
                 goto EndLabel;
             }
 
@@ -859,7 +860,7 @@ namespace BingsuCodeEditor.EpScript
 
             if (!CheckCurrentToken(TOKEN_TYPE.Symbol, "("))
             {
-                ThrowException("함수의 이름 다음에는 인자선언이 와야 합니다.", tk);
+                ThrowException("函数名称后面必须跟有参数声明。", tk);
                 goto EndLabel;
             }
 
@@ -896,7 +897,7 @@ namespace BingsuCodeEditor.EpScript
                         {
                             //警告必须是无条件的。
                             argendoffset = tk.EndOffset;
-                            ThrowException("잘못된 인자 선언입니다. )가 와야합니다.", tk);
+                            ThrowException("参数声明不正确。 必须有右括号", tk);
                             goto EndLabel;
                         }
                         if (tk.Value == ")")
@@ -908,7 +909,7 @@ namespace BingsuCodeEditor.EpScript
                     }
 
                     argendoffset = tk.EndOffset;
-                    ThrowException("잘못된 인자 선언입니다. 인자 이름이 와야 합니다.", tk);
+                    ThrowException("参数声明不正确。必须遵循参数名称。", tk);
                     goto EndLabel;
                 }
 
@@ -919,7 +920,7 @@ namespace BingsuCodeEditor.EpScript
                 {
                     //警告必须是无条件的。
                     argendoffset = tk.EndOffset;
-                    ThrowException("잘못된 인자 선언입니다. ) , :가 와야합니다.", tk);
+                    ThrowException("参数声明不正确。 必须遵循 '),'。", tk);
                     goto EndLabel;
                 }
                 else if (tk.Type == TOKEN_TYPE.Comment)
@@ -967,7 +968,7 @@ namespace BingsuCodeEditor.EpScript
                             cl = CursorLocation.FunctionArgType;
                         }
                         argendoffset = tk.EndOffset;
-                        ThrowException("인자 타입을 선언해야 합니다.", tk);
+                        ThrowException("必须声明参数类型。", tk);
                         goto EndLabel;
                     }
 
@@ -991,7 +992,7 @@ namespace BingsuCodeEditor.EpScript
 
                             if (IsEndOfList())
                             {
-                                ThrowException("괄호가 닫히지 않았습니다.", nt);
+                                ThrowException("括号未闭合。", nt);
                                 goto EndLabel;
                             }
 
@@ -1040,7 +1041,7 @@ namespace BingsuCodeEditor.EpScript
                 {
                     if (IsEndOfList())
                     {
-                        ThrowException("반환 타입이 와야 합니다.", tk);
+                        ThrowException("返回类型必须指定。", tk);
                         goto EndLabel;
                     }
                     List<TOKEN> tlist = GetTokenList();
@@ -1049,7 +1050,7 @@ namespace BingsuCodeEditor.EpScript
 
                     if (IsEndOfList())
                     {
-                        ThrowException("반환 타입이 와야 합니다.", tk);
+                        ThrowException("返回类型必须指定。", tk);
                         goto EndLabel;
                     }
                     findex = CurrentInedx;
@@ -1070,19 +1071,19 @@ namespace BingsuCodeEditor.EpScript
                 }
                 else
                 {
-                    ThrowException("함수의 선언이 잘못되었습니다.", tk);
+                    ThrowException("函数的声明是错误的。", tk);
                     goto EndLabel;
                 }
                 if (IsEndOfList())
                 {
-                    ThrowException("함수의 선언이 잘못되었습니다.", tk);
+                    ThrowException("函数的声明是错误的。", tk);
                     goto EndLabel;
                 }
                 tk = GetCurrentToken();
 
                 if (tk == null)
                 {
-                    ThrowException("함수의 선언이 잘못되었습니다.", tk);
+                    ThrowException("函数的声明是错误的。", tk);
                     goto EndLabel;
                 }
                 tk.scope = scope;
@@ -1110,7 +1111,7 @@ namespace BingsuCodeEditor.EpScript
 
                     if (IsEndOfList())
                     {
-                        ThrowException("괄호가 제대로 마무리 되지 않았습니다.", tk);
+                        ThrowException("括号未正确闭合。", tk);
                         goto EndLabel;
                     }
                     tk = GetCurrentToken();
