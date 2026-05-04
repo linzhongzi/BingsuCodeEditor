@@ -68,7 +68,7 @@ namespace BingsuCodeEditor
             if (!System.IO.Directory.Exists(OptionFilePath))
             {
                 return;
-                //저장 불가능
+                //无法保存
             }
 
             if (HighLightList == null)
@@ -80,7 +80,7 @@ namespace BingsuCodeEditor
                 return;
             }
 
-            //파일을 생성하고 새로 불러온다.
+            //创建一个文件并再次加载。
             FileStream fs = new FileStream(OptionFilePath + optionfilename + OptionFIleName, FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
 
@@ -111,15 +111,15 @@ namespace BingsuCodeEditor
             this.optionfilename = optionfilename;
             if (!System.IO.Directory.Exists(OptionFilePath))
             {
-                //로드 불가능
+                //无法加载
                 return;
             }
 
-            //설정 파일에서 설정을 불러온다.
+            //从配置文件加载设置。
             if (!System.IO.File.Exists(OptionFilePath + optionfilename + OptionFIleName))
             {
                 HighLightColor.Clear();
-                //설정 파일이 없으므로 새로 만들어 준다.
+                //由于没有配置文件，因此创建一个新的。
 
                 {
                     XmlDocument xd = new XmlDocument();
@@ -188,7 +188,7 @@ namespace BingsuCodeEditor
                         aTextEditor.FontSize = fontsize;
                         break;
                     default:
-                        //색 컬러
+                        //颜色
                         HighLightColor.Add(opname, ColorFromString(value));
                         break;
                 }
@@ -221,7 +221,7 @@ namespace BingsuCodeEditor
                 xd.Save(ms);
 
                 ms.Position = 0;
-                //Dic다 만들고 기본컬러 불러옴
+                //创建 Dic 并加载基本颜色
                 SetCustomHighLight(new XmlTextReader(ms));
 
 
@@ -233,7 +233,7 @@ namespace BingsuCodeEditor
         {
             if (System.IO.File.Exists(OptionFilePath + optionfilename + OptionFIleName))
             {
-                //세팅파일 제거
+                //删除设置文件
                 System.IO.File.Delete(OptionFilePath + optionfilename + OptionFIleName);
             }
             ShowLineNumbers = true;

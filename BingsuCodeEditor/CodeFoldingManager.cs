@@ -24,7 +24,7 @@ namespace BingsuCodeEditor
 
         public IEnumerable<FoldingSection> GetFoldingData()
         {
-            //저장도되야됨
+            //也必须能够保存
             return foldingManager.AllFoldings;
         }
 
@@ -56,8 +56,8 @@ namespace BingsuCodeEditor
 
         public void FoldingFlip(int startoffset, int len)
         {
-            //len이 0일 경우
-            //하나만 선택한 것이므로 스타트오프셋이 가장 작은 하나만 여닫는다.
+            //当len为0时
+            //由于只选择了一个，因此只打开和关闭起始偏移最小的一个。
             if(len == 0)
             {
                 ICollection<FoldingSection> t = foldingManager.GetFoldingsContaining(startoffset);
@@ -101,7 +101,7 @@ namespace BingsuCodeEditor
                     }
                 }
 
-                //전부다 접혀(fold) 있어야 펼치기(unfold)
+                //全部必须折叠才能展开
                 bool IsExecUnFold = true;
                 foreach (var item in folders)
                 {

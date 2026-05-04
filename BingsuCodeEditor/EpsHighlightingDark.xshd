@@ -18,14 +18,14 @@
 	
 	<!-- This is the main ruleset. -->
     <RuleSet>
-    <!-- PHP 초록 계열-->
+    <!-- PHP 绿色系列 -->
     <Span color="LuaMacro" multiline="true" begin="&lt;\?" end="\?&gt;"/>
 
 
     <Span color="Comment" begin="//" />
 	    <Span color="Comment" multiline="true" begin="/\*" end="\*/" />
 
-    <!-- 함수 파란계열(시스템 색, 문법등)-->
+    <!-- 函数调用 蓝色系列（系统色、语法等） -->
     <Keywords color="KeyWord">
         <Word>object</Word>
         <Word>static</Word>
@@ -52,7 +52,7 @@
     </Keywords>
 
 
-    <!-- 함수 호출 붉은계열-->
+    <!-- 函数调用 红色系列 -->
     <Rule color="CallFunction">
         [\w\d]+(?=\()
     </Rule>
@@ -77,11 +77,11 @@
     </Span>
 
 
-    <!-- 색강조-->
+    <!-- 高亮色 -->
     <Rule color="VarType">
 	    :\s*[\w\d]+
     </Rule>
-    <!-- 변수 + KeyWord 초록 계열 -->
+    <!-- 变量 + 关键字 绿色系列 -->
     <Keywords color="Literal">
 	    <Word>selftype</Word>
         <Word>const</Word>
@@ -144,7 +144,7 @@
 		<Word>//endregion</Word>
     </Keywords>
 
-    <!-- 붉은 계열 -->
+    <!-- 红色系列 -->
     <Keywords color="Operator">
         <Word>import</Word>
         <Word>as</Word>
@@ -160,16 +160,16 @@
 
 		
 
-    <!-- 색강조-->
+    <!-- 高亮色 -->
     <Rule color="Highlight">
 	    ​[\w\d]+
     </Rule>
 
-    <!-- 오브젝트 정의 옅은 보라-->
+    <!-- 对象定义 浅紫色 -->
     <Rule color="Object">
 	    (?&lt;=object)[\s]+[\w\d]+
     </Rule>		
-    <!-- 함수 정의 옅은 보라-->
+    <!-- 函数定义 浅紫色 -->
     <Rule color="Function">
         (?&lt;=function)[\s]+[\w\d]+
     </Rule>
@@ -177,19 +177,19 @@
 
 
 
-    <!-- 배열 초록 계열-->
+    <!-- 数组 绿色系 -->
     <Rule color="Array">
         [\w\d]+(?=\[.*\])
     </Rule>
 
     
     
-    <!-- Digits 얉은 연녹-->
+    <!-- 数字(Digits) 浅绿色 -->
     <Rule color="Hex">
         \b0[xX][0-9a-fA-F]+  # hex number
     </Rule>
 
-    <!-- Digits 옅은 노랑-->
+    <!-- 数字(Digits) 浅黄色 -->
     <Rule color="Digit">
                 \b
         (    \d+(\.[0-9]+)?   #number with optional floating point

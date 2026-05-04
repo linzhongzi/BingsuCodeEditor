@@ -132,7 +132,7 @@ namespace BingsuCodeEditor.Lua
             }
             else
             {
-                //다이나믹일때
+                //当它是动态的
                 if(GetArgDataList != null)
                 {
                     foreach (var item in GetArgDataList(Key))

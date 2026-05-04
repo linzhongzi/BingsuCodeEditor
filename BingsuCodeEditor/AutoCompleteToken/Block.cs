@@ -9,9 +9,9 @@ namespace BingsuCodeEditor.AutoCompleteToken
 {
     public class Block
     {
-        //변수나 배열, 오브젝트등입니다.
+        //变量、数组、对象等等。
 
-        //오브젝트의 경우 Container이 이어져 있습니다.
+        //对于对象来说，容器是相连的。
         public Container ParentContainer;
 
         public string Scope;
@@ -20,10 +20,10 @@ namespace BingsuCodeEditor.AutoCompleteToken
         //const, var
         public string BlockDefine;
 
-        //객체
+        //对象
         public string BlockType;
 
-        //변수 명
+        //变量名
         public string BlockName;
 
         public bool IsArg;

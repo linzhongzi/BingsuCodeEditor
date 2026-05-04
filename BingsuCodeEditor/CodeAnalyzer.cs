@@ -69,7 +69,7 @@ namespace BingsuCodeEditor
             {
                 if (!StaticImportManager.IsCachedContainer(pullpath))
                 {
-                    //파일이 변형되었을 경우
+                    // 文件被修改时
                     StaticImportManager.UpdateContainer(pullpath, container);
                 }                
             }
@@ -131,7 +131,7 @@ namespace BingsuCodeEditor
 
 
 
-        #region Container관리
+        #region Container管理
         public AutoCompleteToken.Container maincontainer;
 
         public Container GetContainer(string filetext)
@@ -175,7 +175,7 @@ namespace BingsuCodeEditor
                 int len = currentLine.Length;
 
                 int lineoffset = currentLine.Offset;
-                //라인의 끝일 경우
+                // 如果是行尾
                 if (textEditor.CaretOffset == lineoffset + len)
                 {
                     return true;
@@ -208,8 +208,8 @@ namespace BingsuCodeEditor
         }
 
         /// <summary>
-        /// 분석중인 자동완성 데이터입니다.
-        /// 비동기로 분석합니다.
+        /// 正在分析的自动补全数据。
+        /// 以异步方式进行分析。
         /// </summary>
         protected List<PreCompletionData> AnalyzercompletionDatas = new List<PreCompletionData>();
 
@@ -509,7 +509,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 토근의 상대적 위치를 구합니다.
+        /// 查找词元(Token)的相对位置。
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
@@ -522,7 +522,7 @@ namespace BingsuCodeEditor
             {
                 if (index == 0)
                 {
-                    //현대 위치가 없는것 이므로 null을 반환
+                    //由于没有当前位置，因此返回null。
                     return null;
                 }
                 else
@@ -746,7 +746,7 @@ namespace BingsuCodeEditor
 
                 if (char.IsDigit(t))
                 {
-                    //t가 숫자일 경우 숫자
+                    //如果 t 是数字，则为数字
                     string block = "";
 
                     TOKEN_TYPE type = TOKEN_TYPE.Number;
@@ -767,7 +767,7 @@ namespace BingsuCodeEditor
                 }
                 else if (char.IsLetter(t) || t == '_' || CheckIsLetter(t))
                 {
-                    //키워드 또는 식별자
+                    //关键字或标识符
                     string block = "";
 
                     do
@@ -799,7 +799,7 @@ namespace BingsuCodeEditor
                     if (!IsSpaceCheck)
                         continue;
 
-                    //키워드 또는 식별자
+                    //关键字或标识符
                     string block = "";
 
                     do
@@ -821,12 +821,11 @@ namespace BingsuCodeEditor
                 }
                 else
                 {
-                    //나머지 괄호나 
-                    //t가 숫자일 경우 숫자
+                    //如果剩余的括号或 t 是数字，则为数字
                     string block = t.ToString();
                     bool isComment = false;
 
-                    //Comment 만약 마지막 문자면 주석일 이유가 없으니까.
+                    //Comment 如果是最后一个字符，则没有理由注释它。
                     if (i + 1 < tlen)
                     {
                         int outindex;
@@ -913,7 +912,7 @@ namespace BingsuCodeEditor
                 lasttokenIndex = Tokens.Count;
             }
 
-            //여기다가 토큰을 분석하자
+            //这里我们来分析一下token。
             TokenAnalyze(caretoffset);
 
             if(codeFoldingManager != null)
@@ -921,7 +920,7 @@ namespace BingsuCodeEditor
                 codeFoldingManager.FoldingUpdate(Tokens, text.Length);
             }
 
-            //에러판단
+            //错误判断
 
             workComplete = true;
         }
@@ -937,10 +936,10 @@ namespace BingsuCodeEditor
         public abstract object GetObjectFromName(List<string> objectname, Container startcontainer, FindType findType, IList<ICompletionData> data = null, string scope = "st");
 
 
-        #region #############함수툴팁#############
+        #region #############函数提示#############
         public string GetFuncToolTip(List<TOKEN> tklist = null)
         {
-            //함수를 찾지 못했을 경우 빈문자 출력
+            //如果找不到函数，则输出空字符。
             int argindex = -1;
             if (tklist == null)
             {
@@ -1037,8 +1036,9 @@ namespace BingsuCodeEditor
             //const1.object1;
             //maincontainer.vars[0].
 
-            //Item.cast(inven[i]). 이럴 경우 Item.cast를 t로 보낸다.
-            //Item.cast함수의 반환타입을 구해야 한다.
+            //Item.cast(inven[i]).
+            //在本例中，将 Item.cast 传递给 t。
+            //我们需要找到 Item.cast函数的返回类型。
             //t.Add(new TOKEN(0, TOKEN_TYPE.Identifier, "Item", 0));
             //t.Add(new TOKEN(0, TOKEN_TYPE.Identifier, "cast", 0));
             if (t.Count == 0) return null;
@@ -1095,7 +1095,7 @@ namespace BingsuCodeEditor
         }
         #endregion
 
-        #region #############자동완성#############
+        #region #############自动完成#############
 
 
 
@@ -1106,7 +1106,7 @@ namespace BingsuCodeEditor
                 Priority = 80;
             }
 
-            //키워드 이름
+            //关键字名称
             public override string listheader
             {
                 get
@@ -1144,7 +1144,7 @@ namespace BingsuCodeEditor
             private Function function;
 
 
-            //키워드 이름
+            //关键字名称
             public override string listheader
             {
                 get
@@ -1196,7 +1196,7 @@ namespace BingsuCodeEditor
                 Priority = 0.1;
             }
 
-            //키워드 이름
+            //关键字名称
             public override string listheader
             {
                 get
@@ -1228,7 +1228,7 @@ namespace BingsuCodeEditor
                 Priority = 0.2;
             }
 
-            //키워드 이름
+            //关键字名称
             public override string listheader
             {
                 get
@@ -1273,7 +1273,7 @@ namespace BingsuCodeEditor
 
             }
 
-            //키워드 이름
+            //关键字名称
             public override string listheader
             {
                 get

@@ -70,9 +70,20 @@ namespace BingsuCodeEditor.Lua
 
 @Language.en-US
 @Summary
-[Player]의 [Unit]의 유닛보유수를 [Amount]만큼 [Modifier]합니다.
+[Player]'s [Unit] unit count is [Modifier] by [Amount].
 @Group
-유닛보유수
+Number of Units Owned
+@param.Unit.TrgUnit
+@param.Player.TrgPlayer
+@param.Modifier.TrgModifier
+@param.Amount.Number
+
+
+@Language.zh-CN
+@Summary
+将[Player]的[Unit]数量[Modifier]为[Amount]。
+@Group
+持有单位数量
 @param.Unit.TrgUnit
 @param.Player.TrgPlayer
 @param.Modifier.TrgModifier
@@ -109,8 +120,7 @@ namespace BingsuCodeEditor.Lua
                     case "@Language":
                         if (summaryType != "")
                         {
-                            //체크되어있을 경우
-                            //마지막으로 읽은 ctype정리하기.
+                            //如果选中，则组织上次读取的 ctype。
                             if (clan == launage)
                             {
                                 SetSummary(summaryType, argName, content.Trim(), argType);
@@ -121,11 +131,10 @@ namespace BingsuCodeEditor.Lua
                     case "@Group":
                     case "@Summary":
                     case "@param":
-                        //summaryType일 경우.
+                        //如果是summaryType.
                         if (summaryType != "")
                         {
-                            //체크되어있을 경우
-                            //마지막으로 읽은 ctype정리하기.
+                            //如果选中，则组织上次读取的 ctype。
                             if (clan == launage)
                             {
                                 SetSummary(summaryType, argName, content.Trim(), argType);
@@ -146,7 +155,7 @@ namespace BingsuCodeEditor.Lua
                 }
             }
 
-            //마지막으로 읽은 ctype정리하기.
+            //组织最后读取的 ctype。
             if (clan == launage)
             {
                 SetSummary(summaryType, argName, content.Trim(), argType);

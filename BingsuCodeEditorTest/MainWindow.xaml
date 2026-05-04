@@ -61,7 +61,7 @@
 
 
         <!--<TabControl>
-            <TabItem Header="텍스트에디터">
+            <TabItem Header="文本编辑器">
                 <c:CodeTextEditor x:Name="CodeEditor" Syntax="epScript"/>
             </TabItem>
             --><!--<TabItem Header="Blockly">

@@ -22,7 +22,7 @@ namespace BingsuCodeEditor
 
         }
 
-        //키워드 이름
+        //关键字名称
         protected string name;
         protected string _outputstring;
         protected string _desc;
@@ -35,7 +35,7 @@ namespace BingsuCodeEditor
 
 
 
-        //자동 입력을 위한 프리셋
+        //自动输入预设
         public string AutoInsert;
     }
 }

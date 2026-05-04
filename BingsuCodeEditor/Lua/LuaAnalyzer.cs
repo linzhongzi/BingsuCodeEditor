@@ -105,10 +105,10 @@ namespace BingsuCodeEditor.Lua
 
             foreach (var item in keywords)
             {
-                //토큰 입력
+                //输入Token
                 AddSubType(item, TOKEN_TYPE.KeyWord);
 
-                //자동완성 초기 입력
+                //自动完成初始输入
                 if (Template.ContainsKey(item))
                 {
                     completionDatas.Add(new KewWordItem(CompletionWordType.KeyWord, item, item + "\n참고:코드 조각을 삽입하려면 Tab키를 두번 누르세요."));
@@ -145,7 +145,7 @@ namespace BingsuCodeEditor.Lua
             if (t == '"')
             {
                 block = "";
-                //LineCommnet 개행 문자까지 반복 (\r)
+                //LineCommnet 重复直到换行 (\r)字符
 
                 bool IsSpec = false;
                 do
@@ -207,7 +207,7 @@ namespace BingsuCodeEditor.Lua
                     if(t == '[')
                     {
                         int equalcount = 0;
-                        //MulitComment =====[ 카운팅 가 나올 떄 까지 반복
+                        //MulitComment =====[ 重复直到出现计数
 
 
                         index += 2;
@@ -240,7 +240,7 @@ namespace BingsuCodeEditor.Lua
                             index++;
                             if (index >= tlen)
                             {
-                                //사실상 오류임..
+                                //其实是一个错误...
                                 break;
                             }
                             if (t == ']')
@@ -251,7 +251,7 @@ namespace BingsuCodeEditor.Lua
                                 }else if(checkequalcount == equalcount)
                                 {
                                     block = block.Substring(0, block.Length - equalcount - 2);
-                                    //주석
+                                    //注释
                                     break;
                                 }
                                 else
@@ -282,7 +282,7 @@ namespace BingsuCodeEditor.Lua
                     }
                     else
                     {
-                        //LineCommnet 개행 문자까지 반복 (\r)
+                        //LineCommnet 重复直到换行 (\r)字符
                         do
                         {
                             block += t.ToString();
@@ -344,7 +344,7 @@ namespace BingsuCodeEditor.Lua
             switch (cursorLocation)
             {
                 case CursorLocation.ImportFile:
-                    //파일들이 뜨게 하는 것
+                    //显示文件
                     if (importManager != null)
                     {
                         if (!IsNameSpaceOpen)
@@ -391,7 +391,7 @@ namespace BingsuCodeEditor.Lua
             }
 
 
-            //TODO:분석된 토큰으로 자동완성을 만든다.
+            //TODO：使用分析的标记创建自动完成功能。
             if (IsNameSpaceOpen)
             {
                 TOKEN ctkn = GetToken(0, TOKEN.Side.Right);
@@ -403,8 +403,9 @@ namespace BingsuCodeEditor.Lua
                 //const1.object1;
                 //maincontainer.vars[0].
 
-                //Item.cast(inven[i]). 이럴 경우 Item.cast를 t로 보낸다.
-                //Item.cast함수의 반환타입을 구해야 한다.
+                //Item.cast(inven[i]).
+                //在本例中，Item.cast 被发送到 t。
+                //我们需要找到 Item.cast函数的返回类型。
                 //t.Add(new TOKEN(0, TOKEN_TYPE.Identifier, "Item", 0));
                 //t.Add(new TOKEN(0, TOKEN_TYPE.Identifier, "cast", 0));
                 if (t.Count == 0) return true;
@@ -431,7 +432,7 @@ namespace BingsuCodeEditor.Lua
                     {
                         if (item.StartsWith(fname))
                         {
-                            //일치할 경우
+                            //如果它们匹配
                             IsImport = true;
                             autocmpfilelist.Add(item.Substring(fname.Length));
                         }
@@ -486,7 +487,7 @@ namespace BingsuCodeEditor.Lua
 
             if (maincontainer.innerFuncInfor.IsInnerFuncinfor)
             {
-                //인자
+                //参数
                 Function func = (Function)GetObjectFromName(maincontainer.innerFuncInfor.funcename, maincontainer, FindType.Func);
                 if (func != null)
                 {
@@ -527,7 +528,7 @@ namespace BingsuCodeEditor.Lua
                         {
                             if (!importManager.IsCachedContainer(pullpath))
                             {
-                                //파일이 변형되었을 경우
+                                //如果文件已被修改
                                 importManager.UpdateContainer(pullpath, GetContainer(importManager.GetFIleContent(pullpath)));
                             }
                         }
@@ -602,7 +603,7 @@ namespace BingsuCodeEditor.Lua
             cursorLocation = cl;
 
 
-            //토근 분석에 사용되는 요소
+            //词元(Token)分析中使用的元素
             tokenAnalyzer.Init(Tokens);
 
             try
@@ -628,7 +629,7 @@ namespace BingsuCodeEditor.Lua
             }
             if (tokenAnalyzer.IsError)
             {
-                //토큰 분석 오류
+                //词元(Token)解析错误
             }
 
 
@@ -660,7 +661,7 @@ namespace BingsuCodeEditor.Lua
             //const1.object1;
             //maincontainer.vars[0].
 
-            //참조 찾아보고 없으면 패스
+            //寻找参考文献，如果找不到，请忽略。
             //if (!startcontainer.CheckIdentifier(scope, objectname[0]))
             //{
             //    return null;
@@ -716,10 +717,10 @@ namespace BingsuCodeEditor.Lua
 
                 //if (objname == "this" && objectname.Count == 1)
                 //{
-                //    //자기참조일 경우
+                // //如果是自引用
                 //    if (findType == FindType.AutoComplete)
                 //    {
-                //        //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                // //这是最后一部分，所以输入容器的所有内容。
                 //        ccon.GetAllItems(data, "st.O" + startcontainer.mainname);
                 //    }
                 //}
@@ -734,7 +735,7 @@ namespace BingsuCodeEditor.Lua
                     {
                         if (!importManager.IsCachedContainer(pullpath))
                         {
-                            //파일이 변형되었을 경우
+                            //如果文件已被修改
                             importManager.UpdateContainer(pullpath, GetContainer(importManager.GetFIleContent(pullpath)));
                         }
 
@@ -749,13 +750,13 @@ namespace BingsuCodeEditor.Lua
                             folderpath = "";
                         }
 
-                        lscope = "st";//스코프 초기화
+                        lscope = "st";//初始化范围
                         index++;
                         if (index == objectname.Count)
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 ccon.GetAllItems(data, lscope);
                             }
                             else if (findType == FindType.All)
@@ -776,10 +777,10 @@ namespace BingsuCodeEditor.Lua
                 {
                     if (findType == FindType.Func || findType == FindType.All)
                     {
-                        //마지막 찻수인경우
+                        //如果最后有差异
                         if (index + 1 == objectname.Count)
                         {
-                            //함수 찾는거면 이 func를 돌려주면 됨.ㅋㅋ
+                            //如果您正在寻找解决方案，只需返回此函数即可。哈哈。
                             return func;
                         }
 
@@ -787,7 +788,7 @@ namespace BingsuCodeEditor.Lua
                     }
                     else if (findType == FindType.AutoComplete)
                     {
-                        //자동완성이면 해당 함수의 반환타입을 주사
+                        //如果是自动完成，则注入相应数字的返回类型函数。
                         string rtype = "";
 
                         if (func.returntype == null) return null;
@@ -817,7 +818,7 @@ namespace BingsuCodeEditor.Lua
 
                         if (index + 1 == objectname.Count)
                         {
-                            //마지막 찻수인 경우 오브젝트의 요소들 반환
+                            //如果是最后一个命令，则返回对象的元素。
                             objcon.GetAllItems(data, objcon.GetInitObjectNameSpacee(), noargFlag: true);
                             break;
                         }
@@ -849,7 +850,7 @@ namespace BingsuCodeEditor.Lua
                     {
                         if (findType == FindType.AutoComplete)
                         {
-                            //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                            //由于这是最后一部分，因此请输入容器的所有内容。
                             data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "cast")));
                             data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "alloc")));
                             data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "free")));
@@ -873,7 +874,7 @@ namespace BingsuCodeEditor.Lua
                             {
                                 if (index + 2 == objectname.Count)
                                 {
-                                    //마지막이 alloc, cast인 경우
+                                    //如果最后一个是 alloc 或cast
                                     if (findType == FindType.AutoComplete)
                                     {
                                         obj.GetAllItems(data, obj.GetInitObjectNameSpacee(), noargFlag: true);
@@ -883,7 +884,7 @@ namespace BingsuCodeEditor.Lua
                                     {
                                         if (last == "alloc")
                                         {
-                                            //생성자 함수 가져오기
+                                            //构造函数导入
                                             func = obj.funcs.Find(x => (x.funcname == "constructor" && obj.GetInitObjectNameSpacee().Contains(x.scope)));
                                             return func;
                                         }
@@ -892,7 +893,7 @@ namespace BingsuCodeEditor.Lua
                                 }
                                 else
                                 {
-                                    //오브젝트를 참조하는 것.
+                                    //引用一个对象。
                                     lscope = obj.GetInitObjectNameSpacee();
                                     objcon = obj;
                                     index += 2;
@@ -907,11 +908,10 @@ namespace BingsuCodeEditor.Lua
                 }
                 else if (var != null)
                 {
-                    //변수의 정의를 참조하여 타입을 확인.
-                    //obj이면 해당 obj의 멤버변수 ex var t = a.b.c(); 이런식이면
-                    //a.b.c를 탐색해야됨.
+                    //参考变量的定义检查类型。
+                    //如果是 obj，则 obj 的成员 ex var t = a.b.c();如果是这种情况，您需要搜索 a.b.c变量。
                     //var.values
-                    //obj일 경우 obj는 콘테이너이므로... 함수 찾는 과정이면 한단계 더 들어갈 수 있음.
+                    //就 obj 而言，由于 obj 是一个容器...您可以在查找数字的过程中更进一步函数。
                     object _obj;
 
 
@@ -922,10 +922,10 @@ namespace BingsuCodeEditor.Lua
                         list.Add(var.BlockType);
 
 
-                        //타입이 지정되어 있을 경우
+                        //如果指定类型
                         if (ccon.IsObject)
                         {
-                            //오브젝트이면 밖에서 찾아야 함니다.
+                            //如果是物体，就得到外面去寻找。
 
                         }
                         _obj = GetObjectFromName(list, ccon, FindType.Obj);
@@ -943,7 +943,7 @@ namespace BingsuCodeEditor.Lua
                     }
                     else
                     {
-                        //그 외
+                        //其他的
                         _obj = GetObjectFromName(var.Values, ccon, FindType.Obj);
                         if (_obj == null && DefaultFuncContainer != null)
                         {
@@ -951,7 +951,7 @@ namespace BingsuCodeEditor.Lua
                         }
                         if (_obj == null)
                         {
-                            //함수 일 가능성이 있음
+                            //函数可能存在
                             _obj = GetObjectFromName(var.Values, ccon, FindType.Func);
                             if (_obj == null && DefaultFuncContainer != null)
                             {
@@ -966,7 +966,7 @@ namespace BingsuCodeEditor.Lua
                                 {
                                     list.Add(item.Value);
                                 }
-                                //리턴값을 읽기
+                                //读取返回值
 
                                 _obj = GetObjectFromName(list, ccon, FindType.Obj);
                             }
@@ -978,13 +978,13 @@ namespace BingsuCodeEditor.Lua
                     {
                         Container varobject = (Container)_obj;
                         ccon = varobject;
-                        lscope = "st";//스코프 초기화
+                        lscope = "st";//初始化范围
                         index++;
                         if (index == objectname.Count)
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 ccon.GetAllItems(data, ccon.GetInitObjectNameSpacee());
                             }
                             else if (findType == FindType.All)
@@ -998,12 +998,12 @@ namespace BingsuCodeEditor.Lua
                     }
                     else
                     {
-                        //아니면 아래에 있는거 사용하기
+                        //或者使用下面的一个
                         if (index + 1 == objectname.Count)
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 //data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "getValueAddr")));
                             }
                             else if (findType == FindType.All)

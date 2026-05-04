@@ -54,7 +54,7 @@ namespace BingsuCodeEditor.EpScript
             }
 
 
-            //TODO : 폴딩 로직 짜야됨
+            //TODO：需要编写折叠逻辑
         }
     }
 }

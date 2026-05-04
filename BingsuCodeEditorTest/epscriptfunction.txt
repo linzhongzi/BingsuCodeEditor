@@ -1,78 +1,92 @@
-﻿/***
+/***
  * @Type
  * A
  * @Summary.ko-KR
  * 플레이어가 게임에서 승리합니다.
+ *
  * @Summary.en-US
  * End scenario in victory for current player.
+ *
+ * @Summary.zh-CN
+ * 玩家在游戏中获胜。
 ***/
 function Victory(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 플레이어가 게임에서 패배합니다.
+ *
  * @Summary.en-US
  * End scenario in defeat for current player.
+ *
+ * @Summary.zh-CN
+ * 玩家在游戏中失败。
 ***/
 function Defeat(){}
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 트리거를 무한 반복 합니다.
+ *
  * @Summary.en-US
  * Preserve Trigger
+ *
+ * @Summary.zh-CN
+ * 无限循环触发器。
 ***/
 function PreserveTrigger(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Time]만큼 기다립니다.(사용하지 마세요)
- * @Summary.en-US
- * Wait for [Time] milliseconds. (Not recommended to use)
- * 
  * @param.Time.ko-KR
  * 기다리는 시간입니다.
+ * 
+ * @Summary.en-US
+ * Wait for [Time] milliseconds. (Not recommended to use)
  * @param.Time.en-US
- * 기다리는 시간입니다.
+ * Wait time in milliseconds.
+ *
+ * @Summary.zh-CN
+ * 等待[Time]。(请勿使用)
+ * @param.Time.zh-CN
+ * 等待的时间。
 ***/
 function Wait(Time){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 게임을 멈춥니다.(싱글 전용)
+ *
  * @Summary.en-US
  * Pause Game
+ *
+ * @Summary.zh-CN
+ * 暂停游戏。(仅限单人游戏)
 ***/
 function PauseGame(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 게임을 재개합니다.(싱글 전용)
+ *
  * @Summary.en-US
  * Unpause the game.
+ *
+ * @Summary.zh-CN
+ * 继续游戏。(仅限单人游戏)
 ***/
 function UnpauseGame(){}
-
-
 
 /***
  * @Type
@@ -80,13 +94,6 @@ function UnpauseGame(){}
  * @Summary.ko-KR
  * [Where]에 위치하는 [Unit]의 말하는 애니메이션을 [WAVName]을 재생하면서 보여줍니다. 트랜스 미션 시간을 [Time] 만큼 [TimeModifier]합니다.
  * [Text]를 보여줍니다. [AlwaysDisplay]
- * @Summary.en-US
- * Send transmission to current player from [Unit] at '[Where]'.
- * Play '[WAVName]'.
- * Modify transmission duration: [TimeModifier] [Time] milliseconds.
- * Display the following text: [Text]
- * [AlwaysDisplay].
- * 
  * @param.Unit.ko-KR
  * 말할 유닛의 종류를 설정합니다.
  * @param.Where.ko-KR
@@ -102,208 +109,252 @@ function UnpauseGame(){}
  * @param.AlwaysDisplay.ko-KR
  * 4 : 항상 보여줌
  * 
+ * @Summary.en-US
+ * Send transmission to current player from [Unit] at '[Where]'.
+ * Play '[WAVName]'.
+ * Modify transmission duration [Time] milliseconds by [TimeModifier].
+ * Display the following text: [Text]
+ * [AlwaysDisplay].
  * @param.Unit.en-US
- * 말할 유닛의 종류를 설정합니다.
+ * Set the type of unit to speak.
  * @param.Where.en-US
- * 유닛의 위치를 설정합니다.
+ * Set the location of the unit.
  * @param.WAVName.en-US
- * 재생될 사운드를 설정합니다.
+ * Set the sound to be played.
  * @param.TimeModifier.en-US
- * 시간의 계산 방법을 설정합니다.
+ * Set the calculation method of time.
  * @param.Time.en-US
- * 얼마만큼 재생 할 것인지 설정합니다.
+ * Set how much to play.
  * @param.Text.en-US
- * 보여줄 텍스트입니다.
+ * The text to display.
  * @param.AlwaysDisplay.en-US
- * 4 : 항상 보여줌
+ * 4 : Always display.
+ * 
+ * @Summary.zh-CN
+ * 在[Where]位置显示[Unit]的说话动画，同时播放[WAVName]。将传输时间[Time]按[TimeModifier]调整。
+ * 显示[Text]。[AlwaysDisplay]
+ * @param.Unit.zh-CN
+ * 设置说话的单位类型。
+ * @param.Where.zh-CN
+ * 设置单位的位置。
+ * @param.WAVName.zh-CN
+ * 设置要播放的声音。
+ * @param.TimeModifier.zh-CN
+ * 设置时间的计算方法。
+ * @param.Time.zh-CN
+ * 设置播放时长。
+ * @param.Text.zh-CN
+ * 要显示的文本。
+ * @param.AlwaysDisplay.zh-CN
+ * 4 : 始终显示
 ***/
 function Transmission(Unit : TrgUnit, Where : TrgLocation, WAVName : TrgString, TimeModifier : TrgModifier, Time, Text : TrgString, AlwaysDisplay){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [WAVName]을 재생합니다.
- * @Summary.en-US
- * Play [WAVName]
- * 
  * @param.WAVName.ko-KR
  * 재생할 음악입니다.
  * 
+ * @Summary.en-US
+ * Play [WAVName]
  * @param.WAVName.en-US
- * 재생할 음악입니다.
+ * Sound to play.
+ * 
+ * @Summary.zh-CN
+ * 播放[WAVName]。
+ * @param.WAVName.zh-CN
+ * 要播放的音乐。
 ***/
 function PlayWAV(WAVName /*WAVName*/){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Text]를 해당 트리거 플레이어에게 출력합니다.
+ *
  * @Summary.en-US
  * Display for current player:
  * Display [Text]
+ *
+ * @Summary.zh-CN
+ * 向触发玩家显示[Text]。
 ***/
 function DisplayText(Text : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어의 화면을 [Where]로 이동시킵니다.
- * @Summary.en-US
- * Center view for current player at [Where]
- * 
  * @param.Where.ko-KR
  * 해당 플레이어가 보게 될 화면 로케이션입니다.
  * 
+ * @Summary.en-US
+ * Center view for current player at [Where]
  * @param.Where.en-US
- * 해당 플레이어가 보게 될 화면 로케이션입니다.
+ * The screen location that the player will see.
+ * 
+ * @Summary.zh-CN
+ * 将触发玩家的屏幕中心移动到[Where]。
+ * @param.Where.zh-CN
+ * 玩家将看到的屏幕位置。
 ***/
 function CenterView(Where : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어의 미션 오브젝트 (F10 + J) 내용을 [Text]로  설정합니다.
- * @Summary.en-US
- * Set Mission Objectives to: [Text]
- * 
  * @param.Text.ko-KR
  * 미션 오브젝트의 내용입니다.
  * 
+ * @Summary.en-US
+ * Set Mission Objectives to: [Text]
  * @param.Text.en-US
- * 미션 오브젝트의 내용입니다.
+ * Content of the mission objectives.
+ * 
+ * @Summary.zh-CN
+ * 将触发玩家的任务目标(F10 + J)内容设置为[Text]。
+ * @param.Text.zh-CN
+ * 任务目标的内容。
 ***/
 function SetMissionObjectives(Text : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 스위치 [Switch]의 상태를 [State]로 설정합니다.
- * @Summary.en-US
- * [State] [Switch]
- * 
  * @param.Switch.ko-KR
  * 설정할 스위치입니다.
  * @param.State.ko-KR
  * 스위치의 상태를 의미합니다. toggle : 현재 상태의 반대 상태로 만들기, randomize : 랜덤하게 켜거나 끄기
  * 
+ * @Summary.en-US
+ * Set switch [Switch] to [State].
  * @param.Switch.en-US
- * 설정할 스위치입니다.
+ * Switch to set.
  * @param.State.en-US
- * 스위치의 상태를 의미합니다. toggle : 현재 상태의 반대 상태로 만들기, randomize : 랜덤하게 켜거나 끄기
+ * State of the switch. toggle: invert current state, randomize: turn on or off randomly.
+ * 
+ * @Summary.zh-CN
+ * 将开关[Switch]的状态设置为[State]。
+ * @param.Switch.zh-CN
+ * 要设置的开关。
+ * @param.State.zh-CN
+ * 开关的状态。toggle：切换当前状态，randomize：随机开启或关闭。
 ***/
 function SetSwitch(Switch : TrgSwitch, State : TrgSwitchAction){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 카운트 타이머를 [Time]만큼 [TimeModifier]합니다.
- * @Summary.en-US
- * Modify Countdown Timer: [TimeModifier] [Time] seconds.
- * 
  * @param.TimeModifier.ko-KR
  * 시간의 계산 방법을 설정합니다.
  * @param.Time.ko-KR
  * 계산될 시간을 설정합니다.
  * 
+ * @Summary.en-US
+ * Modify Countdown Timer: [TimeModifier] [Time] seconds.
  * @param.TimeModifier.en-US
- * 시간의 계산 방법을 설정합니다.
+ * Set the calculation method of time.
  * @param.Time.en-US
- * 계산될 시간을 설정합니다.
+ * Set the time to be calculated.
+ * 
+ * @Summary.zh-CN
+ * 将倒计时计时器[TimeModifier][Time]。
+ * @param.TimeModifier.zh-CN
+ * 设置时间的计算方法。
+ * @param.Time.zh-CN
+ * 设置要计算的时间。
 ***/
 function SetCountdownTimer(TimeModifier : TrgModifier, Time){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어에게 스크립트 [Script]를 발동시킵니다. 로케이션이 필요하지 않는 스크립트만 발동됩니다.
- * @Summary.en-US
- * Run AI Script [Script].
- * 
  * @param.Script.ko-KR
  * 발동시킬 스크립트입니다. 로케이션이 필요한 스크립트는 발동되지 않습니다.
  * 
+ * @Summary.en-US
+ * Run AI Script [Script].
  * @param.Script.en-US
- * 발동시킬 스크립트입니다. 로케이션이 필요한 스크립트는 발동되지 않습니다.
+ * Script to run. Scripts requiring locations will not run.
+ * 
+ * @Summary.zh-CN
+ * 为触发玩家运行AI脚本[Script]。仅运行不需要位置的脚本。
+ * @param.Script.zh-CN
+ * 要运行的脚本。需要位置的脚本不会运行。
 ***/
 function RunAIScript(Script : TrgAIScript){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어에게 스크립트 [Script]를 발동시킵니다. [Where]에서 발동됩니다.
- * @Summary.en-US
- * Run AI Script [Script] at location [Where].
- * 
  * @param.Script.ko-KR
  * 발동시킬 스크립트입니다.
  * @param.Where.ko-KR
  * 스크립트를 발동시킬 로케이션입니다.
  * 
+ * @Summary.en-US
+ * Run AI Script [Script] at location [Where].
  * @param.Script.en-US
- * 발동시킬 스크립트입니다.
+ * Script to run.
  * @param.Where.en-US
- * 스크립트를 발동시킬 로케이션입니다.
+ * Location to run the script.
+ * 
+ * @Summary.zh-CN
+ * 为触发玩家在[Where]位置运行AI脚本[Script]。
+ * @param.Script.zh-CN
+ * 要运行的脚本。
+ * @param.Where.zh-CN
+ * 运行脚本的位置。
 ***/
 function RunAIScriptAt(Script : TrgAIScript, Where : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 현재 플레이어들이 [Unit]을 소유하고 있는 양을 순위대로 점수표에 표시합니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for most control of [Unit]
- * Display Label : [Label]
- * 
  * @param.Unit.ko-KR
  * 순위를 매길 유닛입니다.
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
- * 
+ *
+ * @Summary.en-US
+ * Show Leader Board for most control of [Unit]
+ * Display Label : [Label]
  * @param.Unit.en-US
- * 순위를 매길 유닛입니다.
+ * Unit to rank.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ *
+ * @Summary.zh-CN
+ * 按当前玩家拥有[Unit]的数量在积分榜上显示排名。积分榜旁边的文本由[Label]指定。
+ * @param.Unit.zh-CN
+ * 要排名的单位。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardControl(Unit : TrgUnit, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 현재 플레이어들이 [Unit]을 [Location] 안에 소유하고 있는 양을 순위대로 점수표에 표시합니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for most control of [Unit] at [Location]
- * Display Label : [Label]
- * 
  * @param.Unit.ko-KR
  * 순위를 매길 유닛입니다.
  * @param.Location.ko-KR
@@ -311,116 +362,139 @@ function LeaderBoardControl(Unit : TrgUnit, Label : TrgString){}
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for most control of [Unit] at [Location]
+ * Display Label : [Label]
  * @param.Unit.en-US
- * 순위를 매길 유닛입니다.
+ * Unit to rank.
  * @param.Location.en-US
- * 순위를 매길 유닛이 위치해야 할 로케이션입니다.
+ * Location where the ranked units must be located.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 按当前玩家在[Location]内拥有[Unit]的数量在积分榜上显示排名。积分榜旁边的文本由[Label]指定。
+ * @param.Unit.zh-CN
+ * 要排名的单位。
+ * @param.Location.zh-CN
+ * 排名单位必须所在的位置。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardControlAt(Unit : TrgUnit, Location : TrgLocation, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 현재 플레이어들이 자원 [ResourceType]을 소유하고 있는 양을 순위대로 점수표에 표시합니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for accumulation of most [ResourceType]
- * Display Label : [Label]
- * 
  * @param.ResourceType.ko-KR
  * 순위를 매길 자원의 종류입니다
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for accumulation of most [ResourceType]
+ * Display Label : [Label]
  * @param.ResourceType.en-US
- * 순위를 매길 자원의 종류입니다
+ * Type of resource to rank.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 按当前玩家拥有[ResourceType]的数量在积分榜上显示排名。积分榜旁边的文本由[Label]指定。
+ * @param.ResourceType.zh-CN
+ * 要排名的资源类型。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardResources(ResourceType : TrgResource, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 현재 플레이어들이 [Unit]을 죽인 수를 순위대로 점수표에 표시합니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for most kill of [Unit]
- * Display Label : [Label]
- * 
  * @param.Unit.ko-KR
  * 순위를 매길 유닛입니다.
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for most kill of [Unit]
+ * Display Label : [Label]
  * @param.Unit.en-US
- * 순위를 매길 유닛입니다.
+ * Unit to rank.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 按当前玩家杀死[Unit]的数量在积分榜上显示排名。积分榜旁边的文本由[Label]指定。
+ * @param.Unit.zh-CN
+ * 要排名的单位。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardKills(Unit : TrgUnit, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 현재 플레이어들의 [ScoreType] 점수 상위 순위대로 점수표에 표시합니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for most [ScoreType]
- * Display Label : [Label]
- * 
  * @param.ScoreType.ko-KR
  * 순위를 매길 점수입니다.
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for most [ScoreType]
+ * Display Label : [Label]
  * @param.ScoreType.en-US
- * 순위를 매길 점수입니다.
+ * Score type to rank.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 按当前玩家的[ScoreType]分数在积分榜上显示排名。积分榜旁边的文本由[Label]指定。
+ * @param.ScoreType.zh-CN
+ * 要排名的分数类型。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardScore(ScoreType : TrgScore, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 맵 상에 존재하는 [Player]의 [Unit]을 전부 죽입니다. 사망 이펙트가 발생합니다.
- * @Summary.en-US
- * Kill all [Unit] for [Player].
- * 
  * @param.Player.ko-KR
  * 죽일 유닛을 소유하고 있을 플레이어입니다.
  * @param.Unit.ko-KR
  * 죽일 유닛입니다.
  * 
+ * @Summary.en-US
+ * Kill all [Unit] for [Player].
  * @param.Player.en-US
- * 죽일 유닛을 소유하고 있을 플레이어입니다.
+ * Player who owns the units to kill.
  * @param.Unit.en-US
- * 죽일 유닛입니다.
+ * Unit to kill.
+ * 
+ * @Summary.zh-CN
+ * 杀死地图上[Player]的所有[Unit]。会产生死亡效果。
+ * @param.Player.zh-CN
+ * 拥有要杀死单位的玩家。
+ * @param.Unit.zh-CN
+ * 要杀死的单位。
 ***/
 function KillUnit(Unit : TrgUnit, Player : TrgPlayer){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 특정 지점 [Where]에 있는 [ForPlayer]의 유닛 [Unit]을 [Count]만큼 죽입니다. 사망 이펙트가 발생합니다.
- * @Summary.en-US
- * Kill [Count] [Unit] for [ForPlayer] at [Where].
- * 
  * @param.Where.ko-KR
  * 죽일 유닛을 인식할 로케이션입니다.
  * @param.ForPlayer.ko-KR
@@ -430,49 +504,61 @@ function KillUnit(Unit : TrgUnit, Player : TrgPlayer){}
  * @param.Count.ko-KR
  * 죽일 유닛의 수입니다.
  * 
+ * @Summary.en-US
+ * Kill [Count] [Unit] for [ForPlayer] at [Where].
  * @param.Where.en-US
- * 죽일 유닛을 인식할 로케이션입니다.
+ * Location to recognize units to kill.
  * @param.ForPlayer.en-US
- * 죽일 유닛의 소유 플레이어입니다.
+ * Player who owns the units to kill.
  * @param.Unit.en-US
- * 죽일 유닛의 종류입니다.
+ * Type of unit to kill.
  * @param.Count.en-US
- * 죽일 유닛의 수입니다.
+ * Number of units to kill.
+ * 
+ * @Summary.zh-CN
+ * 在[Where]位置杀死[ForPlayer]的[Unit]单位[Count]个。会产生死亡效果。
+ * @param.Where.zh-CN
+ * 识别要杀死单位的位置。
+ * @param.ForPlayer.zh-CN
+ * 拥有要杀死单位的玩家。
+ * @param.Unit.zh-CN
+ * 要杀死单位的类型。
+ * @param.Count.zh-CN
+ * 要杀死单位的数量。
 ***/
 function KillUnitAt(Count : TrgCount, Unit : TrgUnit, Where : TrgLocation : TrgLocation, ForPlayer : TrgPlayer){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 맵 상에 존재하는 [Player]의 [Unit]을 전부 삭제합니다. 사망 이펙트가 발생하지 않습니다.
- * @Summary.en-US
- * Remove all [Unit] for [Player].
- * 
  * @param.Player.ko-KR
  * 삭제할 유닛을 소유하고 있을 플레이어입니다.
  * @param.Unit.ko-KR
  * 삭제할 유닛입니다.
  * 
+ * @Summary.en-US
+ * Remove all [Unit] for [Player].
  * @param.Player.en-US
- * 삭제할 유닛을 소유하고 있을 플레이어입니다.
+ * Player who owns the units to remove.
  * @param.Unit.en-US
- * 삭제할 유닛입니다.
+ * Unit to remove.
+ * 
+ * @Summary.zh-CN
+ * 移除地图上[Player]的所有[Unit]。不会产生死亡效果。
+ * @param.Player.zh-CN
+ * 拥有要移除单位的玩家。
+ * @param.Unit.zh-CN
+ * 要移除的单位。
 ***/
 function RemoveUnit(Unit : TrgUnit, Player : TrgPlayer){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 특정 지점 [Where]에 있는 [ForPlayer]의 유닛 [Unit]을 [Count]만큼 삭제합니다. 사망 이펙트가 발생하지 않습니다.
- * @Summary.en-US
- * Remove [Count] [Unit] for [ForPlayer] at [Where].
- * 
  * @param.Where.ko-KR
  * 삭제할 유닛을 인식할 로케이션입니다.
  * @param.ForPlayer.ko-KR
@@ -482,27 +568,35 @@ function RemoveUnit(Unit : TrgUnit, Player : TrgPlayer){}
  * @param.Count.ko-KR
  * 삭제할 유닛의 수입니다.
  * 
+ * @Summary.en-US
+ * Remove [Count] [Unit] for [ForPlayer] at [Where].
  * @param.Where.en-US
- * 삭제할 유닛을 인식할 로케이션입니다.
+ * Location to recognize units to remove.
  * @param.ForPlayer.en-US
- * 삭제할 유닛의 소유 플레이어입니다.
+ * Player who owns the units to remove.
  * @param.Unit.en-US
- * 삭제할 유닛의 종류입니다.
+ * Type of unit to remove.
  * @param.Count.en-US
- * 삭제할 유닛의 수입니다.
+ * Number of units to remove.
+ * 
+ * @Summary.zh-CN
+ * 在[Where]位置移除[ForPlayer]的[Unit]单位[Count]个。不会产生死亡效果。
+ * @param.Where.zh-CN
+ * 识别要移除单位的位置。
+ * @param.ForPlayer.zh-CN
+ * 拥有要移除单位的玩家。
+ * @param.Unit.zh-CN
+ * 要移除单位的类型。
+ * @param.Count.zh-CN
+ * 要移除单位的数量。
 ***/
 function RemoveUnitAt(Count : TrgCount, Unit : TrgUnit, Where : TrgLocation : TrgLocation, ForPlayer : TrgPlayer){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Player]의 자원 [ResourceType]을 [Amount]만큼 [Modifier]합니다.
- * @Summary.en-US
- * Modify resources for [Player]: [Modifier] [Amount] [ResourceType].
- * 
  * @param.Player.ko-KR
  * 자원이 설정될 플레이어입니다.
  * @param.ResourceType.ko-KR
@@ -512,27 +606,35 @@ function RemoveUnitAt(Count : TrgCount, Unit : TrgUnit, Where : TrgLocation : Tr
  * @param.Modifier.ko-KR
  * 설정한 자원의 양만큼 어떻게 할 것인지 정합니다.
  * 
+ * @Summary.en-US
+ * Modify resources for [Player]: [Modifier] [Amount] [ResourceType].
  * @param.Player.en-US
- * 자원이 설정될 플레이어입니다.
+ * Player whose resources will be set.
  * @param.ResourceType.en-US
- * 설정할 자원의 종류입니다.
+ * Type of resource to set.
  * @param.Amount.en-US
- * 설정할 자원의 양입니다.
+ * Amount of resources to set.
  * @param.Modifier.en-US
- * 설정한 자원의 양만큼 어떻게 할 것인지 정합니다.
+ * Determines how to handle the set amount of resources.
+ * 
+ * @Summary.zh-CN
+ * 将[Player]的资源[ResourceType][Modifier][Amount]。
+ * @param.Player.zh-CN
+ * 资源将被设置的玩家。
+ * @param.ResourceType.zh-CN
+ * 要设置的资源类型。
+ * @param.Amount.zh-CN
+ * 要设置的资源数量。
+ * @param.Modifier.zh-CN
+ * 确定如何处理设置的数量。
 ***/
 function SetResources(Player : TrgPlayer, Modifier : TrgModifier, Amount, ResourceType : TrgResource){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Player]의 점수 [ScoreType]를 [Amount]만큼 [Modifier]합니다.
- * @Summary.en-US
- * Modify score for [Player]: [Modifier] [Amount] [ScoreType].
- * 
  * @param.Player.ko-KR
  * 점수가 설정될 플레이어입니다.
  * @param.ScoreType.ko-KR
@@ -542,112 +644,129 @@ function SetResources(Player : TrgPlayer, Modifier : TrgModifier, Amount, Resour
  * @param.Modifier.ko-KR
  * 설정한 점수의 양만큼 어떻게 할 것인지 정합니다.
  * 
+ * @Summary.en-US
+ * Modify score for [Player]: [Modifier] [Amount] [ScoreType].
  * @param.Player.en-US
- * 점수가 설정될 플레이어입니다.
+ * Player whose score will be set.
  * @param.ScoreType.en-US
- * 설정할 점수의 종류입니다.
+ * Type of score to set.
  * @param.Amount.en-US
- * 설정할 점수의 양입니다.
+ * Amount of score to set.
  * @param.Modifier.en-US
- * 설정한 점수의 양만큼 어떻게 할 것인지 정합니다.
+ * Determines how to handle the set amount of score.
+ * 
+ * @Summary.zh-CN
+ * 将[Player]的分数[ScoreType][Modifier][Amount]。
+ * @param.Player.zh-CN
+ * 分数将被设置的玩家。
+ * @param.ScoreType.zh-CN
+ * 要设置的分数类型。
+ * @param.Amount.zh-CN
+ * 要设置的分数数量。
+ * @param.Modifier.zh-CN
+ * 确定如何处理设置的数量。
 ***/
 function SetScore(Player : TrgPlayer, Modifier : TrgModifier, Amount, ScoreType : TrgScore){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어의 미니맵 [Where] 위치에 핑 표시를 찍습니다.
- * @Summary.en-US
- * Show minimap ping for current player at [Where].
- * 
  * @param.Where.ko-KR
  * 핑을 찍을 지점입니다.
  * 
+ * @Summary.en-US
+ * Show minimap ping for current player at [Where].
  * @param.Where.en-US
- * 핑을 찍을 지점입니다.
+ * Point to ping.
+ * 
+ * @Summary.zh-CN
+ * 在触发玩家的小地图[Where]位置显示ping标记。
+ * @param.Where.zh-CN
+ * 要ping的点。
 ***/
 function MinimapPing(Where : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어의 포트레잇 창에 [Unit]이 말하는 초상화를 [Time]동안 띄웁니다.
- * @Summary.en-US
- * Show [Unit] talking to current player for [Time] milliseconds.
- * 
  * @param.Unit.ko-KR
  * 포트레잇 창에 말하는 모습을 띄울 유닛입니다.
  * @param.Time.ko-KR
  * 띄울 시간입니다.
  * 
+ * @Summary.en-US
+ * Show [Unit] talking to current player for [Time] milliseconds.
  * @param.Unit.en-US
- * 포트레잇 창에 말하는 모습을 띄울 유닛입니다.
+ * Unit to display talking in portrait window.
  * @param.Time.en-US
- * 띄울 시간입니다.
+ * Display time.
+ * 
+ * @Summary.zh-CN
+ * 在触发玩家的头像窗口中显示[Unit]说话的头像[Time]毫秒。
+ * @param.Unit.zh-CN
+ * 在头像窗口中显示说话形象的单位。
+ * @param.Time.zh-CN
+ * 显示时间。
 ***/
 function TalkingPortrait(Unit : TrgUnit, Time){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어의 모든 이펙트 사운드를 최소화합니다.
+ *
  * @Summary.en-US
  * Mute all non-trigger unit sounds for current player.
- * 
+ *
+ * @Summary.zh-CN
+ * 最小化触发玩家的所有效果音效。
 ***/
 function MuteUnitSpeech(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 트리거 플레이어의 최소화되었던 모든 이펙트 사운드를 다시 원상태로 복귀시킵니다.
+ *
  * @Summary.en-US
  * Unmute all non-trigger unit sounds for current player.
- * 
- ***/
+ *
+ * @Summary.zh-CN
+ * 将触发玩家已最小化的所有效果音效恢复到原始状态。
+***/
 function UnMuteUnitSpeech(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 컴퓨터 플레이어의 점수를 점수판에 [State]합니다.
- * @Summary.en-US
- * [State] use of computer players in leaderboard calculations.
- * 
  * @param.State.ko-KR
  * 컴퓨터 플레이어의 점수를 숨길지 보여줄지 설정합니다.
  * 
+ * @Summary.en-US
+ * [State] use of computer players in leaderboard calculations.
  * @param.State.en-US
- * 컴퓨터 플레이어의 점수를 숨길지 보여줄지 설정합니다.
+ * Set whether to hide or show computer players' scores.
+ * 
+ * @Summary.zh-CN
+ * 在积分榜上[State]电脑玩家的分数。
+ * @param.State.zh-CN
+ * 设置是否隐藏或显示电脑玩家的分数。
 ***/
 function LeaderBoardComputerPlayers(State : TrgPropState){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Unit]을 목표치 [Goal]에 가깝게 소유하고 있는 플레이어의 순위를 보여줍니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for player closest to control of [Goal] of [Unit].
- * Display Label : [Label]
- * 
  * @param.Goal.ko-KR
  * 목표치입니다.
  * @param.Unit.ko-KR
@@ -655,26 +774,32 @@ function LeaderBoardComputerPlayers(State : TrgPropState){}
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for player closest to control of [Goal] of [Unit].
+ * Display Label : [Label]
  * @param.Goal.en-US
- * 목표치입니다.
+ * Target value.
  * @param.Unit.en-US
- * 순위를 매길 유닛입니다.
+ * Unit to rank.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 显示拥有[Unit]最接近目标[Goal]的玩家排名。积分榜旁边的文本由[Label]指定。
+ * @param.Goal.zh-CN
+ * 目标值。
+ * @param.Unit.zh-CN
+ * 要排名的单位。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardGoalControl(Goal, Unit : TrgUnit, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Unit]을 특정 지점인 [Location] 안에서 목표치 [Goal]에 가깝게 소유하고 있는 플레이어의 순위를 보여줍니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for player closest to control of [Goal] of [Unit] at [Location].
- * Display Label : [Label]
- * 
  * @param.Goal.ko-KR
  * 목표치입니다.
  * @param.Unit.ko-KR
@@ -684,28 +809,36 @@ function LeaderBoardGoalControl(Goal, Unit : TrgUnit, Label : TrgString){}
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for player closest to control of [Goal] of [Unit] at [Location].
+ * Display Label : [Label]
  * @param.Goal.en-US
- * 목표치입니다.
+ * Target value.
  * @param.Unit.en-US
- * 순위를 매길 유닛입니다.
+ * Unit to rank.
  * @param.Location.en-US
- * 순위를 매길 유닛이 존재해야 할 지점입니다.
+ * Location where the ranked units must be present.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 显示在[Location]内拥有[Unit]最接近目标[Goal]的玩家排名。积分榜旁边的文本由[Label]指定。
+ * @param.Goal.zh-CN
+ * 目标值。
+ * @param.Unit.zh-CN
+ * 要排名的单位。
+ * @param.Location.zh-CN
+ * 排名单位必须存在的位置。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardGoalControlAt(Goal, Unit : TrgUnit, Location : TrgLocation, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 목표치 [Goal]에 가깝게 자원 [ResourceType]을 보유하고 있는 플레이어의 순위를 보여줍니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for player closest to accumulation of [Goal] [ResourceType].
- * Display Label : [Label]
- * 
  * @param.Goal.ko-KR
  * 목표치입니다.
  * @param.ResourceType.ko-KR
@@ -713,26 +846,32 @@ function LeaderBoardGoalControlAt(Goal, Unit : TrgUnit, Location : TrgLocation, 
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for player closest to accumulation of [Goal] [ResourceType].
+ * Display Label : [Label]
  * @param.Goal.en-US
- * 목표치입니다.
+ * Target value.
  * @param.ResourceType.en-US
- * 순위를 매길 자원의 종류입니다.
+ * Type of resource to rank.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 显示拥有资源[ResourceType]最接近目标[Goal]的玩家排名。积分榜旁边的文本由[Label]指定。
+ * @param.Goal.zh-CN
+ * 目标值。
+ * @param.ResourceType.zh-CN
+ * 要排名的资源类型。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardGoalResources(Goal, ResourceType : TrgResource, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Unit]을 목표치 [Goal]에 가깝게 죽인 플레이어의 순위를 보여줍니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for player closest to control of [Goal] kills of [Unit].
- * Display Label : [Label]
- * 
  * @param.Unit.ko-KR
  * 순위를 매길 유닛입니다.
  * @param.Goal.ko-KR
@@ -740,26 +879,32 @@ function LeaderBoardGoalResources(Goal, ResourceType : TrgResource, Label : TrgS
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for player closest to control of [Goal] kills of [Unit].
+ * Display Label : [Label]
  * @param.Unit.en-US
- * 순위를 매길 유닛입니다.
+ * Unit to rank.
  * @param.Goal.en-US
- * 목표치입니다.
+ * Target value.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 显示杀死[Unit]最接近目标[Goal]的玩家排名。积分榜旁边的文本由[Label]指定。
+ * @param.Unit.zh-CN
+ * 要排名的单位。
+ * @param.Goal.zh-CN
+ * 目标值。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardGoalKills(Goal, Unit : TrgUnit, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [ScoreType]를 목표치 [Goal]에 가깝게 보유한 플레이어의 순위를 보여줍니다. 이 때 점수표 옆의 텍스트는 [Label]로 지정합니다.
- * @Summary.en-US
- * Show Leader Board for player closest to control of [Goal] [ScoreType].
- * Display Label : [Label]
- * 
  * @param.ScoreType.ko-KR
  * 순위를 매길 점수입니다.
  * @param.Goal.ko-KR
@@ -767,25 +912,32 @@ function LeaderBoardGoalKills(Goal, Unit : TrgUnit, Label : TrgString){}
  * @param.Label.ko-KR
  * 순위표 옆에 뜰 텍스트입니다.
  * 
+ * @Summary.en-US
+ * Show Leader Board for player closest to control of [Goal] [ScoreType].
+ * Display Label : [Label]
  * @param.ScoreType.en-US
- * 순위를 매길 점수입니다.
+ * Score type to rank.
  * @param.Goal.en-US
- * 목표치입니다.
+ * Target value.
  * @param.Label.en-US
- * 순위표 옆에 뜰 텍스트입니다.
+ * Text displayed next to the leader board.
+ * 
+ * @Summary.zh-CN
+ * 显示拥有分数[ScoreType]最接近目标[Goal]的玩家排名。积分榜旁边的文本由[Label]指定。
+ * @param.ScoreType.zh-CN
+ * 要排名的分数类型。
+ * @param.Goal.zh-CN
+ * 目标值。
+ * @param.Label.zh-CN
+ * 积分榜旁边显示的文本。
 ***/
 function LeaderBoardGoalScore(Goal, ScoreType : TrgScore, Label : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [DestLocation]에 있는 [Owner]의 [OnUnit] 위로 [Location](을)를 옮깁니다.
- * @Summary.en-US
- * Center location labeled [Location] on [OnUnit] owned by [Owner] at [DestLocation].
- * 
  * @param.Location.ko-KR
  * 옮길 로케이션을 정합니다
  * @param.OnUnit.ko-KR
@@ -795,27 +947,35 @@ function LeaderBoardGoalScore(Goal, ScoreType : TrgScore, Label : TrgString){}
  * @param.DestLocation.ko-KR
  * 로케이션이 옮겨질 구역을 정합니다
  * 
+ * @Summary.en-US
+ * Center location labeled [Location] on [OnUnit] owned by [Owner] at [DestLocation].
  * @param.Location.en-US
- * 옮길 로케이션을 정합니다
+ * Location to move.
  * @param.OnUnit.en-US
- * 로케이션의 중심이 될 유닛을 정합니다
+ * Unit that will be the center of the location.
  * @param.Owner.en-US
- * 중심이 될 유닛의 소유자를 정합니다
+ * Owner of the unit that will be the center.
  * @param.DestLocation.en-US
- * 로케이션이 옮겨질 구역을 정합니다
+ * Area where the location will be moved.
+ * 
+ * @Summary.zh-CN
+ * 将[Location]位置移动到[DestLocation]处的[Owner]的[OnUnit]上。
+ * @param.Location.zh-CN
+ * 要移动的位置。
+ * @param.OnUnit.zh-CN
+ * 作为位置中心的单位。
+ * @param.Owner.zh-CN
+ * 作为中心单位的所有者。
+ * @param.DestLocation.zh-CN
+ * 位置将移动到的区域。
 ***/
 function MoveLocation(Location : TrgLocation, OnUnit : TrgUnit, Owner : TrgPlayer, DestLocation : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [StartLocation]에 있는 [Owner]의 [UnitType]을 [Count]만큼 [DestLocation](으)로 옮깁니다.
- * @Summary.en-US
- * Move [Count] [UnitType] for [Owner] at [StartLocation] to [DestLocation].
- * 
  * @param.Count.ko-KR
  * 옮길 유닛의 수를 정합니다
  * @param.UnitType.ko-KR
@@ -827,65 +987,79 @@ function MoveLocation(Location : TrgLocation, OnUnit : TrgUnit, Owner : TrgPlaye
  * @param.DestLocation.ko-KR
  * 유닛을 옮길 도착지를 정합니다
  * 
+ * @Summary.en-US
+ * Move [Count] [UnitType] for [Owner] at [StartLocation] to [DestLocation].
  * @param.Count.en-US
- * 옮길 유닛의 수를 정합니다
+ * Number of units to move.
  * @param.UnitType.en-US
- * 옮길 유닛의 종류를 정합니다
+ * Type of unit to move.
  * @param.Owner.en-US
- * 옮길 유닛의 소유자를 정합니다
+ * Owner of the units to move.
  * @param.StartLocation.en-US
- * 유닛을 옮길 출발지를 정합니다
+ * Starting point to move units.
  * @param.DestLocation.en-US
- * 유닛을 옮길 도착지를 정합니다
+ * Destination to move units.
+ * 
+ * @Summary.zh-CN
+ * 将[StartLocation]处的[Owner]的[UnitType]单位移动[Count]个到[DestLocation]。
+ * @param.Count.zh-CN
+ * 要移动的单位数量。
+ * @param.UnitType.zh-CN
+ * 要移动的单位类型。
+ * @param.Owner.zh-CN
+ * 要移动单位的所有者。
+ * @param.StartLocation.zh-CN
+ * 移动单位的起点。
+ * @param.DestLocation.zh-CN
+ * 移动单位的目的地。
 ***/
 function MoveUnit(Count : TrgCount, UnitType : TrgUnit, Owner : TrgPlayer, StartLocation : TrgLocation, DestLocation : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 자원의 총합을 목표치 [Goal]에 가깝게 보유한 플레이어의 순위를 보여줍니다.
- * @Summary.en-US
- * Show Greed Leader Board for player closest to accumulation of [Goal] ore and gas.
- * 
  * @param.Goal.ko-KR
  * 목표치입니다.
  * 
+ * @Summary.en-US
+ * Show Greed Leader Board for player closest to accumulation of [Goal] ore and gas.
  * @param.Goal.en-US
- * 목표치입니다.
+ * Target value.
+ * 
+ * @Summary.zh-CN
+ * 显示拥有资源总量最接近目标[Goal]的玩家排名。
+ * @param.Goal.zh-CN
+ * 目标值。
 ***/
 function LeaderBoardGreed(Goal){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 다음에 플레이하게 될 맵을 설정합니다. 캠페인 혹은 시리즈 맵 한정 트리거이며 플레이 중인 맵의 동일한 폴더 안에 해당 맵이 있어야지만 발동됩니다.
- * @Summary.en-US
- * Load [ScenarioName] after completion of current game.
- * 
  * @param.ScenarioName.ko-KR
  * 다음에 플레이하게 될 맵의 이름입니다.
  * 
+ * @Summary.en-US
+ * Load [ScenarioName] after completion of current game.
  * @param.ScenarioName.en-US
- * 다음에 플레이하게 될 맵의 이름입니다.
+ * Name of the map to be played next.
+ * 
+ * @Summary.zh-CN
+ * 设置下一局要玩的地图。仅限于战役或系列地图，且该地图必须位于当前地图的同一文件夹中才能触发。
+ * @param.ScenarioName.zh-CN
+ * 下一局要玩的地图名称。
 ***/
 function SetNextScenario(ScenarioName : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 있는 [Owner]의 [Unit](을)를 [State]상태로 설정합니다.
- * @Summary.en-US
- * [State] doodad state for [Unit] for [Owner] at [Where].
- * 
  * @param.State.ko-KR
  * 설정할 상태를 정합니다
  * @param.Unit.ko-KR
@@ -895,27 +1069,35 @@ function SetNextScenario(ScenarioName : TrgString){}
  * @param.Where.ko-KR
  * 상태를 적용시킬 위치를 정합니다
  * 
+ * @Summary.en-US
+ * [State] doodad state for [Unit] for [Owner] at [Where].
  * @param.State.en-US
- * 설정할 상태를 정합니다
+ * State to set.
  * @param.Unit.en-US
- * 상태가 적용될 유닛을 정합니다
+ * Unit to apply the state to.
  * @param.Owner.en-US
- * 상태를 적용할 유닛의 소유자를 정합니다
+ * Owner of the unit to apply the state to.
  * @param.Where.en-US
- * 상태를 적용시킬 위치를 정합니다
+ * Location to apply the state.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的[Unit]设置为[State]状态。
+ * @param.State.zh-CN
+ * 要设置的状态。
+ * @param.Unit.zh-CN
+ * 要应用状态的单位。
+ * @param.Owner.zh-CN
+ * 要应用状态单位的所有者。
+ * @param.Where.zh-CN
+ * 要应用状态的位置。
 ***/
 function SetDoodadState(State : TrgPropState, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 있는 [Owner]의 [Unit]의 무적 상태를  [State]상태로 합니다.
- * @Summary.en-US
- * [State] invincibility for [Unit] owned by [Owner] at [Where].
- * 
  * @param.State.ko-KR
  * 유닛의 무적 상태를 설정합니다
  * @param.Unit.ko-KR
@@ -925,27 +1107,35 @@ function SetDoodadState(State : TrgPropState, Unit : TrgUnit, Owner : TrgPlayer,
  * @param.Where.ko-KR
  * 상태를 설정할 위치를 정합니다
  * 
+ * @Summary.en-US
+ * [State] invincibility for [Unit] owned by [Owner] at [Where].
  * @param.State.en-US
- * 유닛의 무적 상태를 설정합니다
+ * Set the invincibility state of the unit.
  * @param.Unit.en-US
- * 상태를 설정할 유닛을 정합니다
+ * Unit to set the state for.
  * @param.Owner.en-US
- * 상태를 설정할 유닛의 소유자를 정합니다
+ * Owner of the unit to set the state for.
  * @param.Where.en-US
- * 상태를 설정할 위치를 정합니다
+ * Location to set the state.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的[Unit]的无敌状态设置为[State]。
+ * @param.State.zh-CN
+ * 设置单位的无敌状态。
+ * @param.Unit.zh-CN
+ * 要设置状态的单位。
+ * @param.Owner.zh-CN
+ * 要设置状态单位的所有者。
+ * @param.Where.zh-CN
+ * 要设置状态的位置。
 ***/
 function SetInvincibility(State : TrgPropState, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 [Number]만큼 [Unit]을 [ForPlayer]의 소유로 생성합니다.
- * @Summary.en-US
- * Create [Number] [Unit] at [Where] for [ForPlayer].
- * 
  * @param.Number.ko-KR
  * 유닛의 수량을 설정합니다.
  * @param.Unit.ko-KR
@@ -955,27 +1145,35 @@ function SetInvincibility(State : TrgPropState, Unit : TrgUnit, Owner : TrgPlaye
  * @param.ForPlayer.ko-KR
  * 플레이어를 설정합니다.
  * 
+ * @Summary.en-US
+ * Create [Number] [Unit] at [Where] for [ForPlayer].
  * @param.Number.en-US
- * 유닛의 수량을 설정합니다.
+ * Set the quantity of units.
  * @param.Unit.en-US
- * 유닛의 종류를 결정합니다.
+ * Determine the type of unit.
  * @param.Where.en-US
- * 생성될 위치를 설정합니다.
+ * Set the location to create.
  * @param.ForPlayer.en-US
- * 플레이어를 설정합니다.
+ * Set the player.
+ * 
+ * @Summary.zh-CN
+ * 在[Where]位置为[ForPlayer]创建[Number]个[Unit]。
+ * @param.Number.zh-CN
+ * 设置单位数量。
+ * @param.Unit.zh-CN
+ * 决定单位类型。
+ * @param.Where.zh-CN
+ * 设置创建位置。
+ * @param.ForPlayer.zh-CN
+ * 设置玩家。
 ***/
 function CreateUnit(Number, Unit : TrgUnit, Where : TrgLocation, ForPlayer : TrgPlayer){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 [Player]의 [Unit](을)를 [Count]만큼 [Properties](으)로 생성합니다.
- * @Summary.en-US
- * Create [Count] [Unit] for [Player] at [Where] with [Properties]
- * 
  * @param.Count.ko-KR
  * 생성할 유닛의 수를 정합니다
  * @param.Unit.ko-KR
@@ -987,29 +1185,39 @@ function CreateUnit(Number, Unit : TrgUnit, Where : TrgLocation, ForPlayer : Trg
  * @param.Properties.ko-KR
  * 생성될 유닛의 상태를 정합니다
  * 
+ * @Summary.en-US
+ * Create [Count] [Unit] for [Player] at [Where] with [Properties]
  * @param.Count.en-US
- * 생성할 유닛의 수를 정합니다
+ * Number of units to create.
  * @param.Unit.en-US
- * 생성할 유닛을 정합니다
+ * Unit to create.
  * @param.Where.en-US
- * 유닛을 생성할 위치를 정합니다
+ * Location to create units.
  * @param.Player.en-US
- * 생성될 유닛의 소유자를 정합니다
+ * Owner of the created units.
  * @param.Properties.en-US
- * 생성될 유닛의 상태를 정합니다
+ * State of the created units.
+ * 
+ * @Summary.zh-CN
+ * 在[Where]位置为[Player]创建[Count]个[Unit]，状态为[Properties]。
+ * @param.Count.zh-CN
+ * 要创建的单位数量。
+ * @param.Unit.zh-CN
+ * 要创建的单位。
+ * @param.Where.zh-CN
+ * 创建单位的位置。
+ * @param.Player.zh-CN
+ * 创建单位的所有者。
+ * @param.Properties.zh-CN
+ * 创建单位的状态。
 ***/
 function CreateUnitWithProperties(Count : TrgCount, Unit : TrgUnit, Where : TrgLocation : TrgLocation, Player : TrgPlayer, Properties : TrgProperty){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Player]소유의  [Unit](이)가 죽은 수를 [Number]만큼 [Modifier]합니다.
- * @Summary.en-US
- * Modify death counts for [Player]: [Modifier] [Number] for [Unit].
- * 
  * @param.Player.ko-KR
  * 죽은 유닛의 수가 조정될 플레이어를 정합니다
  * @param.Modifier.ko-KR
@@ -1019,28 +1227,35 @@ function CreateUnitWithProperties(Count : TrgCount, Unit : TrgUnit, Where : TrgL
  * @param.Unit.ko-KR
  * 죽은 수가 조정될 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * Modify death counts for [Player]: [Modifier] [Number] for [Unit].
  * @param.Player.en-US
- * 죽은 유닛의 수가 조정될 플레이어를 정합니다
+ * Player whose death count will be adjusted.
  * @param.Modifier.en-US
- * 조정할 방법을 정합니다
+ * Method of adjustment.
  * @param.Number.en-US
- * 조정할 수를 정합니다
+ * Number to adjust.
  * @param.Unit.en-US
- * 죽은 수가 조정될 유닛을 정합니다
+ * Unit whose death count will be adjusted.
+ * 
+ * @Summary.zh-CN
+ * 将[Player]拥有的[Unit]的死亡数量[Modifier][Number]。
+ * @param.Player.zh-CN
+ * 死亡数量将被调整的玩家。
+ * @param.Modifier.zh-CN
+ * 调整方法。
+ * @param.Number.zh-CN
+ * 调整数量。
+ * @param.Unit.zh-CN
+ * 死亡数量将被调整的单位。
 ***/
 function SetDeaths(Player : TrgPlayer, Modifier : TrgModifier, Number, Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [StartLocation]에 있는 [Owner]소유의 [Unit]에게 [DestLocation]로 [OrderType]명령을 내립니다.
- * @Summary.en-US
- * Issue order to all [Unit] owned by [Owner] at [StartLocation]:
- * [OrderType] to [DestLocation].
- * 
  * @param.StartLocation.ko-KR
  * 명령의 시작 위치를 정합니다
  * @param.Owner.ko-KR
@@ -1052,47 +1267,60 @@ function SetDeaths(Player : TrgPlayer, Modifier : TrgModifier, Number, Unit : Tr
  * @param.OrderType.ko-KR
  * 명령 방식을 정합니다
  * 
+ * @Summary.en-US
+ * Issue order to all [Unit] owned by [Owner] at [StartLocation]:
+ * [OrderType] to [DestLocation].
  * @param.StartLocation.en-US
- * 명령의 시작 위치를 정합니다
+ * Starting location of the order.
  * @param.Owner.en-US
- * 대상이 될 유닛의 소유자를 정합니다
+ * Owner of the units to be targeted.
  * @param.Unit.en-US
- * 명령을 받을 유닛을 정합니다
+ * Unit to receive the order.
  * @param.DestLocation.en-US
- * 목적지를 정합니다
+ * Destination.
  * @param.OrderType.en-US
- * 명령 방식을 정합니다
+ * Order type.
+ * 
+ * @Summary.zh-CN
+ * 向[StartLocation]处的[Owner]拥有的[Unit]下达[OrderType]命令到[DestLocation]。
+ * @param.StartLocation.zh-CN
+ * 命令的起始位置。
+ * @param.Owner.zh-CN
+ * 目标单位的所有者。
+ * @param.Unit.zh-CN
+ * 接收命令的单位。
+ * @param.DestLocation.zh-CN
+ * 目的地。
+ * @param.OrderType.zh-CN
+ * 命令方式。
 ***/
 function Order(Unit : TrgUnit, Owner : TrgPlayer, StartLocation : TrgLocation, OrderType : TrgOrder, DestLocation : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 트리거의 이름을 [Text]로 정합니다.
- * @Summary.en-US
- * Comment: [Text]
- * 
  * @param.Text.ko-KR
  * 트리거 목록에 표시될 텍스트를 정합니다
  * 
+ * @Summary.en-US
+ * Comment: [Text]
  * @param.Text.en-US
- * 트리거 목록에 표시될 텍스트를 정합니다
+ * Text to be displayed in the trigger list.
+ * 
+ * @Summary.zh-CN
+ * 将触发器名称设置为[Text]。
+ * @param.Text.zh-CN
+ * 在触发器列表中显示的文本。
 ***/
 function Comment(Text : TrgString){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 있는 [Owner]의 [Unit](을)를 [Count]만큼 [NewOwner]에게 넘겨줍니다.
- * @Summary.en-US
- * Give [Count] [Unit] owned by [Owner] at [Where] to [NewOwner].
- * 
  * @param.Count.ko-KR
  * 넘겨줄 유닛의 수를 정합니다
  * @param.Unit.ko-KR
@@ -1104,29 +1332,39 @@ function Comment(Text : TrgString){}
  * @param.NewOwner.ko-KR
  * 유닛을 넘겨받을 플레이어를 정합니다
  * 
+ * @Summary.en-US
+ * Give [Count] [Unit] owned by [Owner] at [Where] to [NewOwner].
  * @param.Count.en-US
- * 넘겨줄 유닛의 수를 정합니다
+ * Number of units to give.
  * @param.Unit.en-US
- * 넘겨줄 유닛을 정합니다
+ * Unit to give.
  * @param.Owner.en-US
- * 유닛을 넘겨주는 플레이어를 정합니다
+ * Player giving the units.
  * @param.Where.en-US
- * 유닛을 넘겨줄 위치를 정합니다
+ * Location to give units.
  * @param.NewOwner.en-US
- * 유닛을 넘겨받을 플레이어를 정합니다
+ * Player receiving the units.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的[Unit]单位[Count]个转交给[NewOwner]。
+ * @param.Count.zh-CN
+ * 要转交的单位数量。
+ * @param.Unit.zh-CN
+ * 要转交的单位。
+ * @param.Owner.zh-CN
+ * 转交单位的玩家。
+ * @param.Where.zh-CN
+ * 转交单位的位置。
+ * @param.NewOwner.zh-CN
+ * 接收单位的玩家。
 ***/
 function GiveUnits(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation : TrgLocation, NewOwner : TrgPlayer){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 있는 [Owner]의 [Unit] [Count]기의 체력을 [Percent]%로 조정합니다.
- * @Summary.en-US
- * Set hit points for [Count] [Unit] owned by [Owner]. at [Where] to [Percent]%.
- * 
  * @param.Count.ko-KR
  * 체력이 조정될 유닛의 수를 정합니다
  * @param.Unit.ko-KR
@@ -1138,29 +1376,39 @@ function GiveUnits(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, Where : 
  * @param.Percent.ko-KR
  * 체력이 조정될 비율을 정합니다
  * 
+ * @Summary.en-US
+ * Set hit points for [Count] [Unit] owned by [Owner] at [Where] to [Percent]%.
  * @param.Count.en-US
- * 체력이 조정될 유닛의 수를 정합니다
+ * Number of units whose hit points will be adjusted.
  * @param.Unit.en-US
- * 체력이 조정될 유닛을 정합니다
+ * Unit whose hit points will be adjusted.
  * @param.Owner.en-US
- * 체력이 조정될 유닛의 소유자를 정합니다
+ * Owner of the units whose hit points will be adjusted.
  * @param.Where.en-US
- * 유닛의 체력을 조정할 위치를 정합니다
+ * Location to adjust hit points.
  * @param.Percent.en-US
- * 체력이 조정될 비율을 정합니다
+ * Percentage to adjust hit points to.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的[Unit]单位[Count]个的生命值调整为[Percent]%。
+ * @param.Count.zh-CN
+ * 生命值将被调整的单位数量。
+ * @param.Unit.zh-CN
+ * 生命值将被调整的单位。
+ * @param.Owner.zh-CN
+ * 生命值将被调整单位的所有者。
+ * @param.Where.zh-CN
+ * 调整生命值的位置。
+ * @param.Percent.zh-CN
+ * 调整生命值的百分比。
 ***/
 function ModifyUnitHitPoints(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation : TrgLocation, Percent){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에  있는 [Owner]의 [Unit] [Count]기의 에너지(마나)를 [Percent]%로 조정합니다.
- * @Summary.en-US
- * Set energy points for [Count] [Unit] owned by [Owner] at [Where] to [Percent]%.
- * 
  * @param.Count.ko-KR
  * 에너지가 조정될 유닛의 수를 정합니다
  * @param.Unit.ko-KR
@@ -1172,29 +1420,39 @@ function ModifyUnitHitPoints(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer
  * @param.Percent.ko-KR
  * 에너지가 조정될 비율을 정합니다
  * 
+ * @Summary.en-US
+ * Set energy points for [Count] [Unit] owned by [Owner] at [Where] to [Percent]%.
  * @param.Count.en-US
- * 에너지가 조정될 유닛의 수를 정합니다
+ * Number of units whose energy will be adjusted.
  * @param.Unit.en-US
- * 에너지가 조정될 유닛을 정합니다
+ * Unit whose energy will be adjusted.
  * @param.Owner.en-US
- * 에너지가 조정될 유닛의 소유자를 정합니다
+ * Owner of the units whose energy will be adjusted.
  * @param.Where.en-US
- * 유닛의 에너지를 조정할 위치를 정합니다
+ * Location to adjust energy.
  * @param.Percent.en-US
- * 에너지가 조정될 비율을 정합니다
+ * Percentage to adjust energy to.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的[Unit]单位[Count]个的能量(魔法值)调整为[Percent]%。
+ * @param.Count.zh-CN
+ * 能量将被调整的单位数量。
+ * @param.Unit.zh-CN
+ * 能量将被调整的单位。
+ * @param.Owner.zh-CN
+ * 能量将被调整单位的所有者。
+ * @param.Where.zh-CN
+ * 调整能量的位置。
+ * @param.Percent.zh-CN
+ * 调整能量的百分比。
 ***/
 function ModifyUnitEnergy(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation : TrgLocation, Percent){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 있는 [Owner]의 [Unit] [Count]기의 쉴드를 [Percent]%로 조정합니다.
- * @Summary.en-US
- * Set shield points for [Count] [Unit] owned by [Owner]. at [Where] to [Percent]%.
- * 
  * @param.Count.ko-KR
  * 쉴드가 조정될 유닛의 수를 정합니다
  * @param.Unit.ko-KR
@@ -1206,29 +1464,39 @@ function ModifyUnitEnergy(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, W
  * @param.Percent.ko-KR
  * 쉴드가 조정될 비율을 정합니다
  * 
+ * @Summary.en-US
+ * Set shield points for [Count] [Unit] owned by [Owner] at [Where] to [Percent]%.
  * @param.Count.en-US
- * 쉴드가 조정될 유닛의 수를 정합니다
+ * Number of units whose shields will be adjusted.
  * @param.Unit.en-US
- * 쉴드가 조정될 유닛을 정합니다
+ * Unit whose shields will be adjusted.
  * @param.Owner.en-US
- * 쉴드가 조정될 유닛의 소유자를 정합니다
+ * Owner of the units whose shields will be adjusted.
  * @param.Where.en-US
- * 유닛의 쉴드를 조정할 위치를 정합니다
+ * Location to adjust shields.
  * @param.Percent.en-US
- * 쉴드가 조정될 비율을 정합니다
+ * Percentage to adjust shields to.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的[Unit]单位[Count]个的护盾调整为[Percent]%。
+ * @param.Count.zh-CN
+ * 护盾将被调整的单位数量。
+ * @param.Unit.zh-CN
+ * 护盾将被调整的单位。
+ * @param.Owner.zh-CN
+ * 护盾将被调整单位的所有者。
+ * @param.Where.zh-CN
+ * 调整护盾的位置。
+ * @param.Percent.zh-CN
+ * 调整护盾的百分比。
 ***/
 function ModifyUnitShields(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation : TrgLocation, Percent){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Where]에 있는 [Owner]의 자원[Count]개의 자원량을 [NewValue]로 설정합니다.
- * @Summary.en-US
- * Set resource amount for [Count] resource sources owned by [Owner]. at [Where] to [NewValue].
- * 
  * @param.Count.ko-KR
  * 자원량을 수정할 자원의 갯수를 정합니다
  * @param.Owner.ko-KR
@@ -1238,27 +1506,35 @@ function ModifyUnitShields(Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, 
  * @param.NewValue.ko-KR
  * 자원량을 수정할 값을 정합니다
  * 
+ * @Summary.en-US
+ * Set resource amount for [Count] resource sources owned by [Owner] at [Where] to [NewValue].
  * @param.Count.en-US
- * 자원량을 수정할 자원의 갯수를 정합니다
+ * Number of resource sources to modify.
  * @param.Owner.en-US
- * 자원의 소유자를 정합니다
+ * Owner of the resources.
  * @param.Where.en-US
- * 자원량을 수정할 위치를 정합니다
+ * Location to modify resource amount.
  * @param.NewValue.en-US
- * 자원량을 수정할 값을 정합니다
+ * Value to set resource amount to.
+ * 
+ * @Summary.zh-CN
+ * 将[Where]处的[Owner]的资源[Count]个的资源量设置为[NewValue]。
+ * @param.Count.zh-CN
+ * 要修改的资源数量。
+ * @param.Owner.zh-CN
+ * 资源的所有者。
+ * @param.Where.zh-CN
+ * 修改资源量的位置。
+ * @param.NewValue.zh-CN
+ * 要设置的资源量值。
 ***/
 function ModifyUnitResourceAmount(Count : TrgCount, Owner : TrgPlayer, Where : TrgLocation : TrgLocation, NewValue){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 최대 [Add]만큼의 격납 유닛을 특정 지점 [Where]에 존재하는 [Owner]의 [Unit] [Count]기에게 지급합니다.
- * @Summary.en-US
- * Add at most [Add] to hangar for [Count] [Owner] at [Where] owned by [Owner].
- * 
  * @param.Add.ko-KR
  * 더할 격납 유닛의 갯수입니다.
  * @param.Where.ko-KR
@@ -1270,109 +1546,133 @@ function ModifyUnitResourceAmount(Count : TrgCount, Owner : TrgPlayer, Where : T
  * @param.Count.ko-KR
  * 트리거를 적용시킬 모체 유닛의 갯수입니다.
  * 
+ * @Summary.en-US
+ * Add at most [Add] to hangar for [Count] [Unit] at [Where] owned by [Owner].
  * @param.Add.en-US
- * 더할 격납 유닛의 갯수입니다.
+ * Number of hangar units to add.
  * @param.Where.en-US
- * 격납 유닛을 더할 모체 유닛이 존재하는 로케이션입니다.
+ * Location where the carrier units exist.
  * @param.Owner.en-US
- * 모체 유닛을 보유 중인 플레이어입니다.
+ * Player who owns the carrier units.
  * @param.Unit.en-US
- * 모체 유닛입니다.
+ * Carrier unit.
  * @param.Count.en-US
- * 트리거를 적용시킬 모체 유닛의 갯수입니다.
+ * Number of carrier units to apply the trigger to.
+ * 
+ * @Summary.zh-CN
+ * 最多为[Where]处[Owner]的[Unit]单位[Count]个添加[Add]个搭载单位。
+ * @param.Add.zh-CN
+ * 要添加的搭载单位数量。
+ * @param.Where.zh-CN
+ * 母体单位存在的位置。
+ * @param.Owner.zh-CN
+ * 拥有母体单位的玩家。
+ * @param.Unit.zh-CN
+ * 母体单位。
+ * @param.Count.zh-CN
+ * 应用触发器的母体单位数量。
 ***/
 function ModifyUnitHangarCount(Add, Count : TrgCount, Unit : TrgUnit, Owner : TrgPlayer, Where : TrgLocation){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 타이머를 멈춥니다.
+ *
  * @Summary.en-US
  * Pause the countdown timer.
+ *
+ * @Summary.zh-CN
+ * 暂停计时器。
 ***/
 function PauseTimer(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 타이머를 재개합니다.
+ *
  * @Summary.en-US
  * Unpause the countdown timer.
+ *
+ * @Summary.zh-CN
+ * 继续计时器。
 ***/
 function UnpauseTimer(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * 해당 플레이어의 게임 결과를 무승부로 처리합니다.
+ *
  * @Summary.en-US
  * End scenario in a draw for all players.
+ *
+ * @Summary.zh-CN
+ * 将该玩家的游戏结果处理为平局。
 ***/
 function Draw(){}
-
-
 
 /***
  * @Type
  * A
  * @Summary.ko-KR
  * [Player](와)과의 동맹관계를 [Status](으)로 설정합니다.
- * @Summary.en-US
- * Set [Player] to [Status].
- * 
  * @param.Player.ko-KR
  * 동맹관계를 수정할 플레이어를 정합니다
  * @param.Status.ko-KR
  * 동맹상태를 정합니다
  * 
+ * @Summary.en-US
+ * Set [Player] to [Status].
  * @param.Player.en-US
- * 동맹관계를 수정할 플레이어를 정합니다
+ * Player to modify alliance status.
  * @param.Status.en-US
- * 동맹상태를 정합니다
+ * Alliance status to set.
+ * 
+ * @Summary.zh-CN
+ * 将与[Player]的同盟关系设置为[Status]。
+ * @param.Player.zh-CN
+ * 确定要修改同盟关系的玩家。
+ * @param.Status.zh-CN
+ * 确定同盟状态。
 ***/
 function SetAllianceStatus(Player : TrgPlayer, Status : TrgAllyStatus){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 카운트 다운 타이머의 시간이 [Time]초 [Comparison]인 경우
- * @Summary.en-US
- * Countdown Timer is [Comparison] [Time] game seconds.
- * 
  * @param.Comparison.ko-KR
  * 비교할 방법을 정합니다
  * @param.Time.ko-KR
  * 비교할 시간을 정합니다
  * 
+ * @Summary.en-US
+ * Countdown Timer is [Comparison] [Time] game seconds.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Time.en-US
- * 비교할 시간을 정합니다
+ * Time to compare.
+ * 
+ * @Summary.zh-CN
+ * 倒计时计时器的时间为[Comparison][Time]秒的情况。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Time.zh-CN
+ * 确定比较的时间。
 ***/
 function CountdownTimer(Comparison : TrgComparison, Time){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Player](이)가 [Unit]을 [Number]기 [Comparison]보유한 경우
- * @Summary.en-US
- * [Player] commands [Comparison] [Number] [Unit].
- * 
  * @param.Player.ko-KR
  * 비교할 플레이어를 정합니다
  * @param.Comparison.ko-KR
@@ -1382,27 +1682,35 @@ function CountdownTimer(Comparison : TrgComparison, Time){}
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * [Player] commands [Comparison] [Number] [Unit].
  * @param.Player.en-US
- * 비교할 플레이어를 정합니다
+ * Player to compare.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Number.en-US
- * 비교할 수를 정합니다
+ * Number to compare.
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * [Player]拥有[Comparison][Number]个[Unit]的情况。
+ * @param.Player.zh-CN
+ * 确定要比较的玩家。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Number.zh-CN
+ * 确定比较的数量。
+ * @param.Unit.zh-CN
+ * 确定比较的单位。
 ***/
 function Command(Player : TrgPlayer, Comparison : TrgComparison, Number, Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Location]에 [Player]의 [Unit](이)가 [Number][Comparison] 있을 경우
- * @Summary.en-US
- * [Player] brings [Comparison] [Number] [Unit] to [Location].
- * 
  * @param.Player.ko-KR
  * 비교할 플레이어를 정합니다
  * @param.Comparison.ko-KR
@@ -1414,29 +1722,39 @@ function Command(Player : TrgPlayer, Comparison : TrgComparison, Number, Unit : 
  * @param.Location.ko-KR
  * 비교할 위치를 정합니다
  * 
+ * @Summary.en-US
+ * [Player] brings [Comparison] [Number] [Unit] to [Location].
  * @param.Player.en-US
- * 비교할 플레이어를 정합니다
+ * Player to compare.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Number.en-US
- * 비교할 유닛 수를 정합니다
+ * Number of units to compare.
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
  * @param.Location.en-US
- * 비교할 위치를 정합니다
+ * Location to compare.
+ * 
+ * @Summary.zh-CN
+ * [Location]处有[Player]的[Unit][Number][Comparison]个的情况。
+ * @param.Player.zh-CN
+ * 确定要比较的玩家。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Number.zh-CN
+ * 确定比较的单位数量。
+ * @param.Unit.zh-CN
+ * 确定比较的单位。
+ * @param.Location.zh-CN
+ * 确定比较的位置。
 ***/
 function Bring(Player : TrgPlayer, Comparison : TrgComparison, Number, Unit : TrgUnit, Location : TrgLocation){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Player](이)가 [ResourceType](을)를 [Number][Comparison] 가지고 있을 경우
- * @Summary.en-US
- * [Player] accumulates [Comparison] [Number] [ResourceType]
- * 
  * @param.Player.ko-KR
  * 비교할 플레이어를 정합니다
  * @param.Comparison.ko-KR
@@ -1446,27 +1764,35 @@ function Bring(Player : TrgPlayer, Comparison : TrgComparison, Number, Unit : Tr
  * @param.ResourceType.ko-KR
  * 비교할 자원의 종류를 정합니다
  * 
+ * @Summary.en-US
+ * [Player] accumulates [Comparison] [Number] [ResourceType]
  * @param.Player.en-US
- * 비교할 플레이어를 정합니다
+ * Player to compare.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Number.en-US
- * 비교할 수를 정합니다
+ * Number to compare.
  * @param.ResourceType.en-US
- * 비교할 자원의 종류를 정합니다
+ * Type of resource to compare.
+ * 
+ * @Summary.zh-CN
+ * [Player]拥有[Comparison][Number]个[ResourceType]的情况。
+ * @param.Player.zh-CN
+ * 确定要比较的玩家。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Number.zh-CN
+ * 确定比较的数量。
+ * @param.ResourceType.zh-CN
+ * 确定比较的资源类型。
 ***/
 function Accumulate(Player : TrgPlayer, Comparison : TrgComparison, Number, ResourceType : TrgResource){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Player](이)가 [Unit](을)를 [Number][Comparison] 죽였을 경우
- * @Summary.en-US
- * [Player] kills [Comparison] [Number] [Unit].
- * 
  * @param.Player.ko-KR
  * 비교할 플레이어를 정합니다
  * @param.Comparison.ko-KR
@@ -1476,178 +1802,207 @@ function Accumulate(Player : TrgPlayer, Comparison : TrgComparison, Number, Reso
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * [Player] kills [Comparison] [Number] [Unit].
  * @param.Player.en-US
- * 비교할 플레이어를 정합니다
+ * Player to compare.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Number.en-US
- * 비교할 수를 정합니다
+ * Number to compare.
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * [Player]杀死了[Comparison][Number]个[Unit]的情况。
+ * @param.Player.zh-CN
+ * 确定要比较的玩家。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Number.zh-CN
+ * 确定比较的数量。
+ * @param.Unit.zh-CN
+ * 确定比较的单位。
 ***/
 function Kills(Player : TrgPlayer, Comparison : TrgComparison, Number, Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Unit](을)를 가장 많이 보유한 경우
- * @Summary.en-US
- * Current Player commands the most [Unit].
- * 
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * Current Player commands the most [Unit].
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * 拥有最多[Unit]的情况。
+ * @param.Unit.zh-CN
+ * 确定要比较的单位。
 ***/
 function CommandMost(Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Location]에 [Unit](을)를 가장 많이 보유한 경우
- * @Summary.en-US
- * Current Player commands the most [Unit] at [Location].
- * 
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * @param.Location.ko-KR
  * 비교할 위치를 정합니다
  * 
+ * @Summary.en-US
+ * Current Player commands the most [Unit] at [Location].
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
  * @param.Location.en-US
- * 비교할 위치를 정합니다
+ * Location to compare.
+ * 
+ * @Summary.zh-CN
+ * 在[Location]处拥有最多[Unit]的情况。
+ * @param.Unit.zh-CN
+ * 确定要比较的单位。
+ * @param.Location.zh-CN
+ * 确定要比较的位置。
 ***/
 function CommandMostAt(Unit : TrgUnit, Location : TrgLocation){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Unit](을)를 가장 많이 죽인 경우
- * @Summary.en-US
- * Current Player has most kills of [Unit].
- * 
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * Current Player has most kills of [Unit].
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * 杀死最多[Unit]的情况。
+ * @param.Unit.zh-CN
+ * 确定要比较的单位。
 ***/
 function MostKills(Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [ScoreType](이)가 가장 높을 경우
- * @Summary.en-US
- * Current player has highest score [ScoreType].
- * 
  * @param.ScoreType.ko-KR
  * 점수의 종류를 정합니다
  * 
+ * @Summary.en-US
+ * Current player has highest score [ScoreType].
  * @param.ScoreType.en-US
- * 점수의 종류를 정합니다
+ * Type of score.
+ * 
+ * @Summary.zh-CN
+ * [ScoreType]分数最高的情况。
+ * @param.ScoreType.zh-CN
+ * 确定分数类型。
 ***/
 function HighestScore(ScoreType : TrgScore){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [ResourceType](을)를 가장 많이 보유한 경우
- * @Summary.en-US
- * Current Player has most [ResourceType].
- * 
  * @param.ResourceType.ko-KR
  * 비교할 자원의 종류를 정합니다
  * 
+ * @Summary.en-US
+ * Current Player has most [ResourceType].
  * @param.ResourceType.en-US
- * 비교할 자원의 종류를 정합니다
+ * Type of resource to compare.
+ * 
+ * @Summary.zh-CN
+ * 拥有最多[ResourceType]的情况。
+ * @param.ResourceType.zh-CN
+ * 确定要比较的资源类型。
 ***/
 function MostResources(ResourceType : TrgResource){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Switch](이)가 [State]상태인 경우
- * @Summary.en-US
- * [Switch] is [State].
- * 
  * @param.Switch.ko-KR
  * 사용할 스위치를 정합니다
  * @param.State.ko-KR
  * 어떤 상태이어야 하는지 정합니다
  * 
+ * @Summary.en-US
+ * [Switch] is [State].
  * @param.Switch.en-US
- * 사용할 스위치를 정합니다
+ * Switch to use.
  * @param.State.en-US
- * 어떤 상태이어야 하는지 정합니다
+ * State to check.
+ * 
+ * @Summary.zh-CN
+ * [Switch]为[State]状态的情况。
+ * @param.Switch.zh-CN
+ * 确定要使用的开关。
+ * @param.State.zh-CN
+ * 确定应该是什么状态。
 ***/
 function Switch(Switch : TrgSwitch, State : TrgSwitchState){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 게임이 시작된지  [Time]초 [Comparison] 지난경우
- * @Summary.en-US
- * Elapsed scenario time is [Comparison] [Time] game seconds.
- * 
  * @param.Comparison.ko-KR
  * 비교할 방법을 정합니다
  * @param.Time.ko-KR
  * 특징점이 될 시점을 정합니다
  * 
- * @param.Compariso.en-US
- * 비교할 방법을 정합니다
+ * @Summary.en-US
+ * Elapsed scenario time is [Comparison] [Time] game seconds.
+ * @param.Comparison.en-US
+ * Comparison method.
  * @param.Time.en-US
- * 특징점이 될 시점을 정합니다
+ * Time point to check.
+ * 
+ * @Summary.zh-CN
+ * 游戏开始后经过[Comparison][Time]秒的情况。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Time.zh-CN
+ * 确定要检查的时间点。
 ***/
 function ElapsedTime(Comparison : TrgComparison, Time){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 브리핑(Unused)
+ * 
  * @Summary.en-US
  * Briefing (Unused)
  * 
+ * @Summary.zh-CN
+ * 简报(未使用)
 ***/
 function Briefing(){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Player]가 해당 게임 내에서 적을 [Number][Comparison] 상대하고 있을 경우
- * @Summary.en-US
- * [Player] has [Comparison] [Number] opponents remaining in the game.
- * 
  * @param.Player.ko-KR
  * 플레이어입니다.
  * @param.Number.ko-KR
@@ -1655,25 +2010,31 @@ function Briefing(){}
  * @param.Comparison.ko-KR
  * 적의 숫자가 어떠할 경우일지 결정합니다.
  * 
+ * @Summary.en-US
+ * [Player] has [Comparison] [Number] opponents remaining in the game.
  * @param.Player.en-US
- * 플레이어입니다.
+ * Player.
  * @param.Number.en-US
- * 적의 숫자입니다.
+ * Number of opponents.
  * @param.Comparison.en-US
- * 적의 숫자가 어떠할 경우일지 결정합니다.
+ * Determines the condition of the number of opponents.
+ * 
+ * @Summary.zh-CN
+ * [Player]在游戏中还有[Comparison][Number]个敌人的情况。
+ * @param.Player.zh-CN
+ * 玩家。
+ * @param.Number.zh-CN
+ * 敌人的数量。
+ * @param.Comparison.zh-CN
+ * 决定敌人数量的条件。
 ***/
 function Opponents(Player : TrgPlayer, Comparison : TrgComparison, Number){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Player]의 [Unit](이)가 [Number][Comparison]죽었을 경우
- * @Summary.en-US
- * [Player] has suffered [Comparison] [Number] deaths of [Unit].
- * 
  * @param.Player.ko-KR
  * 비교할 플레이어를 정합니다
  * @param.Comparison.ko-KR
@@ -1683,121 +2044,141 @@ function Opponents(Player : TrgPlayer, Comparison : TrgComparison, Number){}
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * [Player] has suffered [Comparison] [Number] deaths of [Unit].
  * @param.Player.en-US
- * 비교할 플레이어를 정합니다
+ * Player to compare.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Number.en-US
- * 비교할 수를 정합니다
+ * Number to compare.
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * [Player]的[Unit]死亡[Comparison][Number]个的情况。
+ * @param.Player.zh-CN
+ * 确定要比较的玩家。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Number.zh-CN
+ * 确定比较的数量。
+ * @param.Unit.zh-CN
+ * 确定比较的单位。
 ***/
 function Deaths(Player : TrgPlayer, Comparison : TrgComparison, Number, Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Unit](을)를 가장 적게 보유한 경우
- * @Summary.en-US
- * Current Player commands the least [Unit].
- * 
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * Current Player commands the least [Unit].
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * 拥有最少[Unit]的情况。
+ * @param.Unit.zh-CN
+ * 确定要比较的单位。
 ***/
 function CommandLeast(Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Location]에 [Unit](을)를 가장 적게 보유한 경우
- * @Summary.en-US
- * Current Player commands the least [Unit] at [Location].
- * 
  * @param.Location.ko-KR
  * 비교할 위치를 정합니다
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * Current Player commands the least [Unit] at [Location].
  * @param.Location.en-US
- * 비교할 위치를 정합니다
+ * Location to compare.
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * 在[Location]处拥有最少[Unit]的情况。
+ * @param.Location.zh-CN
+ * 确定要比较的位置。
+ * @param.Unit.zh-CN
+ * 确定要比较的单位。
 ***/
 function CommandLeastAt(Unit : TrgUnit, Location : TrgLocation){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Unit](을)를 가장 적게 죽였을 경우
- * @Summary.en-US
- * Current Player has least kills of [Unit].
- * 
  * @param.Unit.ko-KR
  * 비교할 유닛을 정합니다
  * 
+ * @Summary.en-US
+ * Current Player has least kills of [Unit].
  * @param.Unit.en-US
- * 비교할 유닛을 정합니다
+ * Unit to compare.
+ * 
+ * @Summary.zh-CN
+ * 杀死最少[Unit]的情况。
+ * @param.Unit.zh-CN
+ * 确定要比较的单位。
 ***/
 function LeastKills(Unit : TrgUnit){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [ScoreType](이)가 가장 낮을 경우
- * @Summary.en-US
- * Current player has lowest score [ScoreType].
- * 
  * @param.ScoreType.ko-KR
  * 비교할 점수의 종류를  정합니다
  * 
+ * @Summary.en-US
+ * Current player has lowest score [ScoreType].
  * @param.ScoreType.en-US
- * 비교할 점수의 종류를  정합니다
+ * Type of score to compare.
+ * 
+ * @Summary.zh-CN
+ * [ScoreType]分数最低的情况。
+ * @param.ScoreType.zh-CN
+ * 确定要比较的分数类型。
 ***/
 function LowestScore(ScoreType : TrgScore){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 보유한 [ResourceType](이)가 가장 적을 경우
- * @Summary.en-US
- * Current Player has least [ResourceType].
- * 
  * @param.ResourceType.ko-KR
  * 비교할 자원의 종류를 정합니다
  * 
+ * @Summary.en-US
+ * Current Player has least [ResourceType].
  * @param.ResourceType.en-US
- * 비교할 자원의 종류를 정합니다
+ * Type of resource to compare.
+ * 
+ * @Summary.zh-CN
+ * 拥有最少[ResourceType]的情况。
+ * @param.ResourceType.zh-CN
+ * 确定要比较的资源类型。
 ***/
 function LeastResources(ResourceType : TrgResource){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * [Player]의 [ScoreType](이)가 [Number] [Comparison]인 경우
- * @Summary.en-US
- * [Player] [ScoreType] score is [Comparison] [Number].
- * 
  * @param.Player.ko-KR
  * 비교할 플레이어를 정합니다
  * @param.ScoreType.ko-KR
@@ -1807,45 +2188,57 @@ function LeastResources(ResourceType : TrgResource){}
  * @param.Number.ko-KR
  * 비교할 수를 정합니다
  * 
+ * @Summary.en-US
+ * [Player] [ScoreType] score is [Comparison] [Number].
  * @param.Player.en-US
- * 비교할 플레이어를 정합니다
+ * Player to compare.
  * @param.ScoreType.en-US
- * 비교할 점수의 종류를 정합니다
+ * Type of score to compare.
  * @param.Comparison.en-US
- * 비교할 방법을 정합니다
+ * Comparison method.
  * @param.Number.en-US
- * 비교할 수를 정합니다
+ * Number to compare.
+ * 
+ * @Summary.zh-CN
+ * [Player]的[ScoreType]分数为[Comparison][Number]的情况。
+ * @param.Player.zh-CN
+ * 确定要比较的玩家。
+ * @param.ScoreType.zh-CN
+ * 确定要比较的分数类型。
+ * @param.Comparison.zh-CN
+ * 确定比较方法。
+ * @param.Number.zh-CN
+ * 确定比较的数量。
 ***/
 function Score(Player : TrgPlayer, ScoreType : TrgScore, Comparison : TrgComparison, Number){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 조건없이 트리거를 실행합니다
+ *
  * @Summary.en-US
  * Always
+ *
+ * @Summary.zh-CN
+ * 无条件执行触发器。
 ***/
 function Always(){}
-
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 트리거를 절대 실행하지 않습니다
+ *
  * @Summary.en-US
  * Never.
+ *
+ * @Summary.zh-CN
+ * 绝不执行触发器。
 ***/
 function Never(){}
-
-
-
-
-
 
 /***
  * @Type
@@ -1854,6 +2247,16 @@ function Never(){}
  * 로케이션의 인덱스를 반환합니다.
  * @param.Location.ko-KR
  * 반환할 로케이션을 정합니다.
+ *
+ * @Summary.en-US
+ * Returns the index of the location.
+ * @param.Location.en-US
+ * Location to return.
+ *
+ * @Summary.zh-CN
+ * 返回位置的索引。
+ * @param.Location.zh-CN
+ * 确定要返回的位置。
 ***/
 function $L(Location : TrgLocation) { }
 
@@ -1864,9 +2267,18 @@ function $L(Location : TrgLocation) { }
  * 텍스트를 만들어 해당 텍스트의 번호를 반환합니다.
  * @param.Location.ko-KR
  * 작성할 텍스트입니다.
+ *
+ * @Summary.en-GB
+ * Creates text and returns the number of that text.
+ * @param.Location.en-GB
+ * The text to be created.
+ *
+ * @Summary.zh-CN
+ * 创建文本并返回该文本的编号。
+ * @param.Location.zh-CN
+ * 要创建的文本。
 ***/
 function $T(Text) { }
-
 
 /***
  * @Type
@@ -1875,9 +2287,18 @@ function $T(Text) { }
  * 스위치의 인덱스를 반환합니다.
  * @param.Switch.ko-KR
  * 반환할 스위치를 정합니다.
+ *
+ * @Summary.en-US
+ * Returns the index of the switch.
+ * @param.Switch.en-US
+ * Switch to return.
+ *
+ * @Summary.zh-CN
+ * 返回开关的索引。
+ * @param.Switch.zh-CN
+ * 确定要返回的开关。
 ***/
 function $S(Switch : TrgSwitch) { }
-
 
 /***
  * @Type
@@ -1886,12 +2307,18 @@ function $S(Switch : TrgSwitch) { }
  * 유닛의 인덱스를 반환합니다.
  * @param.Unit.ko-KR
  * 반환할 유닛을 정합니다.
+ *
+ * @Summary.en-US
+ * Returns the index of the unit.
+ * @param.Unit.en-US
+ * Unit to return.
+ *
+ * @Summary.zh-CN
+ * 返回单位的索引。
+ * @param.Unit.zh-CN
+ * 确定要返回的单位。
 ***/
 function $U(Unit: TrgUnit) { }
-
-
-
-
 
 /***
  * @Type
@@ -1903,28 +2330,51 @@ function $U(Unit: TrgUnit) { }
  * resource, hanger
  * 논리형
  * cloaked, burrowed, intransit, hallucinated, invincible
+ *
+ * @Summary.en-US
+ * Percentage adjustment
+ * hitpoint, shield, energy
+ * Quantity adjustment
+ * resource, hanger
+ * Logical type
+ * cloaked, burrowed, intransit, hallucinated, invincible
+ *
+ * @Summary.zh-CN
+ * 百分比调整
+ * 生命值、护盾、能量
+ * 数量调整
+ * 资源、搭载单位
+ * 逻辑型
+ * 隐身、钻地、运输中、幻象、无敌
 ***/
 function UnitProperty() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * conditions가 Always인 트리거입니다. 기본적으로 preserved 되있고요.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Trigger with conditions set to Always. By default, it is preserved.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 条件为Always的触发器。默认情况下已保存。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function DoActions(actions, preserved) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * SeqCompute를 쉽게 하는 방법. mdtlist는 SetTo같은 연산의 list이며, 생략하면
- * mdtlist는 모두 SetTo한걸로 가정 ::
+ * mdtlist는 모두 SetTo한걸로 가정 :: 
  * 
  *      # 이것과
  *      SetVariables(list(a, b), list(1, 2));
@@ -1940,33 +2390,86 @@ function DoActions(actions, preserved) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ *
+ * @Summary.en-US
+ * A method to simplify SeqCompute. mdtlist is a list of operations like SetTo, and if omitted,
+ * it is assumed that all mdtlist are SetTo ::
+ * 
+ *      # This and
+ *      SetVariables(list(a, b), list(1, 2));
+ * 
+ *      # mean the same.
+ *      SeqCompute(list(
+ *          (a, SetTo, 1),
+ *          (b, SetTo, 2)
+ *      ));
+ * 
+ * * When assigning to a variable in another module, module.v = value; will cause bugs.
+ * In such cases, use SetVariables. (refer to phu54321/epScript#3)
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 简化SeqCompute的方法。mdtlist是类似SetTo的操作列表，如果省略，
+ * 则假设所有mdtlist都是SetTo ::
+ * 
+ *      # 这与
+ *      SetVariables(list(a, b), list(1, 2));
+ * 
+ *      # 意思相同。
+ *      SeqCompute(list(
+ *          (a, SetTo, 1),
+ *          (b, SetTo, 2)
+ *      ));
+ * 
+ * * 当赋值给另一个模块的变量时，使用module.v = value;会导致bug。
+ * 这种情况下应该使用SetVariables。(参考phu54321/epScript#3)
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetVariables(srclist, dstlist, mdtlist) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 조건이 만족하면 EUDJump합니다. EUDJump처럼 ontrue／onfalse가 변수여도 됩니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ *
+ * @Summary.en-US
+ * Jumps with EUDJump if conditions are satisfied. ontrue/onfalse can be variables like in EUDJump.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 如果条件满足则进行EUDJump。像EUDJump一样，ontrue/onfalse可以是变量。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDJumpIf(conditions, ontrue) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 조건이 만족하면 EUDJump합니다. EUDJump처럼 ontrue／onfalse가 변수여도 됩니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ *
+ * @Summary.en-US
+ * Jumps with EUDJump if conditions are satisfied. ontrue/onfalse can be variables like in EUDJump.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 如果条件满足则进行EUDJump。像EUDJump一样，ontrue/onfalse可以是变量。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDJumpIfNot(conditions, onfalse) { }
-
 
 /***
  * @Type
@@ -1974,18 +2477,30 @@ function EUDJumpIfNot(conditions, onfalse) { }
  * @Summary.ko-KR
  * 현재 게임에 참여중인 모든 플레이어를 한번씩 Current Player로 하면서 반복
  * (Human, Computer 모두 포함)
- ***/
+ *
+ * @Summary.en-US
+ * Iterates through all players currently in the game, setting each as Current Player once
+ * (Includes both Human and Computer)
+ *
+ * @Summary.zh-CN
+ * 循环遍历当前游戏中的所有玩家，每次将每个玩家设为当前玩家
+ * (包括人类和电脑玩家)
+***/
 function EUDPlayerLoop() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 현재 게임에 참여중인 모든 플레이어를 한번씩 Current Player로 하면서 반복
- ***/
+ *
+ * @Summary.en-US
+ * Iterates through all players currently in the game, setting each as Current Player once
+ *
+ * @Summary.zh-CN
+ * 循环遍历当前游戏中的所有玩家，每次将每个玩家设为当前玩家
+***/
 function EUDEndPlayerLoop() { }
-
 
 /***
  * @Type
@@ -1994,9 +2509,18 @@ function EUDEndPlayerLoop() { }
  * 반복문에서 continue를 했을 때 갈 곳을 설정하는데 씁니다. EUDWhile를 for문처럼
  * 쓰면서 continue 이후 무조건 실행되야하는 코드를 만들 때 이걸 쓸 수 있습니다.
  * Continue point는 하나만 지정할 수 있습니다.
- ***/
+ *
+ * @Summary.en-US
+ * Used to set the destination when continue is used in a loop. This can be used when using EUDWhile like a for loop
+ * and creating code that must be executed unconditionally after continue.
+ * Only one continue point can be specified.
+ *
+ * @Summary.zh-CN
+ * 用于设置循环中continue时的目标位置。当像for循环一样使用EUDWhile，
+ * 并创建在continue后必须无条件执行的代码时，可以使用此功能。
+ * 只能指定一个continue点。
+***/
 function EUDSetContinuePoint() { }
-
 
 /***
  * @Type
@@ -2004,12 +2528,20 @@ function EUDSetContinuePoint() { }
  * @Summary.ko-KR
  * nextptr로 점프합니다. nextptr는 RawTrigger가 될 수 있고 RawTrigger를 가르키는
  * Forward나 EUDVariable이 될 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Jumps to nextptr. nextptr can be a RawTrigger or a Forward or EUDVariable pointing to a RawTrigger.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 跳转到nextptr。nextptr可以是RawTrigger，或者指向RawTrigger的Forward或EUDVariable。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDJump(nextptr) { }
-
 
 /***
  * @Type
@@ -2021,31 +2553,57 @@ function EUDJump(nextptr) { }
  *     a = Forward()
  *     b = RawTrigger(nextptr=a)  # a의 주솟값을 여기서 쓸 수 있다.
  *     a << RawTrigger()  # 실제 a의 정의는 여기서
- ***/
+ *
+ * @Summary.en-US
+ * Forward declaration class used when the address of an EUDObject to be declared later is needed earlier. ::
+ * 
+ *     a = Forward()
+ *     b = RawTrigger(nextptr=a)  # Can use a's address here.
+ *     a << RawTrigger()  # Actual definition of a is here
+ *
+ * @Summary.zh-CN
+ * 当需要后面声明的EUDObject的地址时使用的向前声明类。 ::
+ * 
+ *     a = Forward()
+ *     b = RawTrigger(nextptr=a)  # 可以在这里使用a的地址。
+ *     a << RawTrigger()  # a的实际定义在这里
+***/
 function Forward() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * '바로 다음 트리거'를 나타냅니다.
- ***/
+ *
+ * @Summary.en-US
+ * Represents 'the very next trigger'.
+ *
+ * @Summary.zh-CN
+ * 表示"下一个触发器"。
+***/
 function NextTrigger() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 오프셋 [p]을 EPD 플레이어값으로 바꿉니다.
- * 
  * @param.p.ko-KR
  * 오프셋입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Converts offset [p] to EPD player value.
+ * @param.p.en-US
+ * Offset.
+ * 
+ * @Summary.zh-CN
+ * 将偏移量[p]转换为EPD玩家值。
+ * @param.p.zh-CN
+ * 偏移量。
+***/
 function EPD(p) { }
 
-
 /***
  * @Type
  * F
@@ -2053,13 +2611,24 @@ function EPD(p) { }
  * EPD 플레이어에게서 dword／epd값을 읽는 함수입니다. 위 함수들은 언제나
  * dword랑 epd를 동시에 읽기 때문에 포인터를 읽을때는 dwepdread 함수를 활용해
  * dword랑 epd값을 동시에 읽는게 효율적입니다.
- * 
  * @param.epd.ko-KR
  * EPD입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Function to read dword/epd values from EPD player. Since the above functions always read
+ * both dword and epd simultaneously, when reading pointers, it is efficient to use the dwepdread function
+ * to read both dword and epd values at the same time.
+ * @param.epd.en-US
+ * EPD.
+ * 
+ * @Summary.zh-CN
+ * 从EPD玩家读取dword/epd值的函数。由于上述函数总是同时读取dword和epd，
+ * 因此在读取指针时，使用dwepdread函数同时读取dword和epd值更高效。
+ * @param.epd.zh-CN
+ * EPD。
+***/
 function dwepdread_epd(epd) { }
 
-
 /***
  * @Type
  * F
@@ -2067,13 +2636,24 @@ function dwepdread_epd(epd) { }
  * EPD 플레이어에게서 dword／epd값을 읽는 함수입니다. 위 함수들은 언제나
  * dword랑 epd를 동시에 읽기 때문에 포인터를 읽을때는 dwepdread 함수를 활용해
  * dword랑 epd값을 동시에 읽는게 효율적입니다.
- * 
  * @param.epd.ko-KR
  * EPD입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Function to read dword/epd values from EPD player. Since the above functions always read
+ * both dword and epd simultaneously, when reading pointers, it is efficient to use the dwepdread function
+ * to read both dword and epd values at the same time.
+ * @param.epd.en-US
+ * EPD.
+ * 
+ * @Summary.zh-CN
+ * 从EPD玩家读取dword/epd值的函数。由于上述函数总是同时读取dword和epd，
+ * 因此在读取指针时，使用dwepdread函数同时读取dword和epd值更高效。
+ * @param.epd.zh-CN
+ * EPD。
+***/
 function dwread_epd(epd) { }
 
-
 /***
  * @Type
  * F
@@ -2081,12 +2661,23 @@ function dwread_epd(epd) { }
  * EPD 플레이어에게서 dword／epd값을 읽는 함수입니다. 위 함수들은 언제나
  * dword랑 epd를 동시에 읽기 때문에 포인터를 읽을때는 dwepdread 함수를 활용해
  * dword랑 epd값을 동시에 읽는게 효율적입니다.
- * 
  * @param.epd.ko-KR
  * EPD입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Function to read dword/epd values from EPD player. Since the above functions always read
+ * both dword and epd simultaneously, when reading pointers, it is efficient to use the dwepdread function
+ * to read both dword and epd values at the same time.
+ * @param.epd.en-US
+ * EPD.
+ * 
+ * @Summary.zh-CN
+ * 从EPD玩家读取dword/epd值的函数。由于上述函数总是同时读取dword和epd，
+ * 因此在读取指针时，使用dwepdread函数同时读取dword和epd值更高效。
+ * @param.epd.zh-CN
+ * EPD。
+***/
 function epdread_epd(epd) { }
-
 
 /***
  * @Type
@@ -2096,255 +2687,470 @@ function epdread_epd(epd) { }
  * 값을 유지합니다. 예를 들어 dwbreak(0x12345678)\[\[2\]\]는 0x12이지만,
  * dwbreak2(0x10000000)\[\[2\]\]는 0x12000000입니다. dword의 특정 byte나 word만
  * 바꿔야 할 때 dwbreak한 결과에 다시 0x100000같은 값을 곱할 필요가 없습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function that splits dword into word/byte units. dwbreak2 maintains the value multiplied by word/byte.
+ * For example, dwbreak(0x12345678)[[2]] is 0x12, but dwbreak2(0x10000000)[[2]] is 0x12000000.
+ * When only a specific byte or word of dword needs to be changed, there is no need to multiply the result of dwbreak
+ * by a value like 0x100000 again.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将dword拆分为word/byte单位的函数。dwbreak2保持word/byte所乘的值。
+ * 例如，dwbreak(0x12345678)[[2]]是0x12，但dwbreak2(0x10000000)[[2]]是0x12000000。
+ * 当只需要更改dword的特定byte或word时，无需将dwbreak的结果再次乘以0x100000等值。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwbreak(number) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * EPD[targetplayer]를 [value]로 대입합니다.
- * 
  * @param.targetplayer.ko-KR
  * EPD값입니다.
  * @param.value.ko-KR
  * 대입할 값입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Assigns [value] to EPD[targetplayer].
+ * @param.targetplayer.en-US
+ * EPD value.
+ * @param.value.en-US
+ * Value to assign.
+ * 
+ * @Summary.zh-CN
+ * 将EPD[targetplayer]赋值为[value]。
+ * @param.targetplayer.zh-CN
+ * EPD值。
+ * @param.value.zh-CN
+ * 要赋值的值。
+***/
 function dwwrite_epd(targetplayer, value) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * EPD[targetplayer]를 [value]만큼 덧셈합니다.
- * 
  * @param.targetplayer.ko-KR
  * EPD값입니다.
  * @param.value.ko-KR
  * 더할 값입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Adds [value] to EPD[targetplayer].
+ * @param.targetplayer.en-US
+ * EPD value.
+ * @param.value.en-US
+ * Value to add.
+ * 
+ * @Summary.zh-CN
+ * 将EPD[targetplayer]增加[value]。
+ * @param.targetplayer.zh-CN
+ * EPD值。
+ * @param.value.zh-CN
+ * 要增加的值。
+***/
 function dwadd_epd(targetplayer, value) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * EPD[targetplayer]를 [value]만큼 뺍니다.
- * 
  * @param.targetplayer.ko-KR
  * EPD값입니다.
  * @param.value.ko-KR
  * 뺄 값입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Subtracts [value] from EPD[targetplayer].
+ * @param.targetplayer.en-US
+ * EPD value.
+ * @param.value.en-US
+ * Value to subtract.
+ * 
+ * @Summary.zh-CN
+ * 将EPD[targetplayer]减去[value]。
+ * @param.targetplayer.zh-CN
+ * EPD值。
+ * @param.value.zh-CN
+ * 要减去的值。
+***/
 function dwsubtract_epd(targetplayer, value) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [srcepdp]에서 [copydwn]만큼의 데이터를 [dstepdp]로 복사합니다.
- * 
  * @param.dstepdp.ko-KR
  * 대상 위치입니다. EPD값입니다.
  * @param.srcepdp.ko-KR
  * 복사 값 위치입니다. EPD값입니다.
  * @param.copydwn.ko-KR
  * 복사할 길이 입니다. 1당 4바이트의 길이를 가집니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Copies [copydwn] amount of data from [srcepdp] to [dstepdp].
+ * @param.dstepdp.en-US
+ * Destination location. EPD value.
+ * @param.srcepdp.en-US
+ * Source location. EPD value.
+ * @param.copydwn.en-US
+ * Length to copy. 1 represents 4 bytes.
+ * 
+ * @Summary.zh-CN
+ * 从[srcepdp]复制[copydwn]数量的数据到[dstepdp]。
+ * @param.dstepdp.zh-CN
+ * 目标位置。EPD值。
+ * @param.srcepdp.zh-CN
+ * 源位置。EPD值。
+ * @param.copydwn.zh-CN
+ * 要复制的长度。1代表4字节。
+***/
 function repmovsd_epd(dstepdp, srcepdp, copydwn) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [src]에서 [copylen]만큼의 데이터를 [dst]로 복사합니다.
- * 
  * @param.dstepdp.ko-KR
  * 대상 위치입니다.
  * @param.srcepdp.ko-KR
  * 복사 값 위치입니다.
  * @param.copydwn.ko-KR
  * 복사할 길이 입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Copies [copylen] amount of data from [src] to [dst].
+ * @param.dst.en-US
+ * Destination location.
+ * @param.src.en-US
+ * Source location.
+ * @param.copylen.en-US
+ * Length to copy.
+ * 
+ * @Summary.zh-CN
+ * 从[src]复制[copylen]数量的数据到[dst]。
+ * @param.dst.zh-CN
+ * 目标位置。
+ * @param.src.zh-CN
+ * 源位置。
+ * @param.copylen.zh-CN
+ * 要复制的长度。
+***/
 function memcpy(dst, src, copylen) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [src]에 있는 스트링을 [dst]로 복사합니다.
- * 
  * @param.dst.ko-KR
  * 대상 위치입니다.
  * @param.src.ko-KR
  * 복사할 스트링입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Copies the string in [src] to [dst].
+ * @param.dst.en-US
+ * Destination location.
+ * @param.src.en-US
+ * String to copy.
+ * 
+ * @Summary.zh-CN
+ * 将[src]中的字符串复制到[dst]。
+ * @param.dst.zh-CN
+ * 目标位置。
+ * @param.src.zh-CN
+ * 要复制的字符串。
+***/
 function strcpy(dst, src) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 바이트 단위로 읽고 씁니다. bread 함수를 참고하세요.
- ***/
+ *
+ * @Summary.en-US
+ * Reads and writes in byte units. Refer to bread function.
+ *
+ * @Summary.zh-CN
+ * 以字节为单位进行读写。请参考bread函数。
+***/
 function EUDByteReader() { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 바이트 단위로 읽고 씁니다. bread 함수를 참고하세요.
- ***/
+ *
+ * @Summary.en-US
+ * Reads and writes in byte units. Refer to bread function.
+ *
+ * @Summary.zh-CN
+ * 以字节为单位进行读写。请参考bread函数。
+***/
 function EUDByteWriter() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * Calculate (a／／b, a%b)
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Calculate (a//b, a%b)
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 计算(a//b, a%b)
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function div(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [a] & [b]를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
  * @param.b.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates [a] & [b].
+ * @param.a.en-US
+ * Operand
+ * @param.b.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算[a] & [b]。
+ * @param.a.zh-CN
+ * 操作数
+ * @param.b.zh-CN
+ * 操作数
+***/
 function bitand(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [a] | [b]를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
  * @param.b.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates [a] | [b].
+ * @param.a.en-US
+ * Operand
+ * @param.b.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算[a] | [b]。
+ * @param.a.zh-CN
+ * 操作数
+ * @param.b.zh-CN
+ * 操作数
+***/
 function bitor(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ~[a]를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates ~[a].
+ * @param.a.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算~[a]。
+ * @param.a.zh-CN
+ * 操作数
+***/
 function bitnot(a) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [a] ^ [b]를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
  * @param.b.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates [a] ^ [b].
+ * @param.a.en-US
+ * Operand
+ * @param.b.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算[a] ^ [b]。
+ * @param.a.zh-CN
+ * 操作数
+ * @param.b.zh-CN
+ * 操作数
+***/
 function bitxor(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ~([a] & [b])를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
  * @param.b.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates ~([a] & [b]).
+ * @param.a.en-US
+ * Operand
+ * @param.b.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算~([a] & [b])。
+ * @param.a.zh-CN
+ * 操作数
+ * @param.b.zh-CN
+ * 操作数
+***/
 function bitnand(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ~([a] | [b])를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
  * @param.b.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates ~([a] | [b]).
+ * @param.a.en-US
+ * Operand
+ * @param.b.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算~([a] | [b])。
+ * @param.a.zh-CN
+ * 操作数
+ * @param.b.zh-CN
+ * 操作数
+***/
 function bitnor(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ~([a] ^ [b])를 계산합니다.
- * 
  * @param.a.ko-KR
  * 피연산자
  * @param.b.ko-KR
  * 피연산자
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates ~([a] ^ [b]).
+ * @param.a.en-US
+ * Operand
+ * @param.b.en-US
+ * Operand
+ * 
+ * @Summary.zh-CN
+ * 计算~([a] ^ [b])。
+ * @param.a.zh-CN
+ * 操作数
+ * @param.b.zh-CN
+ * 操作数
+***/
 function bitnxor(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [a] << [b] 계산합니다.
- * 
  * @param.a.ko-KR
  * 대상 값입니다.
  * @param.b.ko-KR
  * 왼쪽으로 Shift될 칸 수 입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates [a] << [b].
+ * @param.a.en-US
+ * Target value.
+ * @param.b.en-US
+ * Number of shifts to the left.
+ * 
+ * @Summary.zh-CN
+ * 计算[a] << [b]。
+ * @param.a.zh-CN
+ * 目标值。
+ * @param.b.zh-CN
+ * 向左移位的位数。
+***/
 function bitlshift(a, b) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [a] << [b] 계산합니다.
- * 
  * @param.a.ko-KR
  * 대상 값입니다.
  * @param.b.ko-KR
  * 오른쪽으로 Shift될 칸 수 입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates [a] >> [b].
+ * @param.a.en-US
+ * Target value.
+ * @param.b.en-US
+ * Number of shifts to the right.
+ * 
+ * @Summary.zh-CN
+ * 计算[a] >> [b]。
+ * @param.a.zh-CN
+ * 目标值。
+ * @param.b.zh-CN
+ * 向右移位的位数。
+***/
 function bitrshift(a, b) { }
 
-
 /***
  * @Type
  * F
@@ -2353,13 +3159,27 @@ function bitrshift(a, b) { }
  * .. note::
  *     dbstr_print에 변수를 넣으면 10진법으로 출력됩니다. dbstr_addptr처럼
  *     16진법으로 출력되게 하려면 hptr(숫자)를 넣으세요.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Outputs multiple things to dst at once.
+ * .. note::
+ *     If you put a variable in dbstr_print, it will be output in decimal. To output in hexadecimal like dbstr_addptr,
+ *     put hptr(number).
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 一次性向dst输出多种内容。
+ * .. note::
+ *     如果在dbstr_print中放入变量，将以十进制输出。要像dbstr_addptr一样以十六进制输出，
+ *     请放入hptr(数字)。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dbstr_print(dst, arguments) { }
 
-
 /***
  * @Type
  * F
@@ -2368,13 +3188,27 @@ function dbstr_print(dst, arguments) { }
  * .. note::
  *     dbstr_print에 변수를 넣으면 10진법으로 출력됩니다. dbstr_addptr처럼
  *     16진법으로 출력되게 하려면 hptr(숫자)를 넣으세요.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Outputs multiple things to dst at once.
+ * .. note::
+ *     If you put a variable in dbstr_print, it will be output in decimal. To output in hexadecimal like dbstr_addptr,
+ *     put hptr(number).
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 一次性向dst输出多种内容。
+ * .. note::
+ *     如果在dbstr_print中放入变量，将以十进制输出。要像dbstr_addptr一样以十六进制输出，
+ *     请放入hptr(数字)。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function sprintf(dst, formatstring /*FormatText*/, *args) { }
 
-
 /***
  * @Type
  * F
@@ -2383,111 +3217,196 @@ function sprintf(dst, formatstring /*FormatText*/, *args) { }
  * .. note::
  *     dbstr_print에 변수를 넣으면 10진법으로 출력됩니다. dbstr_addptr처럼
  *     16진법으로 출력되게 하려면 hptr(숫자)를 넣으세요.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Outputs multiple things to dst at once.
+ * .. note::
+ *     If you put a variable in dbstr_print, it will be output in decimal. To output in hexadecimal like dbstr_addptr,
+ *     put hptr(number).
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 一次性向dst输出多种内容。
+ * .. note::
+ *     如果在dbstr_print中放入变量，将以十进制输出。要像dbstr_addptr一样以十六进制输出，
+ *     请放入hptr(数字)。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function sprintf_cp(formatstring /*FormatText*/, *args) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 랜덤한 값을 반환합니다.
- ***/
+ *
+ * @Summary.en-US
+ * Returns a random value.
+ *
+ * @Summary.zh-CN
+ * 返回随机值。
+***/
 function rand() { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 랜덤한 값을 반환합니다.
- ***/
+ *
+ * @Summary.en-US
+ * Returns a random value.
+ *
+ * @Summary.zh-CN
+ * 返回随机值。
+***/
 function dwrand() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * RandomSeed를 재설정합니다.
- ***/
+ *
+ * @Summary.en-US
+ * Resets the RandomSeed.
+ *
+ * @Summary.zh-CN
+ * 重置随机种子。
+***/
 function randomize() { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 랜덤 관련
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Random related
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 随机相关
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function srand(seed) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 랜덤 관련
- ***/
+ *
+ * @Summary.en-US
+ * Random related
+ *
+ * @Summary.zh-CN
+ * 随机相关
+***/
 function getseed() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 자기 자신의 플레이어 번호를 얻습니다.
- ***/
+ *
+ * @Summary.en-US
+ * Gets your own player number.
+ *
+ * @Summary.zh-CN
+ * 获取自己的玩家编号。
+***/
 function getuserplayerid() { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
- * Current Player의 값을 읽고 쓰는 함수입니다. Current Player는 eudplib에서 항상
- * 관리하므로 0x6509B0의 값을 직접 읽는것보다 getcurpl 함수를 쓰는게 32배정도
- * 빠릅니다. _cp류 함수들과 조합해서 사용하면 좋습니다.
- ***/
+ * 해당 플레이어를 반환합니다.
+ *
+ * @Summary.en-US
+ * Returns the player.
+ *
+ * @Summary.zh-CN
+ * 返回该玩家。
+***/
 function getcurpl() { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
- * Current Player의 값을 읽고 쓰는 함수입니다. Current Player는 eudplib에서 항상
- * 관리하므로 0x6509B0의 값을 직접 읽는것보다 getcurpl 함수를 쓰는게 32배정도
- * 빠릅니다. _cp류 함수들과 조합해서 사용하면 좋습니다.
+ * 해당 플레이어를 [cp]로 설정합니다.
+ * @param.cp.ko-KR
+ * 현재 플레이어입니다.
  * 
- * @param.인자이름.ko-KR
- * 인자 설명
- ***/
+ * @Summary.en-US
+ * Sets the player to [cp].
+ * @param.cp.en-US
+ * Current player.
+ * 
+ * @Summary.zh-CN
+ * 将该玩家设置为[cp]。
+ * @param.cp.zh-CN
+ * 当前玩家。
+***/
 function setcurpl(cp) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
- * 트리거 설명
+ * 각도 [angle]만큼 [length] 진행한 X,Y좌표를 반환합니다.
+ * @param.length.ko-KR
+ * 길이입니다.
+ * @param.angle.ko-KR
+ * 각도입니다.
  * 
- * @param.인자이름.ko-KR
- * 인자 설명
- ***/
+ * @Summary.en-US
+ * Returns the X,Y coordinates after proceeding [length] at angle [angle].
+ * @param.length.en-US
+ * Length.
+ * @param.angle.en-US
+ * Angle.
+ * 
+ * @Summary.zh-CN
+ * 返回沿角度[angle]前进[length]后的X,Y坐标。
+ * @param.length.zh-CN
+ * 长度。
+ * @param.angle.zh-CN
+ * 角度。
+***/
 function lengthdir(length, angle) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
+* 패킷 큐에 게임 명령을 큐잉합니다.
+*
+* 스타크래프트는 주기적으로 다른 플레이어에게 게임 패킷을 브로드캐스트합니다. 게임
+* 패킷은 큐에 저장되며, 이 함수는 해당 큐에 데이터를 추가하여 SC가 브로드캐스트할 수 있도록 합니다.
+*
+* .. 참고::
+* 패킷 큐가 가득 차면, 이 함수는 실패합니다. 이 동작은 일반적인 상황에서는 발생하지 않아야 하므로, 
+* 경고나 오류 없이 조용히 실패합니다. 따라서 **한 프레임 내에서 이 함수를 너무 많이 사용하지 마세요.**
+*
+ * @param.data.ko-KR
+* 큐에 넣을 데이터
+ * @param.size.ko-KR
+* 데이터의 크기
+ * 
+ * @Summary.en-US
  * Queue game command to packet queue.
  * 
  * Starcraft periodically broadcasts game packets to other player. Game
@@ -2499,13 +3418,29 @@ function lengthdir(length, angle) { }
  *     without any warning or error, since this behavior shouldn't happen in
  *     common situations. So **Don't use this function too much in a frame.**
  * 
- * @param.data.ko-KR
+ * @param.data.en-US
  * Data to put in queue
- * @param.size.ko-KR
+ * @param.size.en-US
  * Size of data
- ***/
+ * 
+ * @Summary.zh-CN
+ * 将游戏命令加入数据包队列。
+ * 
+ * 星际争霸定期向其他玩家广播游戏数据包。游戏
+ * 数据包存储在队列中，此函数将数据添加到该队列中，
+ * 以便星际争霸可以广播它。
+ * 
+ * .. note::
+ *     如果数据包队列已满，此函数将失败。此行为是静默的，
+ *     没有任何警告或错误，因为在常见情况下不应发生此行为。
+ *     所以**不要在一帧中过多使用此函数。**
+ * 
+ * @param.data.zh-CN
+ * 要放入队列的数据
+ * @param.size.zh-CN
+ * 数据大小
+***/
 function QueueGameCommand(data, size) { }
-
 
 /***
  * @Type
@@ -2515,161 +3450,278 @@ function QueueGameCommand(data, size) { }
  * 
  * @param.xy.ko-KR
  * (y * 65536) + x, where (x, y) is coordinate for right click.
- ***/
+ * 
+ * @Summary.en-US
+ * Queue right click action to [xy].
+ * 
+ * @param.xy.en-US
+ * (y * 65536) + x, where (x, y) is coordinate for right click.
+ * 
+ * @Summary.zh-CN
+ * 将右键点击动作加入队列到[xy]。
+ * 
+ * @param.xy.zh-CN
+ * (y * 65536) + x，其中(x, y)是右键点击的坐标。
+***/
 function QueueGameCommand_RightClick(xy) { }
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * UDP／배틀넷 등에서만 작동합니다. 플레이어가 있는지 체크합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Works only on UDP/Battle.net, etc. Checks if player exists.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 仅在UDP/战网等环境下工作。检查玩家是否存在。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function playerexist(player: TrgPlayer) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 파이썬3의 bytes와 str 간에 상호변환
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Converts between Python3 bytes and str.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * Python3的bytes和str之间的相互转换。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function b2u(b) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 파이썬3의 bytes와 str 간에 상호변환
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Converts between Python3 bytes and str.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * Python3的bytes和str之间的相互转换。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function u2b(s) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * int를 Little Endian으로 변환하고 역변환하는 함수입니다. b2i? 함수에서 index를
  * 통해 b의 어느 범위를 int로 변환할지 정할 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to convert int to Little Endian and vice versa. In b2i? functions, index
+ * can be used to determine which range of b to convert to int.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将int转换为Little Endian并进行反向转换的函数。在b2i?函数中，可以通过index
+ * 确定将b的哪个范围转换为int。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function b2i1(b, index) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * int를 Little Endian으로 변환하고 역변환하는 함수입니다. b2i? 함수에서 index를
  * 통해 b의 어느 범위를 int로 변환할지 정할 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to convert int to Little Endian and vice versa. In b2i? functions, index
+ * can be used to determine which range of b to convert to int.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将int转换为Little Endian并进行反向转换的函数。在b2i?函数中，可以通过index
+ * 确定将b的哪个范围转换为int。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function b2i2(b, index) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * int를 Little Endian으로 변환하고 역변환하는 함수입니다. b2i? 함수에서 index를
  * 통해 b의 어느 범위를 int로 변환할지 정할 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to convert int to Little Endian and vice versa. In b2i? functions, index
+ * can be used to determine which range of b to convert to int.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将int转换为Little Endian并进行反向转换的函数。在b2i?函数中，可以通过index
+ * 确定将b的哪个范围转换为int。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function b2i4(b, index) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * int를 Little Endian으로 변환하고 역변환하는 함수입니다. b2i? 함수에서 index를
  * 통해 b의 어느 범위를 int로 변환할지 정할 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to convert int to Little Endian and vice versa. In b2i? functions, index
+ * can be used to determine which range of b to convert to int.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将int转换为Little Endian并进行反向转换的函数。在b2i?函数中，可以通过index
+ * 确定将b的哪个范围转换为int。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function i2b1(i) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * int를 Little Endian으로 변환하고 역변환하는 함수입니다. b2i? 함수에서 index를
  * 통해 b의 어느 범위를 int로 변환할지 정할 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to convert int to Little Endian and vice versa. In b2i? functions, index
+ * can be used to determine which range of b to convert to int.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将int转换为Little Endian并进行反向转换的函数。在b2i?函数中，可以通过index
+ * 确定将b的哪个范围转换为int。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function i2b2(i) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * int를 Little Endian으로 변환하고 역변환하는 함수입니다. b2i? 함수에서 index를
  * 통해 b의 어느 범위를 int로 변환할지 정할 수 있습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to convert int to Little Endian and vice versa. In b2i? functions, index
+ * can be used to determine which range of b to convert to int.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将int转换为Little Endian并进行反向转换的函数。在b2i?函数中，可以通过index
+ * 确定将b的哪个范围转换为int。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function i2b4(i) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * scmdraft2 형식 텍스트를 해석합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Parses scmdraft2 format text.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 解析scmdraft2格式的文本。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SCMD2Text(s) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * STR단락이나 .tbl파일을 해석할때 쓰면 좋아요.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Good to use when parsing STR sections or .tbl files.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 在解析STR段落或.tbl文件时使用很好。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function TBL(content) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 바이너리 데이터를 메모리에 올릴때 씁니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Used when loading binary data into memory.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 用于将二进制数据加载到内存中。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function Db(b) { }
-
-
-
 
 /***
  * @Type
@@ -2684,33 +3736,68 @@ function Db(b) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Trigger with condition/action count limit. Trigger is made by combining multiple RawTriggers.
+ * RawTrigger has an address value, so you can get the address value like this. ::
+ *  a = RawTrigger(~)
+ *  # Can modify nextptr with SetNextPtr(a, ~), etc.
+ *  b = Trigger(~)  # Trigger has no address value, so such utilization is not possible
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 具有条件/动作数量限制的触发器。Trigger是通过组合多个RawTrigger创建的。
+ * RawTrigger具有地址值，因此可以这样获取地址值。 ::
+ *  a = RawTrigger(~)
+ *  # 可以使用SetNextPtr(a, ~)等修改nextptr。
+ *  b = Trigger(~)  # Trigger没有地址值，因此无法进行此类利用
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function RawTrigger(prevptr, nextptr, conditions, actions) { }
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 오프셋의 값을 확인합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Checks the value of the offset.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 检查偏移量的值。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function Memory(dest, cmptype: TrgComparison, value) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 메모리 값을 수정합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Modifies memory value.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 修改内存值。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetMemory(dest, modtype: TrgModifier, value) { }
-
 
 /***
  * @Type
@@ -2718,190 +3805,316 @@ function SetMemory(dest, modtype: TrgModifier, value) { }
  * @Summary.ko-KR
  * 트리거의 nextptr값을 수정합니다. 자세한건 뻘강좌를 참고하세요.
  * http://blog.naver.com/whyask37
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Modifies the nextptr value of the trigger. For details, refer to the tutorial.
+ * http://blog.naver.com/whyask37
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 修改触发器的nextptr值。详情请参考教程。
+ * http://blog.naver.com/whyask37
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetNextPtr(trg, dest) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * u2b의 utf-8버전
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * UTF-8 version of u2b.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * u2b的utf-8版本。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function u2utf8(s) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * Memory랑 똑같은데 dest가 오프셋의 EPD값입니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Same as Memory, but dest is the EPD value of the offset.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 与Memory相同，但dest是偏移量的EPD值。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function MemoryEPD(dest, cmptype: TrgComparison, value) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * EUDX 조건
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * EUDX condition
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * EUDX条件
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function DeathsX(Player: TrgPlayer, Comparison: TrgComparison, Number, Unit: TrgUnit, Mask) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function MemoryX(dest, cmptype: TrgComparison, value, mask) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function MemoryXEPD(dest, cmptype: TrgComparison, value, mask) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetMemoryEPD(dest, modtype: TrgModifier, value) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 아스나바보
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * asnavabo
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 阿斯那瓦博
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetDeathsX(Player: TrgPlayer, Modifier: TrgModifier, Number, Unit: TrgUnit, Mask) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 아스나바보
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * asnavabo
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 阿斯那瓦博
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetMemoryX(dest, modtype: TrgModifier, value, mask) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 아스나바보
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * asnavabo
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 阿斯那瓦博
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetMemoryXEPD(dest, modtype: TrgModifier, value, mask) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetKills(Player: TrgPlayer, Modifier: TrgModifier, Number, Unit: TrgUnit) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * 
+ * @Summary.zh-CN
+ * ^^;
+***/
 function GetChkTokenized() { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function GetPlayerInfo(player: TrgPlayer) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function VProc(v, actions) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDLightVariable(initval) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDXVariable(initval, mask) { }
-
-
 
 /***
  * @Type
@@ -2919,291 +4132,514 @@ function EUDXVariable(initval, mask) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function pointer for EUDFunc. [argn], [retn] are the number of arguments and return values ::
+ * 
+ *  # Use the above f_add as is
+ *  a = EUDFuncPtr(2, 1)(f_add)
+ * 
+ *  a(1, 2)  # Returns 3
+ * 
+ *  a.setFunc(f_mul)  # Set pointer to another multiplication function (assuming it exists)
+ *  a(1, 2)  # Returns 2
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * EUDFunc的函数指针。[argn]、[retn]是参数数量和返回值数量 ::
+ * 
+ *  # 直接使用上面的f_add
+ *  a = EUDFuncPtr(2, 1)(f_add)
+ * 
+ *  a(1, 2)  # 返回3
+ * 
+ *  a.setFunc(f_mul)  # 将指针设置为另一个乘法函数（假设存在）
+ *  a(1, 2)  # 返回2
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDFuncPtr(argn, retn) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function setloc(locID, x, y) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function addloc(locID, x, y) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dilateloc(locID, x, y) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function getlocTL(locID) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function setloc_epd(locID, epd) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function wwrite_epd(epd, subp, w) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function bwrite_epd(epd, subp, b) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function wread_epd(epd, subp) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function bread_epd(epd, subp) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 비트 단위로 dword를 읽고싶거나 dword를 나눌 때 쓰면 됩니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Can be used when you want to read dword in bit units or divide dword.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 当需要以位为单位读取dword或分割dword时使用。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function flagread_epd(targetplayer) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * Current Player를 기준으로 하는 함수입니다. _epd가 붙은 함수들보다 2배 빠릅니다.
  * cpo는 Current Player를 기준으로 읽을 메모리가 얼마나 떨어져있는지를 나타냅니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function based on Current Player. It is twice as fast as functions with _epd.
+ * cpo indicates how far the memory to read is from the Current Player.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 基于当前玩家的函数。比带_epd的函数快2倍。
+ * cpo表示要读取的内存距离当前玩家有多远。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwepdread_cp(cpo) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * Current Player를 기준으로 하는 함수입니다. _epd가 붙은 함수들보다 2배 빠릅니다.
  * cpo는 Current Player를 기준으로 읽을 메모리가 얼마나 떨어져있는지를 나타냅니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function based on Current Player. It is twice as fast as functions with _epd.
+ * cpo indicates how far the memory to read is from the Current Player.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 基于当前玩家的函数。比带_epd的函数快2倍。
+ * cpo表示要读取的内存距离当前玩家有多远。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwread_cp(cpo) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * Current Player를 기준으로 하는 함수입니다. _epd가 붙은 함수들보다 2배 빠릅니다.
  * cpo는 Current Player를 기준으로 읽을 메모리가 얼마나 떨어져있는지를 나타냅니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function based on Current Player. It is twice as fast as functions with _epd.
+ * cpo indicates how far the memory to read is from the Current Player.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 基于当前玩家的函数。比带_epd的函数快2倍。
+ * cpo表示要读取的内存距离当前玩家有多远。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function epdread_cp(cpo) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function wread_cp(cpo, subp) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function bread_cp(cpo, subp) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * read 대신 write, add, subtract를 합니다. 당연히 read류 함수보다 32배정도
  * 빠릅니다. 단순 SetMemory랑 속도가 똑같습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Does write, add, subtract instead of read. Naturally, it is about 32 times faster than read functions.
+ * It has the same speed as simple SetMemory.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 执行write、add、subtract而不是read。当然，比read类函数快约32倍。
+ * 与简单的SetMemory速度相同。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwwrite_cp(cpo, value) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * read 대신 write, add, subtract를 합니다. 당연히 read류 함수보다 32배정도
  * 빠릅니다. 단순 SetMemory랑 속도가 똑같습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Does write, add, subtract instead of read. Naturally, it is about 32 times faster than read functions.
+ * It has the same speed as simple SetMemory.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 执行write、add、subtract而不是read。当然，比read类函数快约32倍。
+ * 与简单的SetMemory速度相同。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwadd_cp(cpo, value) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * read 대신 write, add, subtract를 합니다. 당연히 read류 함수보다 32배정도
  * 빠릅니다. 단순 SetMemory랑 속도가 똑같습니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Does write, add, subtract instead of read. Naturally, it is about 32 times faster than read functions.
+ * It has the same speed as simple SetMemory.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 执行write、add、subtract而不是read。当然，比read类函数快约32倍。
+ * 与简单的SetMemory速度相同。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwsubtract_cp(cpo, value) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function wwrite_cp(cpoffset, subp, w) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function bwrite_cp(cpoffset, subp, b) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwwrite(ptr, dw) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function wwrite(ptr, w) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * ^^;
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ^^;
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ^^;
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function bwrite(ptr, b) { }
-
 
 /***
  * @Type
@@ -3211,12 +4647,22 @@ function bwrite(ptr, b) { }
  * @Summary.ko-KR
  * ptr 읽기함수
  * EPD 계산하느라 나눗셈해야되서 느리니까 dwread_epd쓰삼 ㅡㅡ
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ptr read function
+ * Since division is needed for EPD calculation, it's slow, so use dwread_epd ㅡㅡ
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ptr读取函数
+ * 因为需要计算EPD而进行除法，所以很慢，所以使用dwread_epd ㅡㅡ
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function dwread(ptr) { }
-
 
 /***
  * @Type
@@ -3226,12 +4672,26 @@ function dwread(ptr) { }
  * EPD 계산하느라 나눗셈해야되서 느리니까 wread_epd쓰삼 ㅡㅡ
  * 근데 필요할 때도 있긴함 그래도 연속된 주소를 읽을 땐 EUDByteStream이 낫다
  * 힘들어
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ptr read function
+ * Since division is needed for EPD calculation, it's slow, so use wread_epd ㅡㅡ
+ * But sometimes it's needed, still EUDByteStream is better for reading consecutive addresses
+ * It's hard
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ptr读取函数
+ * 因为需要计算EPD而进行除法，所以很慢，所以使用wread_epd ㅡㅡ
+ * 但有时也需要，不过读取连续地址时EUDByteStream更好
+ * 很难
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function wread(ptr) { }
-
 
 /***
  * @Type
@@ -3241,12 +4701,26 @@ function wread(ptr) { }
  * EPD 계산하느라 나눗셈해야되서 느리니까 bread_epd쓰삼 ㅡㅡ
  * 근데 필요할 때도 있긴함 그래도 연속된 주소를 읽을 땐 EUDByteStream이 낫다
  * 빵 아님 ㅎ
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * ptr read function
+ * Since division is needed for EPD calculation, it's slow, so use bread_epd ㅡㅡ
+ * But sometimes it's needed, still EUDByteStream is better for reading consecutive addresses
+ * Not bread ㅎ
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * ptr读取函数
+ * 因为需要计算EPD而进行除法，所以很慢，所以使用bread_epd ㅡㅡ
+ * 但有时也需要，不过读取连续地址时EUDByteStream更好
+ * 不是面包 ㅎ
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function bread(ptr) { }
-
 
 /***
  * @Type
@@ -3265,105 +4739,198 @@ function bread(ptr) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Compares the first [count] bytes of data pointed by [buf1] and
+ * the first [count] bytes of data pointed by [buf2],
+ * returns 0 if they are equal,
+ * and returns a non-zero value if they are different. The returned value is as follows.
+ * 
+ * Returns an integer value according to the relationship between the two memory blocks.
+ * If the two memory blocks are exactly the same, returns 0.
+ * If the two memory blocks are different, looks at the first different byte from the beginning
+ * in the memory blocks pointed by [buf1] and [buf2],
+ * if that value is larger in [buf1], returns a value greater than 0, otherwise returns a value less than 0.
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 比较[buf1]指向的前[count]字节数据和
+ * [buf2]指向的前[count]字节数据，
+ * 如果相等则返回0，
+ * 如果不同则返回非零值。返回值如下。
+ * 
+ * 根据两个内存块的关系返回整数值。
+ * 如果两个内存块完全相同，则返回0。
+ * 如果两个内存块不同，则检查[buf1]和[buf2]指向的内存块中
+ * 从开头第一个不同的字节，
+ * 如果该值在[buf1]中更大，则返回大于0的值，否则返回小于0的值。
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function memcmp(buf1, buf2, count) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 사용자 정의 읽기 함수를 만드는 함수
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to create custom read functions
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 创建自定义读取函数的函数
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function readgen_epd(mask, args) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 사용자 정의 읽기 함수를 만드는 함수
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to create custom read functions
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 创建自定义读取函数的函数
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function readgen_cp(mask, args) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [epd] 주소에서 CUnit값을 읽어서 ptr로 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads CUnit value from [epd] address and returns it as ptr.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 从[epd]地址读取CUnit值并作为ptr返回。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function cunitread_epd(epd) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * CurrentPlayer+[cpoffset] 주소에서 CUnit값을 읽어서 ptr로 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads CUnit value from CurrentPlayer+[cpoffset] address and returns it as ptr.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 从CurrentPlayer+[cpoffset]地址读取CUnit值并作为ptr返回。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function cunitread_cp(cpoffset) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [epd] 주소에서 CUnit값을 읽어서 ptr, epd로 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads CUnit value from [epd] address and returns it as ptr, epd.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 从[epd]地址读取CUnit值并作为ptr、epd返回。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function cunitepdread_epd(epd) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * CurrentPlayer+[cpoffset] 주소에서 CUnit값을 읽어서 ptr, epd로 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads CUnit value from CurrentPlayer+[cpoffset] address and returns it as ptr, epd.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 从CurrentPlayer+[cpoffset]地址读取CUnit值并作为ptr、epd返回。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function cunitepdread_cp(cpoffset) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [targetplayer] 주소에서 bit[mask]에 있는 비트만 읽어서 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads only the bits in bit[mask] from [targetplayer] address and returns them.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 从[targetplayer]地址仅读取bit[mask]中的位并返回。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function maskread_epd(targetplayer, mask) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * CurrentPlayer+[cpoffset] 주소에서 bit[mask]에 있는 비트만 읽어서 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads only the bits in bit[mask] from CurrentPlayer+[cpoffset] address and returns them.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 从CurrentPlayer+[cpoffset]地址仅读取bit[mask]中的位并返回。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function maskread_cp(cpoffset, mask) { }
-
 
 /***
  * @Type
@@ -3371,12 +4938,22 @@ function maskread_cp(cpoffset, mask) { }
  * @Summary.ko-KR
  * [epd] 주소의 Position 형태 값을 읽어 x, y로 반환합니다.
  * * Position: 맵 좌표값 (65536 * y) + x
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads the Position format value from [epd] address and returns it as x, y.
+ * * Position: map coordinate value (65536 * y) + x
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 读取[epd]地址的Position格式值并作为x、y返回。
+ * * Position: 地图坐标值 (65536 * y) + x
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function posread_epd(epd) { }
-
 
 /***
  * @Type
@@ -3384,225 +4961,373 @@ function posread_epd(epd) { }
  * @Summary.ko-KR
  * CurrentPlayer+[cpoffset] 주소의 Position 형태 값을 읽어 x, y로 반환합니다.
  * * Position: 맵 좌표값 (65536 * y) + x
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Reads the Position format value from CurrentPlayer+[cpoffset] address and returns it as x, y.
+ * * Position: map coordinate value (65536 * y) + x
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 读取CurrentPlayer+[cpoffset]地址的Position格式值并作为x、y返回。
+ * * Position: 地图坐标值 (65536 * y) + x
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function posread_cp(cpoffset) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * EUDVArray를 읽는 함수. 순차탐색에 적합함.
- * 
  * Methods: seek, read
- ***/
+ * 
+ * @Summary.en-US
+ * Function to read EUDVArray. Suitable for sequential search.
+ * Methods: seek, read
+ * 
+ * @Summary.zh-CN
+ * 读取EUDVArray的函数。适合顺序搜索。
+ * 方法：seek, read
+***/
 function EUDVArrayReader() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 스트링 [strId]의 주소를 반환합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Returns the address of string [strId].
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 返回字符串[strId]的地址。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function GetMapStringAddr(strId: TrgString) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 텍스트 포인터의 값을 반환합니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Returns the value of the text pointer.
+ * 
+ * @Summary.zh-CN
+ * 返回文本指针的值。
+***/
 function gettextptr() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 문자열 비교 함수. 길이 제한이 필요하면 memcmp를 쓰자.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * String comparison function. If length limit is needed, use memcmp.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 字符串比较函数。如果需要长度限制，请使用memcmp。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function strcmp(s1, s2) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [ptr] 주소의 스트링 길이를 가져온다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Gets the string length at [ptr] address.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 获取[ptr]地址的字符串长度。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function strlen(ptr) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [epd] 주소의 스트링 길이를 가져온다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Gets the string length at [epd] address.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 获取[epd]地址的字符串长度。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function strlen_epd(epd) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 문자열 안에서 문자열 검색하기
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Search for a string within a string.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 在字符串中搜索字符串。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function strnstr(string, substring, count) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [ptr] 주소의 스트링을 연결합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Concatenates the string at [ptr] address.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 连接[ptr]地址的字符串。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function ptr2s(ptr) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [epd] 주소의 스트링을 연결합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Concatenates the string at [epd] address.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 连接[epd]地址的字符串。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function epd2s(epd) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 16진수 출력
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Hexadecimal output
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 十六进制输出
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function hptr(value) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [player] 번호의 기본 플레이어 색상을 가져옵니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Gets the default player color of [player] number.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 获取[player]编号的默认玩家颜色。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function PColor(player: TrgPlayer) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [player]의 이름을 가져옵니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Gets the name of [player].
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 获取[player]的名称。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function PName(player: TrgPlayer) { }
-
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * [player]의 이름을 [formatstring]으로 [*args]의 내용들로 설정합니다.
- * 
  * @param.args.ko-KR
  * str, ptr2s, epd2s, PName, PColor
- ***/
+ * 
+ * @Summary.en-US
+ * Sets the name of [player] with [formatstring] using the contents of [*args].
+ * @param.args.en-US
+ * str, ptr2s, epd2s, PName, PColor
+ * 
+ * @Summary.zh-CN
+ * 使用[formatstring]和[*args]的内容设置[player]的名称。
+ * @param.args.zh-CN
+ * str, ptr2s, epd2s, PName, PColor
+***/
 function SetPNamef(player: TrgPlayer, formatstring /*FormatText*/, *args) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * stat_txt.tbl 주소를 가져옵니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Gets the stat_txt.tbl address.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 获取stat_txt.tbl地址。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function GetTBLAddr(tblId) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * stat_txt.tbl 내용 작성
- * 
  * @param.offset.ko-KR
  * 텍스트 시작 위치에서 얼마나 떨어진 지점부터 작성할지
- ***/
+ * 
+ * @Summary.en-US
+ * Writes stat_txt.tbl content
+ * @param.offset.en-US
+ * How far from the text start position to start writing
+ * 
+ * @Summary.zh-CN
+ * 编写stat_txt.tbl内容
+ * @param.offset.zh-CN
+ * 从文本起始位置多远开始编写
+***/
 function settbl(tblID, offset, args) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * stat_txt.tbl 내용 작성
- * 
  * @param.offset.ko-KR
  * 텍스트 시작 위치에서 얼마나 떨어진 지점부터 작성할지
- ***/
+ * 
+ * @Summary.en-US
+ * Writes stat_txt.tbl content
+ * @param.offset.en-US
+ * How far from the text start position to start writing
+ * 
+ * @Summary.zh-CN
+ * 编写stat_txt.tbl内容
+ * @param.offset.zh-CN
+ * 从文本起始位置多远开始编写
+***/
 function settblf(tblID, offset, formatstring /*FormatText*/, *args) { }
 
-
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * stat_txt.tbl 내용 작성
- * 
  * @param.offset.ko-KR
  * 텍스트 시작 위치에서 얼마나 떨어진 지점부터 작성할지
- ***/
+ * 
+ * @Summary.en-US
+ * Writes stat_txt.tbl content
+ * @param.offset.en-US
+ * How far from the text start position to start writing
+ * 
+ * @Summary.zh-CN
+ * 编写stat_txt.tbl内容
+ * @param.offset.zh-CN
+ * 从文本起始位置多远开始编写
+***/
 function settblf2(tblID, offset, formatstring /*FormatText*/, *args) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 해당 [tag]의 텍스트 효과 타이머를 [value]로 설정합니다.
- * 
  * @param.tag.ko-KR
  * 텍스트 효과 태그
- ***/
+ * 
+ * @Summary.en-US
+ * Sets the text effect timer of the corresponding [tag] to [value].
+ * @param.tag.en-US
+ * Text effect tag
+ * 
+ * @Summary.zh-CN
+ * 将对应[tag]的文本效果计时器设置为[value]。
+ * @param.tag.zh-CN
+ * 文本效果标签
+***/
 function TextFX_SetTimer(tag, modtype: TrgModifier, value) { }
-
 
 /***
  * @Type
@@ -3610,12 +5335,22 @@ function TextFX_SetTimer(tag, modtype: TrgModifier, value) { }
  * @Summary.ko-KR
  * 해당 [tag]를 사용하는 모든 텍스트 효과를 화면에서 지웁니다.
  * 화면에 있었으면 해당하는 줄의 텍스트 포인터를 반환합니다. 없었으면 -1을 반환합니다.
- * 
  * @param.tag.ko-KR
  * 텍스트 효과 태그
- ***/
+ * 
+ * @Summary.en-US
+ * Removes all text effects using the corresponding [tag] from the screen.
+ * If it was on the screen, returns the text pointer of the corresponding line. If not, returns -1.
+ * @param.tag.en-US
+ * Text effect tag
+ * 
+ * @Summary.zh-CN
+ * 从屏幕中清除所有使用对应[tag]的文本效果。
+ * 如果在屏幕上，则返回对应行的文本指针。如果不在，则返回-1。
+ * @param.tag.zh-CN
+ * 文本效果标签
+***/
 function TextFX_Remove(tag) { }
-
 
 /***
  * @Type
@@ -3623,16 +5358,34 @@ function TextFX_Remove(tag) { }
  * @Summary.ko-KR
  * 조건에 맞는 플레이어들을 순환합니다.
  * None을 넣으면 모두 허용합니다.
- * 
  * @param.ptype.ko-KR
  * 순환할 플레이어 타입 ("Human", "Computer", ...)
  * @param.force.ko-KR
  * 속한 Force (Force1, Force2, Force3, Force4)
  * @param.race.ko-KR
  * 종족 ("Zerg", "Terran", "Protoss")
- ***/
+ * 
+ * @Summary.en-US
+ * Cycles through players that meet the conditions.
+ * If None is entered, all are allowed.
+ * @param.ptype.en-US
+ * Player type to cycle ("Human", "Computer", ...)
+ * @param.force.en-US
+ * Force belonging to (Force1, Force2, Force3, Force4)
+ * @param.race.en-US
+ * Race ("Zerg", "Terran", "Protoss")
+ * 
+ * @Summary.zh-CN
+ * 循环符合条件的玩家。
+ * 如果输入None，则允许所有玩家。
+ * @param.ptype.zh-CN
+ * 要循环的玩家类型 ("Human", "Computer", ...)
+ * @param.force.zh-CN
+ * 所属势力 (Force1, Force2, Force3, Force4)
+ * @param.race.zh-CN
+ * 种族 ("Zerg", "Terran", "Protoss")
+***/
 function EUDLoopPlayer(ptype, force, race) { }
-
 
 /***
  * @Type
@@ -3640,182 +5393,300 @@ function EUDLoopPlayer(ptype, force, race) { }
  * @Summary.ko-KR
  * 이중 연결 리스트를 순회합니다. header_offset은 첫 리스트 항목을 가르키는
  * 포인터고, next를 따라가다 ptr이 break_offset이 되면 LoopList가 종료됩니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Traverses a doubly linked list. header_offset is a pointer to the first list item,
+ * and LoopList ends when ptr becomes break_offset following next.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 遍历双向链表。header_offset是指向第一个列表项的指针，
+ * 当ptr跟随next到达break_offset时，LoopList结束。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDLoopList(header_offset, break_offset) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 모든 CUnit(구조오프셋)을 돕니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Loops through all CUnit (structure offset).
+ * 
+ * @Summary.zh-CN
+ * 遍历所有CUnit（结构偏移）。
+***/
 function EUDLoopUnit() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 새로 생성된 CUnit(구조오프셋)을 1회 돕니다. ptr, epd를 yield합니다.
- * 
  * @param.allowance.ko-KR
  * 한 트리거 주기에 사라지는 최대 유닛 수 (가스 캐는 일꾼, 벙커/수송선 탑승, etc)
- ***/
+ * 
+ * @Summary.en-US
+ * Loops through newly created CUnit (structure offset) once. Yields ptr, epd.
+ * @param.allowance.en-US
+ * Maximum number of units that disappear in one trigger cycle (gas harvesting workers, bunker/transport loading, etc)
+ * 
+ * @Summary.zh-CN
+ * 遍历新创建的CUnit（结构偏移）一次。返回ptr、epd。
+ * @param.allowance.zh-CN
+ * 一个触发器周期内消失的最大单位数（采气工人、地堡/运输机装载等）
+***/
 function EUDLoopNewUnit(allowance) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 플레이어가 소유한 모든 CUnit(구조오프셋)을 돕니다. ptr, epd를 yield합니다.
- * 
  * @param.player.ko-KR
  * 유닛 순환할 플레이어
- ***/
+ * 
+ * @Summary.en-US
+ * Loops through all CUnit (structure offset) owned by the player. Yields ptr, epd.
+ * @param.player.en-US
+ * Player to loop units
+ * 
+ * @Summary.zh-CN
+ * 遍历玩家拥有的所有CUnit（结构偏移）。返回ptr、epd。
+ * @param.player.zh-CN
+ * 循环单位的玩家
+***/
 function EUDLoopPlayerUnit(player: TrgPlayer) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 모든 CSprite를 돕니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Loops through all CSprite.
+ * 
+ * @Summary.zh-CN
+ * 遍历所有CSprite。
+***/
 function EUDLoopSprite() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 모든 CBullet를 돕니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Loops through all CBullet.
+ * 
+ * @Summary.zh-CN
+ * 遍历所有CBullet。
+***/
 function EUDLoopBullet() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 유닛들을 선택합니다.
- * 
  * @param.n.ko-KR
  * 선택할 유닛 수
  * @param.ptrList.ko-KR
  * 선택할 유닛 ptr의 EUDArray
- ***/
+ * 
+ * @Summary.en-US
+ * Selects units.
+ * @param.n.en-US
+ * Number of units to select
+ * @param.ptrList.en-US
+ * EUDArray of unit ptr to select
+ * 
+ * @Summary.zh-CN
+ * 选择单位。
+ * @param.n.zh-CN
+ * 要选择的单位数量
+ * @param.ptrList.zh-CN
+ * 要选择的单位ptr的EUDArray
+***/
 function QueueGameCommand_Select(n, ptrList: EUDArray) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 게임을 일시정지합니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Pauses the game.
+ * 
+ * @Summary.zh-CN
+ * 暂停游戏。
+***/
 function QueueGameCommand_PauseGame() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 게임의 일시정지를 해제합니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Resumes the game.
+ * 
+ * @Summary.zh-CN
+ * 恢复游戏。
+***/
 function QueueGameCommand_ResumeGame() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * (싱글플레이 전용) 게임을 재시작합니다.
- ***/
+ * 
+ * @Summary.en-US
+ * (Singleplayer only) Restarts the game.
+ * 
+ * @Summary.zh-CN
+ * （仅限单人游戏）重新开始游戏。
+***/
 function QueueGameCommand_RestartGame() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 방에 나갑니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Leaves the room.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 离开房间。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function QueueGameCommand_LeaveGame(type_) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 치트키 발동
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Activates cheat.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 激活作弊码。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function QueueGameCommand_UseCheat(flags) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 선택한 유닛들에게 유닛 생산 명령을 내립니다. 
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Issues unit production command to selected units.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 向选中的单位下达单位生产命令。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function QueueGameCommand_TrainUnit(unit: TrgUnit) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 선택한 유닛들에게 다크아칸 합체 명령을 내립니다. 
- ***/
+ * 
+ * @Summary.en-US
+ * Issues dark archon merge command to selected units.
+ * 
+ * @Summary.zh-CN
+ * 向选中的单位下达黑暗执政官合并命令。
+***/
 function QueueGameCommand_MergeDarkArchon() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 선택한 유닛들에게 아칸 합체 명령을 내립니다. 
- ***/
+ * 
+ * @Summary.en-US
+ * Issues archon merge command to selected units.
+ * 
+ * @Summary.zh-CN
+ * 向选中的单位下达执政官合并命令。
+***/
 function QueueGameCommand_MergeArchon() { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 아크탄젠트 계산 (360도)
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates arctangent (360 degrees)
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 计算反正切（360度）
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function atan2(y, x) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 제곱근을 계산합니다.
- * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Calculates square root.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 计算平方根。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function sqrt(x) { }
-
 
 /***
  * @Type
@@ -3827,9 +5698,24 @@ function sqrt(x) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Stack implemented with EUD.
+ * 
+ * Methods: push, pop, empty
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 用EUD实现的栈。
+ * 
+ * 方法：push, pop, empty
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDStack(size, basetype) { }
-
 
 /***
  * @Type
@@ -3838,9 +5724,18 @@ function EUDStack(size, basetype) { }
  * Write byte by byte
  * 
  * Methods: writebyte, flushdword
- ***/
+ * 
+ * @Summary.en-US
+ * Write byte by byte
+ * 
+ * Methods: writebyte, flushdword
+ * 
+ * @Summary.zh-CN
+ * 逐字节写入
+ * 
+ * 方法：writebyte, flushdword
+***/
 function CPByteWriter() { }
-
 
 /***
  * @Type
@@ -3857,10 +5752,35 @@ function CPByteWriter() { }
  * and content of CPString will be set to content(int) and empty string.
  * 
  * :type content: str, bytes, int
- ***/
+ * 
+ * @Summary.en-US
+ * store String in SetDeaths Actions, easy to concatenate.
+ * 
+ * Methods: Display, GetVTable, GetNextPtrMemory
+ * 
+ * @param.content.en-US
+ * Constructor for CPString
+ * :param content: Initial CPString content capacity. Capacity of CPString
+ * is determined by size of this. If content is integer, then initial capacity
+ * and content of CPString will be set to content(int) and empty string.
+ * 
+ * :type content: str, bytes, int
+ * 
+ * @Summary.zh-CN
+ * 在SetDeaths动作中存储字符串，易于连接。
+ * 
+ * 方法：Display, GetVTable, GetNextPtrMemory
+ * 
+ * @param.content.zh-CN
+ * CPString的构造函数
+ * :param content: 初始CPString内容容量。CPString的容量
+ * 由此的大小决定。如果content是整数，则CPString的初始容量
+ * 和内容将设置为content(int)和空字符串。
+ * 
+ * :type content: str, bytes, int
+***/
 function CPString(content) { }
 
-
 /***
  * @Type
  * F
@@ -3870,10 +5790,23 @@ function CPString(content) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Strictly speaking, this is not an EUD function, but I just put it here. For each cond(x) that satisfies
+ * [minv, maxv], it finds the maximum x and minimum x.
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 严格来说，这不是一个EUD函数，我只是把它放在这里。对于每个满足条件的cond(x)，
+ * 在[minv, maxv]中找到最大x和最小x。
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDBinaryMax(cond, minv, maxv) { }
 
-
 /***
  * @Type
  * F
@@ -3883,9 +5816,22 @@ function EUDBinaryMax(cond, minv, maxv) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Strictly speaking, this is not an EUD function, but I just put it here. For each cond(x) that satisfies
+ * [minv, maxv], it finds the maximum x and minimum x.
+ * 
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 严格来说，这不是一个EUD函数，我只是把它放在这里。对于每个满足条件的cond(x)，
+ * 在[minv, maxv]中找到最大x和最小x。
+ * 
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function EUDBinaryMin(cond, minv, maxv) { }
-
 
 /***
  * @Type
@@ -3894,9 +5840,18 @@ function EUDBinaryMin(cond, minv, maxv) { }
  * Read and Write byte by byte.
  * 
  * Methods: seekepd, seekoffset, readbyte, writebyte
- ***/
+ * 
+ * @Summary.en-US
+ * Read and Write byte by byte.
+ * 
+ * Methods: seekepd, seekoffset, readbyte, writebyte
+ * 
+ * @Summary.zh-CN
+ * 逐字节读写。
+ * 
+ * 方法：seekepd, seekoffset, readbyte, writebyte
+***/
 function EUDByteStream() { }
-
 
 /***
  * @Type
@@ -3904,9 +5859,16 @@ function EUDByteStream() { }
  * @Summary.ko-KR
  * EUDLoopUnit보다 약간? 빠릅니다.
  * 유닛 리스트를 따라가지 않고 1700개 유닛을 도는 방식으로 작동합니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Slightly? faster than EUDLoopUnit.
+ * Operates by looping through 1700 units without following the unit list.
+ * 
+ * @Summary.zh-CN
+ * 比EUDLoopUnit稍快？。
+ * 通过循环1700个单位而不跟随单位列表的方式工作。
+***/
 function EUDLoopUnit2() { }
-
 
 /***
  * @Type
@@ -3918,9 +5880,24 @@ function EUDLoopUnit2() { }
  * 전역으로 등록할 이름
  * @param.obj.ko-KR
  * 등록할 오브젝트 (클래스, 함수, 변수, 배열 등)
- ***/
+ * 
+ * @Summary.en-US
+ * Allows using functions, classes, variables, etc. in inline_eudplib.
+ * 
+ * @param.funcname.en-US
+ * Name to register globally
+ * @param.obj.en-US
+ * Object to register (class, function, variable, array, etc.)
+ * 
+ * @Summary.zh-CN
+ * 允许在inline_eudplib中使用函数、类、变量等。
+ * 
+ * @param.funcname.zh-CN
+ * 要全局注册的名称
+ * @param.obj.zh-CN
+ * 要注册的对象（类、函数、变量、数组等）
+***/
 function EUDRegisterObjectToNamespace(funcname, obj) { }
-
 
 /***
  * @Type
@@ -3930,18 +5907,34 @@ function EUDRegisterObjectToNamespace(funcname, obj) { }
  * 
  * @param.func.ko-KR
  * 함수
- ***/
+ * 
+ * @Summary.en-US
+ * Allows using functions, classes, variables, etc. in inline_eudplib.
+ * 
+ * @param.func.en-US
+ * Function
+ * 
+ * @Summary.zh-CN
+ * 允许在inline_eudplib中使用函数、类、变量等。
+ * 
+ * @param.func.zh-CN
+ * 函数
+***/
 function EUDRegistered(func) { }
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * EUDRegistered로 등록된 함수들을 얻어옵니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Gets functions registered with EUDRegistered.
+ * 
+ * @Summary.zh-CN
+ * 获取通过EUDRegistered注册的函数。
+***/
 function GetEUDNamespace() { }
-
 
 /***
  * @Type
@@ -3953,9 +5946,24 @@ function GetEUDNamespace() { }
  * 어떤 이름으로 삽입할지, PlayWAV할 때 쓰는 이름도 이거임.
  * @param.content.ko-KR
  * content는 파이썬 bytes 오프젝트입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Adds file to map MPQ. OGG files can also be added with this.
+ * 
+ * @param.fname.en-US
+ * Name to insert as, also the name used when PlayWAV.
+ * @param.content.en-US
+ * content is a Python bytes object.
+ * 
+ * @Summary.zh-CN
+ * 将文件添加到地图MPQ中。OGG文件也可以使用此方法添加。
+ * 
+ * @param.fname.zh-CN
+ * 插入的名称，也是PlayWAV时使用的名称。
+ * @param.content.zh-CN
+ * content是Python bytes对象。
+***/
 function MPQAddFile(fname, content) { }
-
 
 /***
  * @Type
@@ -3967,9 +5975,24 @@ function MPQAddFile(fname, content) { }
  * 어떤 이름으로 삽입할지, PlayWAV할 때 쓰는 이름도 이거임.
  * @param.content.ko-KR
  * content는 파이썬 bytes 오프젝트입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Adds WAV file to map MPQ.
+ * 
+ * @param.fname.en-US
+ * Name to insert as, also the name used when PlayWAV.
+ * @param.content.en-US
+ * content is a Python bytes object.
+ * 
+ * @Summary.zh-CN
+ * 将WAV文件添加到地图MPQ中。
+ * 
+ * @param.fname.zh-CN
+ * 插入的名称，也是PlayWAV时使用的名称。
+ * @param.content.zh-CN
+ * content是Python bytes对象。
+***/
 function MPQAddWave(fname, content) { }
-
 
 /***
  * @Type
@@ -3979,9 +6002,20 @@ function MPQAddWave(fname, content) { }
  * 
  * @param.xy.ko-KR
  * (y * 65536) + x, where (x, y) is coordinate for right click.
- ***/
+ * 
+ * @Summary.en-US
+ * Pings the minimap.
+ * 
+ * @param.xy.en-US
+ * (y * 65536) + x, where (x, y) is coordinate for right click.
+ * 
+ * @Summary.zh-CN
+ * 在小地图上打点。
+ * 
+ * @param.xy.zh-CN
+ * (y * 65536) + x，其中(x, y)是右键点击的坐标。
+***/
 function QueueGameCommand_MinimapPing(xy) { }
-
 
 /***
  * @Type
@@ -3991,9 +6025,20 @@ function QueueGameCommand_MinimapPing(xy) { }
  * 
  * @param.xy.ko-KR
  * (y * 65536) + x, where (x, y) is coordinate for right click.
- ***/
+ * 
+ * @Summary.en-US
+ * Issues queued right-click command to selected units.
+ * 
+ * @param.xy.en-US
+ * (y * 65536) + x, where (x, y) is coordinate for right click.
+ * 
+ * @Summary.zh-CN
+ * 向选中的单位下达排队的右键点击命令。
+ * 
+ * @param.xy.zh-CN
+ * (y * 65536) + x，其中(x, y)是右键点击的坐标。
+***/
 function QueueGameCommand_QueuedRightClick(xy) { }
-
 
 /***
  * @Type
@@ -4003,12 +6048,19 @@ function QueueGameCommand_QueuedRightClick(xy) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * For optimization purpose, one may call this function directly
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 出于优化目的，可以直接调用此函数
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function SetNextTrigger(trg) { }
 
-
-
-
 /***
  * @Type
  * F
@@ -4018,10 +6070,21 @@ function SetNextTrigger(trg) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Used when putting text effects in places like stat_txt.tbl instead of strings. Lazy to write explanation
+ * masbabingbo
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 用于在stat_txt.tbl等地方添加文本效果而不是字符串。懒得写解释
+ * 马斯特巴彬博
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function TextFX_FadeIn(args, color, wait, reset, tag, encoding) { }
 
-
 /***
  * @Type
  * F
@@ -4031,9 +6094,20 @@ function TextFX_FadeIn(args, color, wait, reset, tag, encoding) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Used when putting text effects in places like stat_txt.tbl instead of strings. Lazy to write explanation
+ * masbabingbo
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 用于在stat_txt.tbl等地方添加文本效果而不是字符串。懒得写解释
+ * 马斯特巴彬博
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function TextFX_FadeOut(args, color, wait, reset, tag, encoding) { }
-
 
 /***
  * @Type
@@ -4045,9 +6119,22 @@ function TextFX_FadeOut(args, color, wait, reset, tag, encoding) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
- ***/
+ * 
+ * @Summary.en-US
+ * Function to read and write Current Player's value. Since Current Player is always managed by eudplib,
+ * using f_getcurpl function is about 32 times faster than directly reading the value at 0x6509B0.
+ * Good to use in combination with _cp type functions.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 读写当前玩家值的函数。由于当前玩家始终由eudplib管理，
+ * 使用f_getcurpl函数比直接读取0x6509B0的值快约32倍。
+ * 适合与_cp类函数结合使用。
+ * @param.parameterName.zh-CN
+ * 参数说明
+***/
 function addcurpl(cp) { }
-
 
 /***
  * @Type
@@ -4057,9 +6144,20 @@ function addcurpl(cp) { }
  * 
  * @param.args.ko-KR
  * Things to print
- ***/
+ * 
+ * @Summary.en-US
+ * Print multiple string number to CurrentPlayer.
+ * 
+ * @param.args.en-US
+ * Things to print
+ * 
+ * @Summary.zh-CN
+ * 向当前玩家打印多个字符串数字。
+ * 
+ * @param.args.zh-CN
+ * 要打印的内容
+***/
 function cpstr_print(*args, EOS, encoding) { }
-
 
 /***
  * @Type
@@ -4072,28 +6170,51 @@ function cpstr_print(*args, EOS, encoding) { }
  * 
  * @param.인자이름.ko-KR
  * 인자 설명
+ * 
+ * @Summary.en-US
+ * Function that splits dword into word/byte units. dwbreak2 maintains the value multiplied by word/byte.
+ * For example, dwbreak(0x12345678)[[2]] is 0x12, but dwbreak2(0x10000000)[[2]] is 0x12000000.
+ * When only a specific byte or word of dword needs to be changed, there is no need to multiply the result of f_dwbreak
+ * by a value like 0x100000 again.
+ * @param.parameterName.en-US
+ * Parameter description
+ * 
+ * @Summary.zh-CN
+ * 将dword拆分为word/byte单位的函数。dwbreak2保持word/byte所乘的值。
+ * 例如，dwbreak(0x12345678)[[2]]是0x12，但dwbreak2(0x10000000)[[2]]是0x12000000。
+ * 当只需要更改dword的特定byte或word时，无需将f_dwbreak的结果再次乘以0x100000等值。
+ * @param.parameterName.zh-CN
+ * 参数说明
 ***/
 function dwbreak2(number) { }
-
 
 /***
  * @Type
  * C
  * @Summary.ko-KR
  * 비공유 플레이어 조건입니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Non-shared player condition.
+ * 
+ * @Summary.zh-CN
+ * 非共享玩家条件。
+***/
 function IsUserCP() { }
-
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 현재 게임 틱을 읽어옵니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Reads the current game tick.
+ * 
+ * @Summary.zh-CN
+ * 读取当前游戏刻。
+***/
 function getgametick() { }
-
 
 /***
  * @Type
@@ -4106,9 +6227,25 @@ function getgametick() { }
  * @param.dst.ko-KR
  * dst: 스트링 주소. radix: 0 또는 2~36, (기본값: 10진법).
  * 
- ***/
+ * @Summary.en-US
+ * Returns the integer value converted from a string to a specific radix (default: decimal), and the number of digits.
+ * Returns 0, 0 if it cannot be converted to a number. Negative numbers are also supported, and leading whitespace characters are ignored.
+ * If radix is 0, starts with 0b or 0B then reads as binary, starts with 0o or 0O then reads as octal,
+ * starts with 0x or 0X then reads as hexadecimal.
+ * 
+ * @param.dst.en-US
+ * dst: string address. radix: 0 or 2~36, (default: decimal).
+ * 
+ * @Summary.zh-CN
+ * 返回将字符串转换为特定进制（默认：十进制）的整数值和位数。
+ * 如果无法转换为数字，则返回0, 0。支持负数，忽略前导空白字符。
+ * 如果radix为0，以0b或0B开头则读取为二进制，以0o或0O开头则读取为八进制，
+ * 以0x或0X开头则读取为十六进制。
+ * 
+ * @param.dst.zh-CN
+ * dst: 字符串地址。radix: 0或2~36，（默认：十进制）。
+***/
 function parse(dst, radix=10) { }
-
 
 /***
  * @Type
@@ -4118,17 +6255,33 @@ function parse(dst, radix=10) { }
  * 
  * @param.args.ko-KR
  * str, ptr2s, epd2s, PName, PColor
- ***/
+ * 
+ * @Summary.en-US
+ * Outputs text to the error line.
+ * 
+ * @param.args.en-US
+ * str, ptr2s, epd2s, PName, PColor
+ * 
+ * @Summary.zh-CN
+ * 在错误行输出文本。
+ * 
+ * @param.args.zh-CN
+ * str, ptr2s, epd2s, PName, PColor
+***/
 function eprintln(*args, encoding) { }
-
-
 
 /***
  * @Type
  * F
  * @Summary.ko-KR
  * 에러줄에 메세지를 출력합니다.
- ***/
+ * 
+ * @Summary.en-US
+ * Outputs message to the error line.
+ * 
+ * @Summary.zh-CN
+ * 在错误行输出消息。
+***/
 function f_eprintf(formatstring /*FormatText*/, *args) { }
 
 
@@ -4166,6 +6319,4 @@ object EUDVArray {
 object PVariable {
    function length() {}
 };
-
-
 

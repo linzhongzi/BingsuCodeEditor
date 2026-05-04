@@ -17,7 +17,7 @@ namespace BingsuCodeEditor.Lua
 
         public override void FodlingExec(List<CodeAnalyzer.TOKEN> Tokens, int len, List<NewFolding> Foldings)
         {
-            //TODO : 폴딩 로직 짜야됨
+            //TODO：需要编写折叠逻辑
             Foldings.Add(new NewFolding(0, len));
         }
     }

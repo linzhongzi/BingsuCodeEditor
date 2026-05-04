@@ -21,7 +21,7 @@ using System.Windows.Shapes;
 namespace BingsuCodeEditorTest
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    ///MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : MetroWindow
     {

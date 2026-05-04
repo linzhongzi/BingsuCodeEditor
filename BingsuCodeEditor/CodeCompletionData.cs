@@ -64,7 +64,7 @@ namespace BingsuCodeEditor
             }
         }
 
-        // 검색 될때 기준
+        // 搜索时的标准
         public string Text
         {
             get {

@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace BingsuBlocklyEpsEditor
 {
     /// <summary>
-    /// BlocklyEditor.xaml에 대한 상호 작용 논리
+    /// 与 `BlocklyEditor.xaml` 的交互逻辑
     /// </summary>
     public partial class BlocklyEditor : UserControl
     {

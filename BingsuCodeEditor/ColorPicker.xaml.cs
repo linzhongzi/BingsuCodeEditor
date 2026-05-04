@@ -16,17 +16,17 @@ using System.Windows.Shapes;
 namespace BingsuCodeEditor
 {
     /// <summary>
-    /// ColorPicker.xaml에 대한 상호 작용 논리
+    /// ColorPicker.xaml 的交互逻辑
     /// </summary>
     public partial class ColorPicker : UserControl
     {
         public ColorPicker()
         {
 
-            // 디자이너에서 이 호출이 필요합니다.
+            // 在设计器中需要这个调用。
             InitializeComponent();
 
-            // InitializeComponent() 호출 뒤에 초기화 코드를 추가하세요.
+            // 在 InitializeComponent() 调用之后添加初始化代码。
             LinearGradientBrush LinearGradientBrush = new LinearGradientBrush();
             LinearGradientBrush.StartPoint = new Point(0.5, 0);
             LinearGradientBrush.EndPoint = new Point(0.5, 1);

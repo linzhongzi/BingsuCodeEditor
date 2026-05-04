@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace BingsuCodeEditor
 {
     /// <summary>
-    /// OptionControlItem.xaml에 대한 상호 작용 논리
+    ///OptionControlItem.xaml 的交互逻辑
     /// </summary>
     public partial class OptionControlItem : UserControl
     {

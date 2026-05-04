@@ -36,12 +36,12 @@ using System.Xml;
 namespace BingsuCodeEditor
 {
     /// <summary>
-    /// UserControl1.xaml에 대한 상호 작용 논리
+    ///UserControl1.xaml 的交互逻辑
     /// </summary>
     public partial class CodeTextEditor : UserControl, IDisposable
     {
 
-        #region #############프라이빗(코드분석)#############
+        #region #############私有（代码分析）#############
         private bool LeftCtrlDown;
         private bool LeftShiftDown;
         private bool LeftAltDown;
@@ -77,7 +77,7 @@ namespace BingsuCodeEditor
 
                     DateTime dateTime = DateTime.Now;
 
-                    //코드 분석 실행
+                    //运行代码分析
                     if (codeAnalyzer.WorkCompete)
                     {
                         codeAnalyzer.Apply(codeText, offset);
@@ -96,7 +96,7 @@ namespace BingsuCodeEditor
 
 
 
-                            //오류 그리기
+                            //绘图错误
                             //DrawRedLine(0, 10);
 
                             //aTextEditor.TextArea.TextView.Redraw();
@@ -104,7 +104,7 @@ namespace BingsuCodeEditor
 
 
 
-                            //테스트 트리거
+                            //测试仪器触发器
 
                             //TestLog.Text = "";
                             ////CodeAnalyzer.TOKEN token = codeAnalyzer.GetToken(-1);
@@ -270,7 +270,7 @@ namespace BingsuCodeEditor
         {
             if(e.Error != null)
             {
-                //에러가 생길경우
+                //如果发生错误
                 ErrorText.Text = e.Error.Message;
             }
             if(IsDebug)
@@ -289,7 +289,7 @@ namespace BingsuCodeEditor
 
             DateTime dateTime = DateTime.Now;
 
-            //코드 분석 실행
+            //运行代码分析
             if (codeAnalyzer.WorkCompete)
             {
                 codeAnalyzer.Apply(codeText, offset);
@@ -317,7 +317,7 @@ namespace BingsuCodeEditor
                     //    }
                     //    currentfuncname += item.Value;
                     //}
-                    //툴팁텍스트를 아에 만들어서 보내자.
+                    //让我们创建一个工具提示文本并发送它。
 
                 }
 
@@ -396,12 +396,12 @@ namespace BingsuCodeEditor
 
 
                     #region ######################################################DEBUG######################################################
-                    //오류 그리기
+                    //绘图错误
                     //DrawRedLine(0, 10);
 
                     aTextEditor.TextArea.TextView.Redraw();
 
-                    //테스트 트리거
+                    //测试触发器
                     string debug = "";
 
                     //CodeAnalyzer.TOKEN token = codeAnalyzer.GetToken(-1);
@@ -425,7 +425,7 @@ namespace BingsuCodeEditor
                     //{
                     //    foreach (var item in codeAnalyzer.tokenAnalyzer.ErrorList)
                     //    {
-                    //        ToolTip.AppendText("Error : " + item.Message + "줄 : " + item.Line + "  열 : " + item.Column + "\n");
+                    //        ToolTip.AppendText("错误：" + item.Message + "行：" + item.Line + " 列：" + item.Column + "\n");
                     //    }
                     //}
 
@@ -455,7 +455,7 @@ namespace BingsuCodeEditor
         }
         #endregion
 
-        #region #############옵션#############
+        #region #############选项#############
 
         private CodeType CurrentcodeType;
         public CodeType HighLighting
@@ -508,7 +508,7 @@ namespace BingsuCodeEditor
 
         #endregion
 
-        #region #############옵션 함수#############
+        #region #############选项设置函数#############
         private void btnSetting_Click(object sender, RoutedEventArgs e)
         {
             optionControl.OpenOption(this, optionfilename);
@@ -564,7 +564,7 @@ namespace BingsuCodeEditor
 
         #endregion
 
-        #region #############외부연결함수#############
+        #region #############外部连接函数#############
         public event EventHandler Text_Change;
         public void Deactivated()
         {
@@ -858,7 +858,7 @@ namespace BingsuCodeEditor
 
         #endregion
 
-        #region #############초기화#############
+        #region #############初始化#############
 
 
         ToolTip toolTip;
@@ -873,7 +873,7 @@ namespace BingsuCodeEditor
 
             //< avalonedit:TextEditor x:Name = "ToolTip" VerticalScrollBarVisibility = "Hidden"
             //                         Background = "{DynamicResource MaterialDesignToolBarBackground}" TextElement.Foreground = "{DynamicResource MaterialDesignBody}"
-            //                         HorizontalScrollBarVisibility = "Hidden" IsReadOnly = "True" IsHitTestVisible = "False" Text = "툴팁입니다." />
+            //                         HorizontalScrollBarVisibility = "Hidden" IsReadOnly = "True" IsHitTestVisible = "False" Text = "这是工具提示。" />
 
             toolTip = new ToolTip();
 
@@ -1073,7 +1073,7 @@ namespace BingsuCodeEditor
         }
         #endregion
 
-        #region #############기본컨트롤이벤트#############
+        #region #############基本控制事件#############
         private void aTextEditor_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             if (LeftCtrlDown)
@@ -1104,7 +1104,7 @@ namespace BingsuCodeEditor
         #endregion
 
 
-        #region #############코드스니핏#############
+        #region #############代码片段#############
         private MarkSnippetWord markSnippetWord;
         private bool TabAutoSnippetStart()
         {
@@ -1171,7 +1171,7 @@ namespace BingsuCodeEditor
 
             bool IsInternal = markSnippetWord.CheckSnippetInternal();
 
-            //텝, 엔터가 편집중에 있으면 엔터 누르면 컨텐츠로 아니면 그냥 엔터 실행
+            //如果编辑时按回车，则返回内容或直接按回车即可。
 
 
             switch (key)
@@ -1236,7 +1236,7 @@ namespace BingsuCodeEditor
 
 
 
-        #region #############자동완성#############
+        #region #############自动完成#############
 
         //private Thread cmpthread;
 
@@ -1270,11 +1270,11 @@ namespace BingsuCodeEditor
         CustomCompletionWindow completionWindow;
         private void completionWindowOpen(string input, int startOffset, bool IsNameSpaceOpen = false, bool NoStartWithStartText = false)
         {
-            //선택이 다중일 경우 사용하지 않음
-            //엔터링에서 분석한 정보를 토대로, 자동완성창을 열거나 자동완성 목록을 생성
-            //문자가 앞에 있을 경우 자동완성 사용안함
-            //주석 등의 범위에 있을 경우 자동완성 사용안함. 이거는 코드 아날라이저가 알려주기로함
-            //자동완성중이 아니면 마지막에 자동입력 실행
+            //如果选择是多重的则不使用
+            //根据输入时分析的信息，打开自动完成窗口或生成自动完成列表
+            //如果前面有字符，则不使用自动完成
+            //如果在注释等范围内，则不使用自动完成。这由代码分析器提示
+            //如果不是自动完成中，则在最后执行自动输入
 
 
 
@@ -1289,7 +1289,7 @@ namespace BingsuCodeEditor
             CodeAnalyzer.TOKEN token = codeAnalyzer.GetToken(0);
 
 
-            //자동완성 비활성(주석)
+            //如果选择是多项，则禁用自动完成（注释）
             if(token != null)
             {
                 if (token.Type == CodeAnalyzer.TOKEN_TYPE.Comment || token.Type == CodeAnalyzer.TOKEN_TYPE.LineComment
@@ -1320,7 +1320,7 @@ namespace BingsuCodeEditor
                 //}
             }
 
-            //자동완성 비활성(문장 작석 중)
+            //禁用自动完成（在撰写句子时）
             //int caret = aTextEditor.CaretOffset - 1;
             //string text = aTextEditor.Text;
             //if(text.Length > caret && caret >= 0)
@@ -1357,7 +1357,7 @@ namespace BingsuCodeEditor
             }
 
 
-            //현재 위치 확인
+            //检查您当前的位置
             completionWindow = new CustomCompletionWindow(aTextEditor.TextArea);
             completionWindow.FuncToolTip = functooltip;
 
@@ -1421,7 +1421,7 @@ namespace BingsuCodeEditor
 
 
 
-        #region #############키 입력#############
+        #region #############按键输入#############
 
         private int tooltiplaststartoffset;
         private void OpenTooltipBox(int startoffset)
@@ -1518,8 +1518,7 @@ namespace BingsuCodeEditor
         }
         private void TextArea_TextEntering(object sender, TextCompositionEventArgs e)
         {
-            //TODO: 캐럿 분석을 실행
-            //스페이스 등을 입력시 자동완성 입력 끝내기.
+            //TODO：运行插入符号分析并在输入空格等时结束自动完成输入。
 
             if (e.Text.Length > 0 && completionWindow != null)
             {
@@ -1534,7 +1533,7 @@ namespace BingsuCodeEditor
                             return;
                         }
                     }
-                    //추가를 하긴 해야 할듯
+                    //我想我应该添加它
                     //return;
                 }
 
@@ -1630,7 +1629,7 @@ namespace BingsuCodeEditor
                 markSnippetWord.TypeChangeEnd();
             }
 
-            //타이핑 했을 경우 색칠을 늦춘다.
+            //打字时着色会延迟。
             markSameWordTimer = DateTime.Now.AddMilliseconds(1000);
             foreach (var markSameWord in aTextEditor.TextArea.TextView.LineTransformers.OfType<MarkSameWord>().ToList())
             {
@@ -1684,7 +1683,7 @@ namespace BingsuCodeEditor
 
             if (sLength == 0)
             {
-                //단일 줄
+                //单行
                 int uCaret = aTextEditor.SelectionStart;
                 int dCaret = uCaret + aTextEditor.SelectionLength;
 
@@ -1726,7 +1725,7 @@ namespace BingsuCodeEditor
             }
             else
             {
-                //다중 줄
+                //多行
                 int uCaret = aTextEditor.SelectionStart;
                 int dCaret = uCaret + aTextEditor.SelectionLength;
 
@@ -1918,14 +1917,14 @@ namespace BingsuCodeEditor
                     switch (key)
                     {
                         case Key.U:
-                            //주석 온
+                            //注释开
                             codeAnalyzer.SetCommentLine(aTextEditor.SelectionStart, aTextEditor.SelectionStart + aTextEditor.SelectionLength, gettabspace(true), CodeAnalyzer.CommentType.Clear);
                             LastKey = Key.None;
                             LastSystemKey = Key.None;
                             ShortCutText.Text = "";
                             return true;
                         case Key.C:
-                            //주석 오프
+                            //注释关
                             codeAnalyzer.SetCommentLine(aTextEditor.SelectionStart, aTextEditor.SelectionStart + aTextEditor.SelectionLength, gettabspace(true), CodeAnalyzer.CommentType.Set);
                             LastKey = Key.None;
                             LastSystemKey = Key.None;
@@ -2051,7 +2050,7 @@ namespace BingsuCodeEditor
 
         private void FindDefinition()
         {
-            //정의 찾기
+            //找到定义
             ItemPosition pos = codeAnalyzer.GetObjectPostion();
             if (pos == null) return;
             if (pos.PullPath == "")
@@ -2216,7 +2215,7 @@ namespace BingsuCodeEditor
 
                     if(_len != 0)
                     {
-                        //0이 아니면 선택리스트 제거해준다.
+                        //如果不为 0，则删除选择列表。
 
                         TextViewPosition startposition = new TextViewPosition(aTextEditor.TextArea.Document.GetLocation(selectionSegments.Last().StartOffset));
                         TextViewPosition endposition = new TextViewPosition(aTextEditor.TextArea.Document.GetLocation(selectionSegments.First().StartOffset));
@@ -2256,7 +2255,7 @@ namespace BingsuCodeEditor
                 {
                     //
                     //codeAnalyzer.GetToken(0);
-                    //.일경우 네임스페이스 확인
+                    //.在这种情况下，请检查名称空间命名空间。
                     //return;
                 }
                 else
@@ -2375,11 +2374,11 @@ namespace BingsuCodeEditor
                         int len = currentLine.Length;
                         if (len % 4 == 0 && len != 0)
                         {
-                            //4의 배수일 경우
+                            //如果是4的倍数
                             if (aTextEditor.SelectionLength == 0 && aTextEditor.SelectionStart >= 4)
                             {
                                 int lineoffset = currentLine.Offset;
-                                //라인의 끝일 경우
+                                //如果是行尾
                                 if (aTextEditor.CaretOffset == lineoffset + len)
                                 {
                                     string line = aTextEditor.Document.GetText(lineoffset, len);
@@ -2390,7 +2389,7 @@ namespace BingsuCodeEditor
                                         if (line.Replace(" ", "") == "")
                                         {
                                             e.Handled = true;
-                                            //모든 문자열이 스페이스
+                                            //所有字符都是空格字符串
                                             aTextEditor.SelectionStart -= aTextEditor.Options.IndentationSize;
                                             aTextEditor.SelectionLength = aTextEditor.Options.IndentationSize;
                                             aTextEditor.SelectedText = "";
@@ -2401,7 +2400,7 @@ namespace BingsuCodeEditor
                                         if (line.Replace("\t", "") == "")
                                         {
                                             e.Handled = true;
-                                            //모든 문자열이 스페이스
+                                            //所有字符都是空格字符串
                                             aTextEditor.SelectionStart -= 1;
                                             aTextEditor.SelectionLength = 1;
                                             aTextEditor.SelectedText = "";
@@ -2415,7 +2414,7 @@ namespace BingsuCodeEditor
                     }
                     break;
                 case Key.OemQuotes:
-                    //""로 감싸기 등
+                    //用“”等包裹起来。
                     {
                         int len = aTextEditor.SelectionLength;
 
@@ -2600,7 +2599,7 @@ namespace BingsuCodeEditor
         }
         #endregion
 
-        #region #############검색박스#############
+        #region #############搜索框#############
 
         private SearchPanel searchPanel;
         public bool IsSearchPanelOpen
@@ -2715,7 +2714,7 @@ namespace BingsuCodeEditor
         }
         #endregion
 
-        #region #############문단분석#############
+        #region #############段落分析#############
 
 
         private string lastCurrentToeknValue;
@@ -2783,7 +2782,7 @@ namespace BingsuCodeEditor
                     toolTip.Placement = System.Windows.Controls.Primitives.PlacementMode.Mouse;
                     toolTip.IsOpen = true;
                 }
-                //TODO:호버분석 마무리
+                //TODO：悬停分析已完成
              
                 e.Handled = true;
             }
@@ -2799,7 +2798,7 @@ namespace BingsuCodeEditor
         #endregion
 
 
-        #region #############Draw함수#############
+        #region #############Draw绘制函数#############
         private void highLightSelectItem()
         {
             CodeAnalyzer.TOKEN token = codeAnalyzer.GetToken(0);

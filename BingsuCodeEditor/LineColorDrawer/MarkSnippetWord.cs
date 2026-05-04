@@ -53,7 +53,7 @@ namespace BingsuCodeEditor.LineColorDrawer
         {
             DocumentLine line = textEditor.Document.GetLineByOffset(startoffset);
             lastLinetext = textEditor.Document.GetText(line.Offset, line.Length);
-            //컨텐츠 위치 밖에서 바꾸면사라짐
+            //如果您在内容位置之外更改它，它就会消失。
             //if(!(startoffset <= textEditor.CaretOffset && textEditor.CaretOffset < endoffset))
             //{
             //    return true;
@@ -76,12 +76,12 @@ namespace BingsuCodeEditor.LineColorDrawer
 
 
 
-            //여기서 인터널 체크
+            //在这里检查 internull
             int i = GetSnippetIndex();
             tokenindex = i;
             if (i != -1)
             {
-                //인터널인 경우
+                //如果是 internull 的情况
                 //snippetTokens[i].Length += count;
 
                 
@@ -140,27 +140,27 @@ namespace BingsuCodeEditor.LineColorDrawer
                 tempkeyword += "@";
             }
 
-            //교체를 위해 이전 내용을 되돌린다.
+            //恢复以前的内容以进行替换。
             textEditor.Document.Replace(line.Offset + fstr.Length, cstr.Length, tempkeyword);
 
 
-            //내용을 뒤에서 부터 바꾼다.
+            //从后面更改内容。
             for (int i = snippetTokens.Count - 1; 0 <= i; i--)
             {
                 if (snippetTokens[i].value == snippetTokens[tokenindex].value)
                 {
-                    //같은 내용일 경우
+                    //如果内容相同
                     textEditor.Document.Replace(startoffset + snippetTokens[i].index, snippetTokens[i].Length, cstr);
                 }
             }
 
             int dif = 0;
-            //i번 인덱스가 어떤 내용으로 바뀌었는지 체크한다.
+            //查看i索引变成了什么内容。
             for (int i = 0; i < snippetTokens.Count; i++)
             {
                 if (snippetTokens[i].value == snippetTokens[tokenindex].value)
                 {
-                    //같은 내용일 경우
+                    //如果内容相同
                     int lastlen = cstr.Length - snippetTokens[i].Length;
 
                     dif += lastlen;
@@ -210,17 +210,17 @@ namespace BingsuCodeEditor.LineColorDrawer
             {
                 if (containtoken.Contains(snippetTokens[k].value))
                 {
-                    //지나온 토큰에 저장된 토큰이 있을 경우 패스
+                    //如果传递的token中存有token则通过
                     continue;
                 }
 
                 containtoken.Add(snippetTokens[k].value);
                 if (k > i)
                 {
-                    //현재 선택한 토근보다 뒤에 있는 토큰을 선택
+                    //选择当前所选词元(Token)之后的词元(Token)
                     if(currentToken.value != snippetTokens[k].value)
                     {
-                        //현재토큰이 아닐 경우
+                        //如果不是当前的token
                         selectToken = snippetTokens[k];
                         break;
                     }
@@ -241,7 +241,7 @@ namespace BingsuCodeEditor.LineColorDrawer
             //    {
             //        selectToken = nextToken;
             //        break;
-            //        //토큰 내용이 다를 경우 선택
+            // //如果token内容不同则选择
             //        temp.Add(nextToken);
             //    }
             //}

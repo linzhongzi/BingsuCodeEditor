@@ -53,11 +53,15 @@ namespace BingsuCodeEditor.EpScript
              * [Time]만큼 기다립니다.(사용하지 마세요)
              * @Summary.en-US
              * Wait for [Time] milliseconds. (Not recommended to use)
+             * @Summary.zh-CN
+             * [Time]：等待时间。（不建议使用）
              * 
              * @param.Time.ko-KR
              * 기다리는 시간입니다.
              * @param.Time.en-US
-             * 기다리는 시간입니다.
+             * It is waiting time.
+             * @param.Time.zh-CN
+             * 这是等待时间
             ***/
             //function Wait(Time) { }
             if (string.IsNullOrEmpty(comment)) return;
@@ -86,7 +90,7 @@ namespace BingsuCodeEditor.EpScript
                     case "@Summary":
                     case "@param":
                         if(ctype != "") {
-                            //마지막으로 읽은 ctype정리하기.
+                            //汇总最后读取的 ctype。
                             if (ctype == "@Type" || clan == launage)
                             {
                                 SetSummary(ctype, csectype, content.Trim());
@@ -104,7 +108,7 @@ namespace BingsuCodeEditor.EpScript
                 }
             }
 
-            //마지막으로 읽은 ctype정리하기.
+            //汇总最后读取的 ctype。
              if (ctype == "@Type"  || clan == launage)
             {
                 SetSummary(ctype, csectype, content.Trim());

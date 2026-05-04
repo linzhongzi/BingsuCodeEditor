@@ -10,7 +10,7 @@ namespace BingsuCodeEditor
     public abstract class ImportManager
     {
         /// <summary>
-        /// 파일의 내용을 가져오는 함수
+        /// 检索文件内容的选项函数
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -18,7 +18,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 파일을 열어서 해당 라인으로 가는 함수
+        /// 打开文件并转到相应行函数。
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -26,7 +26,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 기본 함수 파일들을 가져오는 함수
+        /// 如何获取基本文件函数
         /// </summary>
         /// <returns></returns>
         public abstract List<string> GetFIleList();
@@ -35,7 +35,7 @@ namespace BingsuCodeEditor
         public CodeTextEditor.CodeType CodeType;
 
         /// <summary>
-        /// 파일이 캐시되어있는지 확인
+        ///检查文件是否被缓存
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -46,7 +46,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 파일이 캐시되어있는지 확인
+        ///检查文件是否被缓存
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -54,18 +54,18 @@ namespace BingsuCodeEditor
         {
             if (CachedContainer.Keys.Contains(pullpath))
             {
-                //존재할 경우
+                //如果存在
                 CachedContainer.Remove(pullpath);
             }
         }
 
 
 
-        //파일이 변형되지 않았을 경우 여기서 가져옴.
+        //如果文件未被修改，请从此处获取。
         private Dictionary<string, Container> CachedContainer = new Dictionary<string, Container>();
 
         /// <summary>
-        /// 콘테이너를 가져오는 함수
+        /// 有机会取回容器函数
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -85,7 +85,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 콘테이너를 가져오는 함수
+        /// 有机会取回容器函数
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -99,7 +99,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 파일이 존재하는지 확인하는 함수
+        /// 如何检查文件是否存在函数
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -109,18 +109,18 @@ namespace BingsuCodeEditor
         }
 
         /// <summary>
-        /// 현재 존재하는 모든 파일들을 가져옵니다.
+        /// 获取所有当前存在的文件。
         /// </summary>
-        /// <param name="filename">현재 파일의 이름입니다.</param>
+        /// <param name="filename">当前文件的名称</param>
         /// <returns></returns>
         public abstract List<string> GetImportedFileList(string basefilename = "");
 
 
         /// <summary>
-        /// 파일의 절대 주소를 구합니다.
+        /// 获取文件的绝对地址。
         /// </summary>
-        /// <param name="filename">현재 파일의 이름입니다.</param>
-        /// <param name="basefilename">파일이 들어있는 폴더</param>
+        /// <param name="filename">当前文件的名称。</param> 
+		/// <param name="basefilename">包含该文件的文件夹</param>
         /// <returns></returns>
         public string GetPullPath(string filename, string basefilename = "")
         {
@@ -131,8 +131,7 @@ namespace BingsuCodeEditor
             List<string> flist = GetImportedFileList();
 
 
-            //연결 했을때 풀네임
-            //filenamedㅣ ..이 들어간다면 basefilename에서 제거해야됨.
+            // 连接时，如果输入全名 filenamed | ..，则必须将其从基本文件名中删除。
             List<string> btlist = basefilename.Split('.').ToList();
             string f = filename.Replace(redo, "/" + spliter);
             List<string> ftlist = f.Split(spliter).ToList();
@@ -142,7 +141,7 @@ namespace BingsuCodeEditor
                 string fstr = ftlist.First();
                 ftlist.RemoveAt(0);
 
-                //Back문자일경우 bt에서 제거
+                //如果是后退字符，则将其从 BT 中删除。
                 if (fstr == "/")
                 {
                     if(btlist.Count == 0)
@@ -153,7 +152,7 @@ namespace BingsuCodeEditor
                 }
                 else
                 {
-                    //아닐 경우 추가
+                    //如果没有，请添加
                     btlist.Add(fstr);
                 }
             }
@@ -170,7 +169,7 @@ namespace BingsuCodeEditor
             if(i != -1) return flist[i];
 
 
-            //그 자체로 풀네임
+            //全名本身
             i = flist.IndexOf(filename);
             if (i != -1) return flist[i];
 

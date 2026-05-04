@@ -145,7 +145,7 @@ namespace BingsuCodeEditor
         //public int ErrorIndex;
 
 
-        //오류가 나왔을 경우 반환해야됨
+        //如果发生错误，则必须将其返回。
 
 
         public void Init(List<TOKEN> tklist)
@@ -185,7 +185,7 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 현재 토큰을 가져옵니다. null이 나올 수도 있습니다. 현재 토근을 가져온 뒤에 다음 토큰을 가져옵니다.
+        /// 获取当前词元(Token)。它可能为空。获取当前token后，获取下一个token。
         /// </summary>
         /// <returns></returns>
         public TOKEN GetCurrentToken(bool GoToReverse = false)
@@ -203,15 +203,15 @@ namespace BingsuCodeEditor
         }
 
         /// <summary>
-        /// 토큰 네임스페이스를 가져옵니다.
-        /// a.b.c.d등 .과 키로 이루어진 리스트입니다.
+        /// 获取词元(Token)命名空间。
+        /// 这是由a.b.c.d等.和字母组成的列表。
         /// </summary>
         /// <returns></returns>
         public List<TOKEN> GetTokenList(bool IsReverse = false, bool Iscontaindot = false)
         {
             List<TOKEN> rlist = new List<TOKEN>();
-            //토큰 네임스페이스를 가져옵니다.
-            //a.b.c.d등 .과 키로 이루어진 리스트입니다.
+            //获取词元(Token)命名空间。
+            //这是由a.b.c.d等.和字母组成的列表。
 
             IsEndOfList(true);
                
@@ -257,15 +257,15 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 토큰 네임스페이스를 가져옵니다.
-        /// a.b.c.d등 .과 키로 이루어진 리스트입니다.
+        /// 获取词元(Token)命名空间。
+        /// 这是由a.b.c.d等.和字母组成的列表。
         /// </summary>
         /// <returns></returns>
         public List<TOKEN> GetTokenListFromTarget(TOKEN target, bool IsReverse = false, bool saveIndex = true, bool IsNamespace = false, bool addSperator = false)
         {
             List<TOKEN> rlist = new List<TOKEN>();
-            //토큰 네임스페이스를 가져옵니다.
-            //a.b.c.d등 .과 키로 이루어진 리스트입니다.
+            //获取词元(Token)命名空间。
+            //这是由a.b.c.d等.和字母组成的列表。
 
             int savedindex = tokenindex;
 
@@ -370,8 +370,8 @@ namespace BingsuCodeEditor
 
 
         /// <summary>
-        /// 다음 토큰의 타입과 내용을 확인합니다.
-        /// 만약 옳은 토큰일 경우 다음 인덱스로 진행합니다.
+        /// 检查下一个词元(Token)的类型和内容。
+        /// 如果标记正确，则继续下一个索引。
         /// </summary>
         /// <returns></returns>
         public bool CheckCurrentToken(TOKEN_TYPE ttype, string value = null, bool IsReverse = false, bool IsDirect = false, List<TOKEN> addedlist = null)
@@ -477,7 +477,7 @@ namespace BingsuCodeEditor
 
         public void ThrowException(string message, TOKEN tk, int len = 0)
         {
-            //에러가 났을 경우
+            //如果发生错误
             IsError = true;
 
             if(tk == null)
@@ -522,7 +522,7 @@ namespace BingsuCodeEditor
 
             //}
 
-            //각종 줄 정보를 남긴다..
+            //正在对各行添加注释……
             return;
             //throw new Exception(message);
         }

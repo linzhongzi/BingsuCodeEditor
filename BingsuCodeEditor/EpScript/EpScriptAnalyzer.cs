@@ -91,10 +91,10 @@ namespace BingsuCodeEditor.EpScript
 
             foreach (var item in keywords)
             {
-                //토큰 입력
+                //输入Token
                 AddSubType(item, TOKEN_TYPE.KeyWord);
 
-                //자동완성 초기 입력
+                //自动完成初始输入
                 if (Template.ContainsKey(item))
                 {
                     completionDatas.Add(new KewWordItem(CompletionWordType.KeyWord, item, item + "\n참고:코드 조각을 삽입하려면 Tab키를 두번 누르세요."));
@@ -157,7 +157,7 @@ namespace BingsuCodeEditor.EpScript
             else
             {
                 
-                //""로 감싸기 등
+                //用“”等包裹起来。
                 //int len = textEditor.SelectionLength;
 
                 //switch (text)
@@ -196,7 +196,7 @@ namespace BingsuCodeEditor.EpScript
             if (t == '"')
             {
                 block = "";
-                //LineCommnet 개행 문자까지 반복 (\r)
+                //LineCommnet 重复直到换行(\r)
 
                 bool IsSpec = false;
                 do
@@ -244,7 +244,7 @@ namespace BingsuCodeEditor.EpScript
 
                 if (nt == '/')
                 {
-                    //LineCommnet 개행 문자까지 반복 (\r)
+                    //LineCommnet 重复直到换行(\r)
                     index++;
                     if (index >= tlen)
                     {
@@ -274,7 +274,7 @@ namespace BingsuCodeEditor.EpScript
                 }
                 else if (nt == '*')
                 {
-                    //MulitComment */가 나올 떄 까지 반복
+                    // MulitComment */重复直到出现
                     char lastchar = ' ';
                     t = text[++index];
                     do
@@ -283,12 +283,12 @@ namespace BingsuCodeEditor.EpScript
                         index++;
                         if (index >= tlen)
                         {
-                            //사실상 오류임..
+                            //其实是一个错误...
                             break;
                         }
                         if(lastchar == '*' && t == '/')
                         {
-                            //주석
+                            //注释
                             break;
                         }
 
@@ -318,7 +318,7 @@ namespace BingsuCodeEditor.EpScript
 
                 if (nt == '?')
                 {
-                    //MulitComment */가 나올 떄 까지 반복
+                    //重复直到出现 MulitComment */
                     char lastchar = ' ';
                     index++;
                     if (index>= tlen)
@@ -332,12 +332,12 @@ namespace BingsuCodeEditor.EpScript
                         index++;
                         if (index >= tlen)
                         {
-                            //사실상 오류임..
+                            //其实是一个错误...
                             break;
                         }
                         if (lastchar == '?' && t == '>')
                         {
-                            //주석
+                            //注释
                             break;
                         }
 
@@ -372,7 +372,7 @@ namespace BingsuCodeEditor.EpScript
             //const1.object1;
             //maincontainer.vars[0].
 
-            //참조 찾아보고 없으면 패스
+            //寻找参考文献，如果找不到，请忽略。
             //if (!startcontainer.CheckIdentifier(scope, objectname[0]))
             //{
             //    return null;
@@ -390,11 +390,11 @@ namespace BingsuCodeEditor.EpScript
                 string objname = objectname[index];
 
                 if (objname == null) objname = "";
-                //lua함수 처리기
+                //lua输出处理器函数
 
                 if (objname.Length != 0 && objname[0] == '@')
                 {
-                    //lua함수인 경우
+                    //如果是 lua函数
                     if(findType == FindType.Func)
                     {
                         string realfunname = objname.Replace("@", "");
@@ -418,7 +418,7 @@ namespace BingsuCodeEditor.EpScript
 
                     if (objname == "this")
                     {
-                        //this가 나오면 un같은거는 안된다.
+                        //当出现这个时，un 是不允许的。
 
                         lscope = objcon.GetInitObjectNameSpacee();
                         index++;
@@ -426,7 +426,7 @@ namespace BingsuCodeEditor.EpScript
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 if (objcon != null) objcon.GetAllItems(data, objcon.GetInitObjectNameSpacee(), noargFlag:true);
                             }
                             break;
@@ -479,10 +479,10 @@ namespace BingsuCodeEditor.EpScript
               
                 //if (objname == "this" && objectname.Count == 1)
                 //{
-                //    //자기참조일 경우
+                // //如果是自引用
                 //    if (findType == FindType.AutoComplete)
                 //    {
-                //        //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                // //这是最后一部分，所以输入容器的所有内容。
                 //        ccon.GetAllItems(data, "st.O" + startcontainer.mainname);
                 //    }
                 //}
@@ -497,7 +497,7 @@ namespace BingsuCodeEditor.EpScript
                     {
                         if (!importManager.IsCachedContainer(pullpath))
                         {
-                            //파일이 변형되었을 경우
+                            //如果文件已被修改
                             importManager.UpdateContainer(pullpath, GetContainer(importManager.GetFIleContent(pullpath)));
                         }
 
@@ -512,13 +512,13 @@ namespace BingsuCodeEditor.EpScript
                             folderpath = "";
                         }
 
-                        lscope = "st";//스코프 초기화
+                        lscope = "st";//初始化范围
                         index++;
                         if (index == objectname.Count)
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 ccon.GetAllItems(data, lscope);
                             }else if (findType == FindType.All)
                             {
@@ -538,10 +538,10 @@ namespace BingsuCodeEditor.EpScript
                 {
                     if (findType == FindType.Func || findType == FindType.All)
                     {
-                        //마지막 찻수인경우
+                        //如果最后有差异
                         if (index + 1 == objectname.Count)
                         {
-                            //함수 찾는거면 이 func를 돌려주면 됨.ㅋㅋ
+                            //如果您正在寻找解决方案，只需返回此函数即可。哈哈。
                             return func;
                         }
 
@@ -549,7 +549,7 @@ namespace BingsuCodeEditor.EpScript
                     }
                     else if (findType == FindType.AutoComplete)
                     {
-                        //자동완성이면 해당 함수의 반환타입을 주사
+                        //如果是自动完成，则注入相应数字的返回类型函数。
                         string rtype = "";
 
                         if(func.returntype != null)
@@ -580,7 +580,7 @@ namespace BingsuCodeEditor.EpScript
 
                         if (index + 1 == objectname.Count)
                         {
-                            //마지막 찻수인 경우 오브젝트의 요소들 반환
+                            //如果是最后一个命令，则返回对象的元素。
                             objcon.GetAllItems(data, objcon.GetInitObjectNameSpacee(), noargFlag: true);
                             break;
                         }
@@ -612,7 +612,7 @@ namespace BingsuCodeEditor.EpScript
                     {
                         if (findType == FindType.AutoComplete)
                         {
-                            //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                            //由于这是最后一部分，因此请输入容器的所有内容。
                             data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "cast")));
                             data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "alloc")));
                             data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "free")));
@@ -627,7 +627,7 @@ namespace BingsuCodeEditor.EpScript
                         }
                         else if (findType == FindType.Func)
                         {
-                            //함수 일 경우 생성자 호출
+                            //如果符合预期，则调用构造函数
                             return obj.funcs.Find(x => (x.funcname == "constructor" && obj.GetInitObjectNameSpacee().Contains(x.scope)));
                         }
 
@@ -644,7 +644,7 @@ namespace BingsuCodeEditor.EpScript
                             {
                                 if (index + 2 == objectname.Count)
                                 {
-                                    //마지막이 alloc, cast인 경우
+                                    //如果最后一个是 alloc 或cast
                                     if (findType == FindType.AutoComplete)
                                     {
                                         obj.GetAllItems(data, obj.GetInitObjectNameSpacee(), noargFlag: true);
@@ -653,7 +653,7 @@ namespace BingsuCodeEditor.EpScript
                                     {
                                         if(last == "alloc")
                                         {
-                                            //생성자 함수 가져오기
+                                            //获取构造函数
                                             func = obj.funcs.Find(x => (x.funcname == "constructor" && obj.GetInitObjectNameSpacee().Contains(x.scope)));
                                             return func;
                                         }
@@ -662,7 +662,7 @@ namespace BingsuCodeEditor.EpScript
                                 }
                                 else
                                 {
-                                    //오브젝트를 참조하는 것.
+                                    //引用一个对象。
                                     lscope = obj.GetInitObjectNameSpacee();
                                     objcon = obj;
                                     index += 2;
@@ -670,7 +670,7 @@ namespace BingsuCodeEditor.EpScript
                             }
                             else
                             {
-                                //스태틱 함수 일 수도 있음
+                                //它可能是静态的函数
                                 return obj.funcs.Find(x => (x.funcname == last && obj.GetInitObjectNameSpacee().Contains(x.scope)));
                             }
                         }
@@ -682,11 +682,10 @@ namespace BingsuCodeEditor.EpScript
                 }
                 else if (var != null)
                 {
-                    //변수의 정의를 참조하여 타입을 확인.
-                    //obj이면 해당 obj의 멤버변수 ex var t = a.b.c(); 이런식이면
-                    //a.b.c를 탐색해야됨.
+                    //参考变量的定义检查类型。
+                    //如果是 obj，则 obj 的成员 ex var t = a.b.c();如果是这种情况，您需要搜索 a.b.c变量。
                     //var.values
-                    //obj일 경우 obj는 콘테이너이므로... 함수 찾는 과정이면 한단계 더 들어갈 수 있음.
+                    //就 obj 而言，由于 obj 是一个容器...您可以在查找数字的过程中更进一步函数。
                     object _obj;
 
         
@@ -697,10 +696,10 @@ namespace BingsuCodeEditor.EpScript
                         list.Add(var.BlockType);
 
 
-                        //타입이 지정되어 있을 경우
+                        //如果指定类型
                         if (ccon.IsObject)
                         {
-                            //오브젝트이면 밖에서 찾아야 함니다.
+                            //如果是物体，就得到外面去寻找。
 
                         }
                         _obj = GetObjectFromName(list, ccon, FindType.Obj);
@@ -718,7 +717,7 @@ namespace BingsuCodeEditor.EpScript
                     }
                     else
                     {
-                        //그 외
+                        //其他的
                         _obj = GetObjectFromName(var.Values, ccon, FindType.Obj);
                         if (_obj == null && EpScriptAnalyzer.DefaultFuncContainer != null)
                         {
@@ -726,7 +725,7 @@ namespace BingsuCodeEditor.EpScript
                         }
                         if (_obj == null)
                         {
-                            //함수 일 가능성이 있음
+                            //函数可能存在
                             _obj = GetObjectFromName(var.Values, ccon, FindType.Func);
                             if (_obj == null && EpScriptAnalyzer.DefaultFuncContainer != null)
                             {
@@ -745,11 +744,11 @@ namespace BingsuCodeEditor.EpScript
                                     }
                                 }
                              
-                                //리턴값을 읽기
+                                //读取返回值
                                 _obj = GetObjectFromName(list, ccon, FindType.Obj);
                             }
                         }
-                        //함수가 나왔으면 함수의 리턴값을 확인하여 컨테이너 찾기
+                        //如果返回函数，则检查函数的返回值以找到容器。
                         if (_obj != null)
                         {
                             if (typeof(Function).IsInstanceOfType(_obj))
@@ -765,7 +764,7 @@ namespace BingsuCodeEditor.EpScript
                                     }
                                 }
 
-                                //리턴값을 읽기
+                                //读取返回值
                                 _obj = GetObjectFromName(list, ccon, FindType.Obj);
                             }
                         }
@@ -776,13 +775,13 @@ namespace BingsuCodeEditor.EpScript
                     {
                         Container varobject = (Container)_obj;
                         ccon = varobject;
-                        lscope = "st.O" + varobject.mainname;//스코프 초기화
+                        lscope = "st.O" + varobject.mainname;//初始化范围
                         index++;
                         if (index == objectname.Count)
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 ccon.GetAllItems(data, ccon.GetInitObjectNameSpacee());
                             }
                             else if (findType == FindType.All)
@@ -796,12 +795,12 @@ namespace BingsuCodeEditor.EpScript
                     }
                     else
                     {
-                        //아니면 아래에 있는거 사용하기
+                        //或者使用下面的一个
                         if (index + 1 == objectname.Count)
                         {
                             if (findType == FindType.AutoComplete)
                             {
-                                //마지막 부분이므로 해당 콘테이너의 내용을 모두 넣는다.
+                                //由于这是最后一部分，因此请输入容器的所有内容。
                                 data.Add(new CodeCompletionData(new ObjectItem(CompletionWordType.Function, "getValueAddr")));
                             }
                             else if (findType == FindType.All)
@@ -830,7 +829,7 @@ namespace BingsuCodeEditor.EpScript
 
 
         /// <summary>
-        /// 이름으로 부터 파일을 가져옴
+        /// 通过名称获取文件
         /// </summary>
         public override object GetObjectFromName(List<TOKEN> tokenlist, Container startcontainer, FindType findType, IList<ICompletionData> data = null,  string scope = "st")
         {
@@ -854,7 +853,7 @@ namespace BingsuCodeEditor.EpScript
             TOKEN _t = GetToken(0);
             if (_t != null && _t.Type == TOKEN_TYPE.Special)
             {
-                //lua함수
+                //lua函数
                 luaAnalyzer.Apply(_t.Value, caretoffset - _t.StartOffset);
 
                 if (luaAnalyzer.maincontainer.innerFuncInfor.IsInnerFuncinfor)
@@ -879,7 +878,7 @@ namespace BingsuCodeEditor.EpScript
             TOKEN _t = GetToken(0);
             if(_t != null && _t.Type == TOKEN_TYPE.Special)
             {
-                //lua함수
+                //lua函数
                 luaAnalyzer.GetCompletionList(data, IsNameSpaceOpen);
                 return true;
             }
@@ -916,7 +915,7 @@ namespace BingsuCodeEditor.EpScript
 
                     return true;
                 case CursorLocation.ImportFile:
-                    //파일들이 뜨게 하는 것
+                    //显示文件
                     if (importManager != null)
                     {
                         if (!IsNameSpaceOpen)
@@ -963,7 +962,7 @@ namespace BingsuCodeEditor.EpScript
             }
 
                        
-            //TODO:분석된 토큰으로 자동완성을 만든다.
+            //TODO：使用分析的标记创建自动完成功能。
             if (IsNameSpaceOpen)
             {                
                 TOKEN ctkn = GetToken(0, TOKEN.Side.Right);
@@ -975,8 +974,9 @@ namespace BingsuCodeEditor.EpScript
                 //const1.object1;
                 //maincontainer.vars[0].
 
-                //Item.cast(inven[i]). 이럴 경우 Item.cast를 t로 보낸다.
-                //Item.cast함수의 반환타입을 구해야 한다.
+                //Item.cast(inven[i]).
+                //在本例中，Item.cast 被发送到 t。
+                //我们需要找到 Item.cast函数的返回类型。
                 //t.Add(new TOKEN(0, TOKEN_TYPE.Identifier, "Item", 0));
                 //t.Add(new TOKEN(0, TOKEN_TYPE.Identifier, "cast", 0));
                 if (t.Count == 0) return true;
@@ -1003,7 +1003,7 @@ namespace BingsuCodeEditor.EpScript
                     {
                         if (item.StartsWith(fname))
                         {
-                            //일치할 경우
+                            //如果它们匹配
                             IsImport = true;
                             autocmpfilelist.Add(item.Substring(fname.Length));
                         }
@@ -1066,7 +1066,7 @@ namespace BingsuCodeEditor.EpScript
 
             if (maincontainer.innerFuncInfor.IsInnerFuncinfor)
             {
-                //인자
+                //参数
                 Function func = (Function)GetObjectFromName(maincontainer.innerFuncInfor.funcename, maincontainer, FindType.Func, scope:scope);
                 if (func != null)
                 {
@@ -1113,17 +1113,17 @@ namespace BingsuCodeEditor.EpScript
 
 
 
-        //Analyzer오류 분석
+        //Analyzer错误分析
 
         public override void TokenAnalyze(int caretoffset = int.MaxValue)
         {
-            //TODO:토큰 분석 로직
-            //tokens에 직접 접근하여 분석한다.
+            //TODO：词元(Token)分析逻辑 
+            // 直接访问tokens进行分析。
 
-            //네임스페이스를 분석 후 토큰을 추가한다
-            //GetTokens(Context, -1) 이런식으로 가져와서 분석한다.
+            //分析名称空间后，添加词元(Token)。 
+            // GetTokens(Context, -1) 获取并分析命名空间。
 
-            //최근 네임스페이스를 저장하고 해당 파일들이 변형되었는지 체크한다.
+            //保存最新的命名空间并检查文件是否被修改。
 
             //ResetCompletionData(CompletionWordType.Function);
 
@@ -1131,12 +1131,12 @@ namespace BingsuCodeEditor.EpScript
             //Action
             //Condiction
             //Function
-            //일반적인 함수들
+            //通用函数
 
             //nameSpace
             //Const
             //Variable
-            //오브젝트들
+            //对象们
 
             //Setting(Property)
 
@@ -1145,10 +1145,10 @@ namespace BingsuCodeEditor.EpScript
             //Special
 
 
-            //함수와 오브젝트의 요소들을 저장해야함.
+            //需要保存函数和对象的元素。
 
 
-            //cursorLocation 현재 위치를 적습니다.
+            //光标位置 记下当前位置。
             CursorLocation cl = CursorLocation.None;
 
 
@@ -1215,7 +1215,7 @@ namespace BingsuCodeEditor.EpScript
             cursorLocation = cl;
 
 
-            //토근 분석에 사용되는 요소
+            //词元(Token)分析中使用的元素
             tokenAnalyzer.Init(Tokens);
 
             try
@@ -1241,7 +1241,7 @@ namespace BingsuCodeEditor.EpScript
             }
             if (tokenAnalyzer.IsError)
             {
-                //토큰 분석 오류
+                //词元(Token)解析错误
             }
 
 
