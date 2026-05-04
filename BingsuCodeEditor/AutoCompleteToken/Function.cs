@@ -17,17 +17,32 @@ namespace BingsuCodeEditor.AutoCompleteToken
          * F
          * @Summary.ko-KR
          * [loc]에 존재하는 [player]의 [unit]을 반환합니다.
-         *
          * @param.player.ko-KR
          * 유닛의 소유 플레이어입니다.
-         *
          * @param.unit.ko-KR
          * 유닛입니다.
-         *
          * @param.loc.ko-KR
          * 로케이션입니다.
+         *
+         * @Summary.en-US
+         * Returns the [unit] of the [player] at [loc].
+         * @param.player.en-US
+         * The player who owns the unit.
+         * @param.unit.en-US
+         * The unit.
+         * @param.loc.en-US
+         * The location.
+         *
+         * @Summary.zh-CN
+         * 返回位于 [loc] 的 [player] 的 [unit]。
+         * @param.player.zh-CN
+         * 指定单位的拥有玩家。
+         * @param.unit.zh-CN
+         * 指定单位.
+         * @param.loc.zh-CN
+         * 指定位置.
         ***/
-        //원본 내용
+        //原创内容
 
         public Container parentcontainer;
 
@@ -41,7 +56,7 @@ namespace BingsuCodeEditor.AutoCompleteToken
 
         public bool IsStatic = false;
 
-        //함수 이름
+        //函数名
         public string special;
         public string funcname;
         public string funcsummary;

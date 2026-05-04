@@ -46,9 +46,9 @@ namespace BingsuCodeEditor.Lua
                     //break;
                 }
 
-                //함수 안쪽에 있으면 함수
+                //如果是在里面就好了函数。
 
-                //object에서 두번 일하기 싫으면 구조 잘 파악하기.
+                //如果您不想对一个对象进行两次操作，请充分了解它的结构。
 
                 switch (tk.Type)
                 {
@@ -67,7 +67,7 @@ namespace BingsuCodeEditor.Lua
 
                                 //if(rcontainer.funcs.Find(x=> ((x.funcname == function.funcname) && (x.IsPredefine == false))) != null)
                                 //{
-                                //    ThrowException("함수 " + function.funcname + "는 중복 선언되었습니다.", tk, 1);
+                                //    ThrowException("函数 " + function.funcname + " 声明为重复。", tk, 1);
                                 //}
 
                                 if (cc.CheckIdentifier(lastscope, function.funcname))
@@ -86,7 +86,7 @@ namespace BingsuCodeEditor.Lua
                                 }
 
                                 cc.funcs.Add(function);
-                                //매게변수 추가
+                                //添加参数
                                 foreach (var item in function.args)
                                 {
                                     Block bl = new Block(rcontainer, "var", item.argname, tk, item.argtype, IsArg: true);
@@ -103,35 +103,50 @@ namespace BingsuCodeEditor.Lua
                                  * F
                                  * @Summary.ko-KR
                                  * [loc]에 존재하는 [player]의 [unit]을 반환합니다.
-                                 *
                                  * @param.player.ko-KR
                                  * 유닛의 소유 플레이어입니다.
-                                 *
                                  * @param.unit.ko-KR
                                  * 유닛입니다.
-                                 *
                                  * @param.loc.ko-KR
                                  * 로케이션입니다.
+                                 *
+                                 * @Summary.en-US
+                                 * Returns the [unit] of the [player] at [loc].
+                                 * @param.player.en-US
+                                 * The player who owns the unit.
+                                 * @param.unit.en-US
+                                 * The unit.
+                                 * @param.loc.en-US
+                                 * The location.
+                                 *
+                                 * @Summary.zh-CN
+                                 * 返回位于 [loc] 的 [player] 的 [unit]。
+                                 * @param.player.zh-CN
+                                 * 指定单位的拥有玩家。
+                                 * @param.unit.zh-CN
+                                 * 指定单位.
+                                 * @param.loc.zh-CN
+                                 * 指定位置.
                                 ***/
                                 break;
                             case "if":
                             case "while":
                             case "repeat":
                             case "for":
-                                //새 스코프를 정의
+                                //定义新范围
                                 currentscope++;
                                 scope += "." + (currentscope).ToString().PadLeft(4, '0');
 
                                 break;
                             case "end":
                             case "until":
-                                //이전 스코프로 되돌림
+                                //恢复到之前的范围
                                 int t = currentscope.ToString().Length + 1;
 
                          
                                 if (scope == "st")
                                 {
-                                    //닫을 수 없는데 닫음
+                                    //我无法关闭它，但它会关闭
                                     ThrowException("'end'등 스코프가 마무리되지 않았습니다.", tk);
                                 }
                                 else
@@ -149,12 +164,11 @@ namespace BingsuCodeEditor.Lua
 
                         break;
                     case TOKEN_TYPE.Identifier:
-                        //키워드일 경우
-                        //네임스페이스인지 아닌지 확인
+                        //如果是关键字，检查是否是名称空间命名空间。
 
-                        //함수 분석 여기서하기.
-                        //각 TOKEN에다가 현재 토큰이 어디에 속하는지 체크하기.
-                        //,는 반갈라서 앞쪽인지 뒤쪽인지 확인.
+                        //在这里做你的分析函数。
+                        //对于每个TOKEN，检查当前词元(Token)所属的位置。
+                        //，分成两半，检查是正面还是背面。
                         IdentifierFAnalyzer(cc, scope, tk, startindex, main: rcontainer);
                         break;
                     default:
@@ -165,7 +179,7 @@ namespace BingsuCodeEditor.Lua
             }
 
 
-            //스코프 정리
+            //范围清理
             rcontainer.currentScope = lastblockscope;
             
             if (scope != "st")
@@ -193,7 +207,7 @@ namespace BingsuCodeEditor.Lua
             tlist.Add(ctk);
             if (argindex != -1)
             {
-                //상속받았을 경우
+                //如果您收到副本继承
                 ctk.argindex = argindex;
             }
 
@@ -202,27 +216,27 @@ namespace BingsuCodeEditor.Lua
                 Block block = new Block(container, "var", fname, ctk);
                 block.Scope = scope;
                 container.vars.Add(block);
-                //ThrowException(fname + "는 선언되지 않았습니다.", ctk);
+                //ThrowException(fname + "未声明。", ctk);
             }
 
             TOKEN tk = null;//GetCurrentToken();
 
             if (CheckCurrentToken(TOKEN_TYPE.Symbol, "."))
             {
-                //.이므로 이어지는 토큰
+                //.，所以后面的标记
                 tlist.AddRange(GetTokenList());
                 //tk = GetCurrentToken();
             }
 
             CheckFunc:
-            //선언된 함수의 시작
+            //宣告命运的开始函数
             if (CheckCurrentToken(TOKEN_TYPE.Symbol, "("))
             {
                 int innercount = 1;
 
                 int cargindex = 0;
              
-                //innercount가 0이 될때까지 진행
+                //继续直到innercount变为0
                 while (true)
                 {
                     if (IsEndOfList())
@@ -244,7 +258,7 @@ namespace BingsuCodeEditor.Lua
                             IdentifierFAnalyzer(container, scope, tk, startindex, cargindex, main:main);
                             break;
                         case TOKEN_TYPE.Symbol:
-                            //, ( ) 등이 있을 수 있다.
+                            //， （ ）， ETC。
                             if(tk.Value == ")")
                             {
                                 innercount--;
@@ -254,7 +268,7 @@ namespace BingsuCodeEditor.Lua
                                 if (!main.innerFuncInfor.IsInnerFuncinfor &&
                                     argstartindex <= startindex &&  startindex <= tk.StartOffset)
                                 {
-                                    //내부함수가 이미 결정되어 있지 않을 경우
+                                    //当内部结果尚未确定时函数
                                     main.innerFuncInfor.IsInnerFuncinfor = true;
                                     main.innerFuncInfor.argindex = cargindex;
                                     main.innerFuncInfor.funcename = tlist;
@@ -273,7 +287,7 @@ namespace BingsuCodeEditor.Lua
                         if (!main.innerFuncInfor.IsInnerFuncinfor &&
                             argstartindex <= startindex && startindex <= tk.EndOffset)
                         {
-                            //내부함수가 이미 결정되어 있지 않을 경우
+                            //当内部结果尚未确定时函数
                             main.innerFuncInfor.IsInnerFuncinfor = true;
                             main.innerFuncInfor.argindex = cargindex;
                             main.innerFuncInfor.funcename = tlist;
@@ -286,14 +300,14 @@ namespace BingsuCodeEditor.Lua
 
             if (CheckCurrentToken(TOKEN_TYPE.Symbol, ".", IsDirect:true))
             {
-                //함수 다음에 이어지는 것이므로 순환루트로다시 이동한다.
+                //由于在函数之后继续，所以回到循环路线。
                 tlist.AddRange(GetTokenList());
                 goto CheckFunc;
             }
-            //이 외에는 아웃.
+            //除此之外，你就out了。
 
             return tlist;
-            //단일 토큰
+            //单一词元(Token)
         }
 
 
@@ -352,7 +366,7 @@ namespace BingsuCodeEditor.Lua
 
                 if (CheckCurrentToken(TOKEN_TYPE.Symbol, "*"))
                 {
-                    //인자형
+                    //基因型
                     arg.IsList = true;
                 }
                 tk = GetCurrentToken();
@@ -372,7 +386,7 @@ namespace BingsuCodeEditor.Lua
                     {
                         if (tk.Type != TOKEN_TYPE.Symbol)
                         {
-                            //무조건 심불이 와야됨
+                            //警告必须是无条件的。
                             argendoffset = tk.EndOffset;
                             ThrowException("잘못된 인자 선언입니다. )가 와야합니다.", tk);
                             goto EndLabel;
@@ -382,7 +396,7 @@ namespace BingsuCodeEditor.Lua
                             argendoffset = tk.EndOffset;
                             break;
                         }
-                        //인자가 없을 수 있음.
+                        //也许没有什么争论。
                     }
 
                     argendoffset = tk.EndOffset;

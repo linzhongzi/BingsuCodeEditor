@@ -69,9 +69,9 @@ namespace BingsuCodeEditor.EpScript
                     //break;
                 }
 
-                //함수 안쪽에 있으면 함수
+                //如果在函数内部则视为函数。
 
-                //object에서 두번 일하기 싫으면 구조 잘 파악하기.
+                //如果您不想对一个对象进行两次操作，请充分了解它的结构。
 
                 switch (tk.Type)
                 {
@@ -99,8 +99,8 @@ namespace BingsuCodeEditor.EpScript
                                         forblocks.Add(item);
                                     }
 
-                                    //자동완성에만 영향을 줘야됨..
-                                    //범위를 벗어날 경우 오브젝트에 넣지 않는다.
+                                    //它应该只影响自动完成。
+                                    //如果超出范围，则不包含在对象中。
                                     //if (isinstartoffset)
                                     //{
                                     //    cc.vars.Add(item);
@@ -187,7 +187,7 @@ namespace BingsuCodeEditor.EpScript
                                 }
                                 if(importstart < startindex && startindex < tk.StartOffset)
                                 {
-                                    //현재 공백으로 입력중
+                                    //目前输入空白
                                     rcontainer.cursorLocation = CursorLocation.ImportFile;
                                     break;
                                 }
@@ -228,12 +228,12 @@ namespace BingsuCodeEditor.EpScript
 
                                 if (CheckCurrentToken(TOKEN_TYPE.Symbol, ";"))
                                 {
-                                    //특별 지정자 없이 임포트
+                                    //无特殊指定的导入
                                     cc.importedNameSpaces.Add(new ImportedNameSpace(filename, ""));
                                 }
                                 else if(CheckCurrentToken(TOKEN_TYPE.KeyWord, "as"))
                                 {
-                                    //특별 지정자
+                                    //特殊指定符
                                     tk = GetCurrentToken();
                                     if (!CheckCurrentToken(TOKEN_TYPE.Symbol, ";") || tk == null)
                                     {
@@ -247,22 +247,22 @@ namespace BingsuCodeEditor.EpScript
                                 }
                                 else
                                 {
-                                    //잘못된 지정자
+                                    //无效指定符
                                     ThrowException("import문이 정상적으로 종료되지 않았습니다.", tk);
                                 }
                                 if (importstart <= startindex && startindex <= importend)
                                 {
                                     rcontainer.cursorLocation = CursorLocation.ImportFile;
                                 }
-                                //임포트 매니저에게 파일 이름 확인 시키기.
-                                //본인의 이름과 파일 이름을 넘겨야함.
+                                //让导入管理器检查文件名。
+                                //您必须提供您的姓名和文件名。
                                 break;
                             case "function":
                                 Function function = FunctionAnalyzer(rcontainer, startindex, scope);
 
                                 //if(rcontainer.funcs.Find(x=> ((x.funcname == function.funcname) && (x.IsPredefine == false))) != null)
                                 //{
-                                //    ThrowException("함수 " + function.funcname + "는 중복 선언되었습니다.", tk, 1);
+                                // ThrowException("函数 " + function.funcname + " 重复声明。", tk, 1);
                                 //}
 
                                 if (cc.CheckIdentifier(scope, function.funcname, funcdefine:true))
@@ -273,7 +273,7 @@ namespace BingsuCodeEditor.EpScript
                                 function.scope = scope;
 
 
-                                //범위를 벗어날 경우 오브젝트에 넣지 않는다.
+                                //超出范围时不放入对象中。
                                 if (isinstartoffset)
                                 {
                                     if(function.cursorLocation != CursorLocation.None)
@@ -286,7 +286,7 @@ namespace BingsuCodeEditor.EpScript
                                 //if (!function.IsInCursor)
                                 //{
                                 //}
-                                //매게변수 추가
+                                //添加参数
                                 foreach (var item in function.args)
                                 {
                                     Block bl = new Block(rcontainer, "var", item.argname, tk, item.argtype, IsArg: true);
@@ -300,15 +300,30 @@ namespace BingsuCodeEditor.EpScript
                                  * F
                                  * @Summary.ko-KR
                                  * [loc]에 존재하는 [player]의 [unit]을 반환합니다.
-                                 *
                                  * @param.player.ko-KR
                                  * 유닛의 소유 플레이어입니다.
-                                 *
                                  * @param.unit.ko-KR
                                  * 유닛입니다.
-                                 *
                                  * @param.loc.ko-KR
                                  * 로케이션입니다.
+                                 *
+                                 * @Summary.en-US
+                                 * Returns the [unit] of the [player] at [loc].
+                                 * @param.player.en-US
+                                 * The player who owns the unit.
+                                 * @param.unit.en-US
+                                 * The unit.
+                                 * @param.loc.en-US
+                                 * The location.
+                                 *
+                                 * @Summary.zh-CN
+                                 * 返回位于 [loc] 的 [player] 的 [unit]。
+                                 * @param.player.zh-CN
+                                 * 指定单位的拥有玩家。
+                                 * @param.unit.zh-CN
+                                 * 指定单位.
+                                 * @param.loc.zh-CN
+                                 * 指定位置.
                                 ***/
                                 break;
                             case "object":
@@ -377,12 +392,12 @@ namespace BingsuCodeEditor.EpScript
 
                         break;
                     case TOKEN_TYPE.Symbol:
-                        //심불 {} ;
-                        //스코프를 정의,
+                        // 符号 {} ;
+                        // 定义范围，
                         switch (tk.Value)
                         {
                             case "{":
-                                //새 스코프를 정의
+                                //定义新范围
                                 currentscope++;
 
                                 scope += "." + (currentscope).ToString().PadLeft(4, '0');
@@ -396,11 +411,11 @@ namespace BingsuCodeEditor.EpScript
                                     }
 
                                     forstart = false;
-                                    //포문 끝
+                                    //枪声结束
                                 }
                                 break;
                             case "}":
-                                //이전 스코프로 되돌림
+                                //恢复到之前的范围
                                 int t = currentscope.ToString().Length + 1;
 
                                 if (obj != null)
@@ -419,7 +434,7 @@ namespace BingsuCodeEditor.EpScript
                                 }
                                 if (scope == "st")
                                 {
-                                    //닫을 수 없는데 닫음
+                                    //我无法关闭它，但它会关闭
                                     ThrowException("'{}'가 제대로 닫히지 않았습니다.", tk);
                                 }
                                 else
@@ -437,12 +452,11 @@ namespace BingsuCodeEditor.EpScript
 
                         break;
                     case TOKEN_TYPE.Identifier:
-                        //키워드일 경우
-                        //네임스페이스인지 아닌지 확인
+                        //如果是关键字，检查是否是命名空间。
 
-                        //함수 분석 여기서하기.
-                        //각 TOKEN에다가 현재 토큰이 어디에 속하는지 체크하기.
-                        //,는 반갈라서 앞쪽인지 뒤쪽인지 확인.
+                        //在这里做你的分析函数。
+                        //对于每个TOKEN，检查当前词元(Token)所属的位置。
+                        //，分成两半，检查是正面还是背面。
                         IdentifierFAnalyzer(cc, scope, tk, startindex, main: rcontainer);
                         break;
                     default:
@@ -453,7 +467,7 @@ namespace BingsuCodeEditor.EpScript
             }
 
 
-            //스코프 정리
+            //范围清理
             rcontainer.currentScope = lastblockscope;
             
             if (scope != "st")
@@ -473,9 +487,9 @@ namespace BingsuCodeEditor.EpScript
 
             int tindex = tokenindex;
 
-            //var vname = 값;
+            //var vname = 值；
             //var front: linkedUnit;
-            //const vname = 값;
+            //const vname = 值；
             string type = ctk.Value;
             string varconst = type;
 
@@ -497,7 +511,7 @@ namespace BingsuCodeEditor.EpScript
 
                 if (CheckCurrentToken(TOKEN_TYPE.Symbol, ":"))
                 {
-                    //타입과 같이 선언한 경우
+                    //当用类型声明时
                     tk = GetCurrentToken();
                     vartype = tk.Value;
                 }
@@ -505,11 +519,11 @@ namespace BingsuCodeEditor.EpScript
                 blocks.Add(new Block(container, varconst, varname, tk, vartype, varvalue));
                 if (CheckCurrentToken(TOKEN_TYPE.Symbol, ","))
                 {
-                    //다중 선언일 경우
+                    //如果有多个声明
                 }
                 else
                 {
-                    //아닐 경우
+                    //如果不
                     break;
                 }
             }
@@ -535,7 +549,7 @@ namespace BingsuCodeEditor.EpScript
                     {
                         if(blocks.Count == 1)
                         {
-                            //튜플형
+                            //元组类型
                             blocks[0].RawText = GetTextFromTokenToEndLine(equalstarttokenindex, ";");
                             break;
                         }
@@ -571,7 +585,7 @@ namespace BingsuCodeEditor.EpScript
             {
                 if (varconst == "const")
                 {
-                    //const일 경우는 선언만 있으면 오류 출력
+                    //对于 const，如果只有声明，则会输出错误。
                     ThrowException("const는 선언 후 대입해줘야 합니다.", tk);
                 }
             }
@@ -582,14 +596,14 @@ namespace BingsuCodeEditor.EpScript
             //const t = func1() + func2();
             //const t = (func1() + func2());
 
-            //선언한 경우
+            //如果声明
             //while (!CheckCurrentToken(TOKEN_TYPE.Symbol, ";"))
             //{
-            //    //문장의 끝이 아닌 동안 진행
+            // //不在句子末尾时继续
             //    tk = GetCurrentToken();
 
             //}
-            //문장의 끝
+            //句子结尾
 
             return blocks;
         }
@@ -624,7 +638,7 @@ namespace BingsuCodeEditor.EpScript
             tlist.Add(ctk);
             if (argindex != -1)
             {
-                //상속받았을 경우
+                //如果继承
                 ctk.argindex = argindex;
             }
 
@@ -643,12 +657,12 @@ namespace BingsuCodeEditor.EpScript
 
             if (CheckCurrentToken(TOKEN_TYPE.Symbol, "."))
             {
-                //.이므로 이어지는 토큰
+                //.，所以后面的标记
                 tlist.AddRange(GetTokenList());
             }
 
             CheckFunc:
-            //선언된 함수의 시작
+            //声明函数的开始
 
             if (CheckCurrentToken(TOKEN_TYPE.Symbol, "("))
             {
@@ -656,7 +670,7 @@ namespace BingsuCodeEditor.EpScript
 
                 int cargindex = 0;
              
-                //innercount가 0이 될때까지 진행
+                //继续直到innercount变为0
                 while (true)
                 {
                     if (IsEndOfList())
@@ -679,7 +693,7 @@ namespace BingsuCodeEditor.EpScript
                             IdentifierFAnalyzer(container, scope, tk, startindex, cargindex, main: main);
                             break;
                         case TOKEN_TYPE.Symbol:
-                            //, ( ) 등이 있을 수 있다.
+                            //， （ ） 等可能存在。
                             if(tk.Value == ")")
                             {
                                 innercount--;
@@ -689,7 +703,7 @@ namespace BingsuCodeEditor.EpScript
                                 if (!main.innerFuncInfor.IsInnerFuncinfor &&
                                     argstartindex <= startindex &&  startindex <= tk.StartOffset)
                                 {
-                                    //내부함수가 이미 결정되어 있지 않을 경우
+                                    //当内部函数尚未确定时
                                     main.innerFuncInfor.IsInnerFuncinfor = true;
                                     main.innerFuncInfor.argindex = cargindex;
                                     main.innerFuncInfor.funcename = tlist;
@@ -708,7 +722,7 @@ namespace BingsuCodeEditor.EpScript
                         if (!main.innerFuncInfor.IsInnerFuncinfor &&
                             argstartindex <= startindex && startindex <= tk.EndOffset)
                         {
-                            //내부함수가 이미 결정되어 있지 않을 경우
+                            //当内部函数尚未确定时
                             main.innerFuncInfor.IsInnerFuncinfor = true;
                             main.innerFuncInfor.argindex = cargindex;
                             main.innerFuncInfor.funcename = tlist;
@@ -717,7 +731,7 @@ namespace BingsuCodeEditor.EpScript
 
                         //if(!CheckCurrentToken(TOKEN_TYPE.Symbol, ";"))
                         //{
-                        //    ThrowException(";이 필요합니다.", tk);
+                        // ThrowException("; 是必需的。", tk);
                         //}
 
                         break;
@@ -727,14 +741,14 @@ namespace BingsuCodeEditor.EpScript
 
             if (CheckCurrentToken(TOKEN_TYPE.Symbol, ".", IsDirect:true))
             {
-                //함수 다음에 이어지는 것이므로 순환루트로다시 이동한다.
+                //由于在函数之后继续，所以回到循环路径。
                 tlist.AddRange(GetTokenList());
                 goto CheckFunc;
             }
-            //이 외에는 아웃.
+            //除此之外，你就out了。
 
             return tlist;
-            //단일 토큰
+            //单一词元(Token)
         }
 
 
@@ -765,7 +779,7 @@ namespace BingsuCodeEditor.EpScript
                         ritem = item;
                         if (item.IndexOf("/***") != -1 && index == 0)
                         {
-                            //시작 부분 찾았음
+                            //找到了开始部分
                             index = 1;
                         }
 
@@ -774,14 +788,14 @@ namespace BingsuCodeEditor.EpScript
                         {
                             if (s != 0)
                             {
-                                //다음 부분
+                                //下一部分
                                 if (tabstr == "")
                                 {
                                     tabstr = item.Substring(0, s);
                                 }
                                 if (tabstr == item.Substring(0, tabstr.Length))
                                 {
-                                    //텝 부분이 똑같아야 됨
+                                    //标签页部分必须相同
                                     ritem = item.Substring(tabstr.Length);
                                 }
                                 else
@@ -795,10 +809,10 @@ namespace BingsuCodeEditor.EpScript
 
                         if (item.IndexOf("***/") != -1 && index > 0)
                         {
-                            //마지막 부분
+                            //尾矿
                             if (tabstr == item.Substring(0, tabstr.Length))
                             {
-                                //텝 부분이 똑같아야 됨
+                                //标签页部分必须相同
                                 ritem = item.Substring(tabstr.Length);
                             }
                             index = +1;
@@ -824,7 +838,7 @@ namespace BingsuCodeEditor.EpScript
             string funcname = "";
             int findex = CurrentInedx;
 
-            if (tk.Type == TOKEN_TYPE.Symbol && tk.Value == "$") //특수함수
+            if (tk.Type == TOKEN_TYPE.Symbol && tk.Value == "$") //特别任务函数
             {
                 funcname += "$";
                 tk = GetCurrentToken();
@@ -860,7 +874,7 @@ namespace BingsuCodeEditor.EpScript
 
                 if (CheckCurrentToken(TOKEN_TYPE.Symbol, "*"))
                 {
-                    //인자형
+                    //参数类型
                     arg.IsList = true;
                 }
                 tk = GetCurrentToken();
@@ -880,7 +894,7 @@ namespace BingsuCodeEditor.EpScript
                     {
                         if (tk.Type != TOKEN_TYPE.Symbol)
                         {
-                            //무조건 심불이 와야됨
+                            //警告必须是无条件的。
                             argendoffset = tk.EndOffset;
                             ThrowException("잘못된 인자 선언입니다. )가 와야합니다.", tk);
                             goto EndLabel;
@@ -890,7 +904,7 @@ namespace BingsuCodeEditor.EpScript
                             argendoffset = tk.EndOffset;
                             break;
                         }
-                        //인자가 없을 수 있음.
+                        //也许没有什么争论。
                     }
 
                     argendoffset = tk.EndOffset;
@@ -903,14 +917,14 @@ namespace BingsuCodeEditor.EpScript
                 tk = GetCommentTokenIten();
                 if(tk.Type != TOKEN_TYPE.Symbol && tk.Type != TOKEN_TYPE.Comment)
                 {
-                    //무조건 심불이 와야됨
+                    //警告必须是无条件的。
                     argendoffset = tk.EndOffset;
                     ThrowException("잘못된 인자 선언입니다. ) , :가 와야합니다.", tk);
                     goto EndLabel;
                 }
                 else if (tk.Type == TOKEN_TYPE.Comment)
                 {
-                    //특수처리된 타입
+                    //特殊处理型
                     arg.argtype = tk.Value.Replace("/", "").Replace("*", "");
                     tk = GetCurrentToken();
                 }
@@ -943,7 +957,7 @@ namespace BingsuCodeEditor.EpScript
 
                     if (tk.Type == TOKEN_TYPE.Identifier)
                     {
-                        //일반 타입
+                        //普通型
                         arg.argtype = tk.Value;
                     }
                     else
@@ -967,7 +981,7 @@ namespace BingsuCodeEditor.EpScript
                     TOKEN nt = GetSafeTokenIten();
                     if(nt.Type == TOKEN_TYPE.Symbol && nt.Value == "(")
                     {
-                        //타입이 함수일 경우
+                        //如果类型是函数
                         int bracecount = 1;
 
                         GetCurrentToken();
@@ -1045,7 +1059,7 @@ namespace BingsuCodeEditor.EpScript
 
                 if (tk.Type == TOKEN_TYPE.Symbol && tk.Value == ";")
                 {
-                    //그냥 끝내기
+                    //就这样结束吧
                     function.IsPredefine = true;
                     goto EndLabel;
                 }
